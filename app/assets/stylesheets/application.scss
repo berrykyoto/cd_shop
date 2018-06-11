@@ -1,0 +1,147 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*コンテンツ幅:960px*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color:#546E7A;
+  font-size:12px;
+  letter-spacing: .1em;
+  text-align:justify;
+}
+body{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, "ヒラノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", sans-serif;
+  line-height: 1.5;
+}
+.h1{
+  font-size:20px;
+}
+.h2{
+  font-size:18px;
+  border-bottom:1px solid;
+  margin-top:10px;
+}
+.link-type-basic{
+  text-decoration:none;
+}
+.clearfix::after{
+  content:"";
+  display: block;
+  clear: both;
+}
+
+/*header----------------------------------------------------*/
+.header-top{
+  height:50px;
+  background-color:#546E7A; /*header上段、背景色：グレー*/
+}
+.header-bottom{
+  height:50px;
+  border-bottom:1px solid #546E7A;/*header下段、ボーダー*/
+}
+
+.header-content{
+  width:960px;
+  margin:0 auto;
+}
+
+.nav-list{
+  list-style-type: none;
+  line-height:50px;
+}
+.nav-list-item{
+  float:left;
+  margin:0 10px;
+}
+
+.header-top-list{
+  float:right;
+  /*header上段のリストは右配置*/
+}
+.header-bottom-list{
+  float:left;
+  /*header下段のリストは左配置*/
+}
+.header-top-a{
+  color:#ffffff;/*header上段、文字色：白*/
+}
+.header-bottom-a{
+  color:#546E7A;/*header下段、文字色：グレー*/
+}
+.header-logo{
+  background-image: url(logo.png);
+  background-size:cover;
+  width: 120px;
+  height:120px;
+  margin:0 auto;
+  margin-top:20px;
+  margin-bottom:50px;
+}
+
+/*メインの幅---------------------------------------*/
+.body-content{
+  width:960px;
+  margin:0 auto;
+  line-height:1.65;
+}
+
+
+/*footer--------------------------------------------*/
+.footer-wrapper{
+  background-color:#42565B;
+  margin-top:20px;/*商品一覧下部とフッター上部の間に余白*/
+}
+.footer-content{
+  width:960px;
+  margin:0 auto;
+  padding-top:20px;
+}
+.footer-left{
+  margin-top:10px;
+}
+.contact-box{
+  float:left; /*ロゴと住所を横並び*/
+}
+.footer-logo{
+  background-image: url(logo-white.png);
+  background-size:cover;
+  width: 100px;
+  height:100px;
+}
+.contact{
+  color:#ffffff;
+  display:block;
+  margin-left:20px;
+  line-height:1.65;
+}
+.footer-list{
+  list-style-type: none;
+  margin-left:15px;
+}
+.footer-list-item{
+  color:#ffffff;
+  line-height:30px;
+}
+.copyright{
+  color:#ffffff;
+  margin:30px auto;
+}
