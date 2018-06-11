@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611044415) do
+ActiveRecord::Schema.define(version: 20180611084246) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180611044415) do
     t.string "genre_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["genre_name"], name: "index_genres_on_genre_name"
   end
 
   create_table "items", force: :cascade do |t|
@@ -69,6 +70,8 @@ ActiveRecord::Schema.define(version: 20180611044415) do
     t.string "age", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["label", "anime", "age"], name: "index_items_on_label_and_anime_and_age"
+    t.index ["singer", "title", "style"], name: "index_items_on_singer_and_title_and_style"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -95,6 +98,7 @@ ActiveRecord::Schema.define(version: 20180611044415) do
     t.integer "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["record_name"], name: "index_records_on_record_name"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -104,6 +108,7 @@ ActiveRecord::Schema.define(version: 20180611044415) do
     t.integer "record_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["song_name"], name: "index_songs_on_song_name"
   end
 
   create_table "users", force: :cascade do |t|
