@@ -1,3 +1,140 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*indexなんちゃって検索フォーム画像-----------------------------------------*/
+.search{
+  background-image: url(search.png);
+  background-size:cover;
+  width: 320px;
+  height:24px;
+  margin:20px auto;
+}
+
+/*indexサイドバー -----------------------------------------------*/
+.sidebar-content{
+}
+.sidebar-box{
+  text-align:right;
+}
+.sidebar-list{
+  list-style-type: none;
+}
+.sidebar-list-item{
+  list-style-type: none;
+  font-size:15px;
+}
+.alphabet{
+  margin:7px;
+  float:left;
+}
+
+
+/*indexメイン -------------------------------------------------*/
+.main-box1{
+  height:400px;
+}
+.main-box2{
+  width:680px; /*（商品幅150px＋margin左右20px）×４＝一列の幅*/
+  margin:0 auto;
+}
+
+.item-box-index{
+  margin:10px;
+  float:left;
+}
+.item-image1{
+  background-image: url(item.png);
+  background-size:cover;
+  width:150px;
+  height:150px;
+}
+.item{
+  display:block;
+  text-align:center;
+}
+.title{
+  font-size:15px;
+}
+/*index ここまで-------------------------------------------------*/
+
+/*show -------------------------------------------------*/
+.main-top{
+  margin-bottom:100px;
+}
+.item-image2{
+  background-image: url(item.png);
+  background-size:cover;
+  width:450px;
+  height:450px;
+  margin:0 auto;
+}
+.cart-area{
+  width:400px;
+  height:250px;
+  background-color:#DAE2E5;
+  border-radius: 20px;
+  margin-top:80px;
+  position:relative;
+}
+.quantity{
+  display:block;
+  position:absolute;
+  top:30px;
+  left:50px;
+}
+.quantity-form{
+  margin:80px 30px;
+}
+input[type="integer"],
+textarea {
+  padding: 0.8em;
+  outline: none;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 16px;
+}
+/*↑再検討*/
+
+.cart-button-area{
+  width:350px;
+  position:absolute;
+  top:150px;
+  left:5px;
+}
+.cart-button{
+  height:60px;
+  border:0 none;
+}
+/*new-------------------------------------------------*/
+.item-image-new{
+  background-image: url(noimage.png);
+  background-size:cover;
+  width:200px;
+  height:200px;
+  margin:0 auto;
+}
+.item-new-button{
+  display:block;
+}
+.record-box{
+  width:500px;
+  height:200px;
+  background-color:#DAE2E5;
+}
+/*edit-------------------------------------------------*/
+.item-image-edit{
+  background-image: url(item.png);
+  background-size:cover;
+  width:200px;
+  height:200px;
+  margin:0 auto;
+}
+
+/*admin_show-------------------------------------------------*/
+.admin_show-button{
+  display:block;
+  margin:40px auto;
+}

@@ -1,3 +1,30 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*new -------------------------------------------------*/
+.process{
+  text-align:center;
+}
+.red{
+  color:#FC1D6E;
+  font-weight: bold;
+}
+.item-image{
+  background-image: url(img/item.png);
+  background-size:cover;
+  width:50px;
+  height:50px;
+  margin:0 auto;
+}
+.total{
+  text-align:right;
+  font-size:18px;
+}
+.main-bottom{
+  text-align:center;
+}
+.cart-button{
+  margin:20px;
+}
+/*newここまで -------------------------------------------------*/

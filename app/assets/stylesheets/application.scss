@@ -16,6 +16,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+
+/*----------------------------------------------------共通部分----------------------------------------------------*/
 /*コンテンツ幅:960px*/
 
 * {
@@ -40,6 +43,10 @@ body{
   border-bottom:1px solid;
   margin-top:10px;
 }
+.h3{
+  font-size:15px;
+  margin-top:20px;
+}
 .link-type-basic{
   text-decoration:none;
 }
@@ -48,7 +55,6 @@ body{
   display: block;
   clear: both;
 }
-
 /*header----------------------------------------------------*/
 .header-top{
   height:50px;
@@ -92,9 +98,7 @@ body{
   background-size:cover;
   width: 120px;
   height:120px;
-  margin:0 auto;
-  margin-top:20px;
-  margin-bottom:50px;
+  margin:20px auto;
 }
 
 /*メインの幅---------------------------------------*/
@@ -103,8 +107,6 @@ body{
   margin:0 auto;
   line-height:1.65;
 }
-
-
 /*footer--------------------------------------------*/
 .footer-wrapper{
   background-color:#42565B;
@@ -145,3 +147,29 @@ body{
   color:#ffffff;
   margin:30px auto;
 }
+
+
+/*----------------------------------------------------個別ページ----------------------------------------------------*/
+/*users-show -------------------------------------------------*/
+
+.item-image{
+  background-image: url(img/item.png);
+  background-size:cover;
+  width:50px;
+  height:50px;
+  margin:0 auto;
+}
+.user-button{
+  display:block;
+  margin:40px auto;
+}
+
+
+/*users-edit -------------------------------------------------*/
+
+.user-info{
+  width:600px;
+  margin:0 auto;
+}
+
+/*users-edit ここまで-------------------------------------------------*/

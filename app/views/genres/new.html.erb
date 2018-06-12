@@ -1,0 +1,34 @@
+<!-- ジャンル追加-->
+<%= render 'shared/header' %>
+
+<div class="search"></div><!-- 検索フォーム -->
+
+<div class="body-content">
+  <div class="container-fluid">
+    <h2 class="h2">ジャンルの追加</h2>
+    <div class="main-top">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>ジャンル名</td>
+            <td>data入力フォーム</td>
+            <td><button type="button" class="btn btn-info btn-xs">+</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2 class="h2">ジャンルの編集・削除</h2>
+    <!-- すべてのジャンル名を一覧表示↓ -->
+    <div class="main-bottom">
+      <table class="table table-striped table-bordered">
+        <tbody>
+          <tr>
+            <td>genre_name</td>
+            <td><button type="button" class="btn btn-info btn-xs">編集</button></td>
+            <td><button type="button" class="btn btn-default btn-xs">削除</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
