@@ -1,11 +1,39 @@
+<!-- ヘッダー　部分テンプレート -->
+
 <header>
 
   <div class="header-top"><!-- ヘッダー上段 -->
       <nav class="header-content">
         <ul class="nav-list header-top-list">
-          <li class="nav-list-item"><%= link_to "ログイン", new_user_session_path, class: "header-top-a link-type-basic" %></li>
-          <li class="nav-list-item"><%= link_to "会員登録", new_user_registration_path, class: "header-top-a link-type-basic" %></li>
-          <li class="nav-list-item"><a class="header-top-a link-type-basic" href="">当サイトについて</a></li>
+          <% if  user_signed_in? %>
+
+            <li class="nav-list-item">
+              <%= link_to "マイページ", user_path(current_user.id), class: "header-top-a link-type-basic" %>
+            </li>
+            <li class="nav-list-item">
+              <%= link_to "カート", cart_items_path(current_user.id), class: "header-top-a link-type-basic" %>
+            </li>
+            <li class="nav-list-item">
+              <%= link_to "注文履歴", user_path(current_user.id), class: "header-top-a link-type-basic" %>
+            </li>
+            <li class="nav-list-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-top-a link-type-basic" %>
+            </li>
+
+          <% else %>
+
+            <li class="nav-list-item">
+              <%= link_to "ログイン", new_user_session_path, class: "header-top-a link-type-basic" %>
+            </li>
+            <li class="nav-list-item">
+              <%= link_to "会員登録", new_user_registration_path, class: "header-top-a link-type-basic" %>
+            </li>
+            <li class="nav-list-item">
+              <%= link_to '当サイトについて','#', class: "header-top-a link-type-basic" %>
+            </li>
+
+          <% end %>
+
         </ul>
       </nav>
     </div>
@@ -14,9 +42,9 @@
   <div class="header-bottom"><!-- ヘッダー下段 -->
       <nav class="header-content">
         <ul class="nav-list header-bottom-list">
-          <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">ホーム</a></li>
-          <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">アニメから探す</a></li>
-          <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">アーティストから探す</a></li>
+          <li class="nav-list-item"><%= link_to "ホーム", root_path, class: "header-bottom-a link-type-basic" %></li>
+          <li class="nav-list-item"><%= link_to 'アニメから探す','#', class: "header-bottom-a link-type-basic" %></li>
+          <li class="nav-list-item"><%= link_to 'アーティストから探す','#', class: "header-bottom-a link-type-basic" %></li>
         </ul>
       </nav>
   </div>
