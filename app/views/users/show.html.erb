@@ -1,107 +1,78 @@
-  <body>
+<!-- マイページ -->
+<%= render 'shared/header' %>
 
-    <!-- ヘッダー はじまり------------------------------------------------------------------------------------------------->
-    <header>
-
-      <div class="header-top"><!-- ヘッダー上段 -->
-          <nav class="header-content">
-            <ul class="nav-list header-top-list">
-              <li class="nav-list-item"><a class="header-top-a link-type-basic" href="">ログイン</a></li>
-              <li class="nav-list-item"><a class="header-top-a link-type-basic" href="">会員登録</a></li>
-              <li class="nav-list-item"><a class="header-top-a link-type-basic" href="">当サイトについて</a></li>
-            </ul>
-          </nav>
+<div class="body-content">
+  <div class="container-fluid main-content">
+    <h2 class="h2">マイページ</h2>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="user-info">
+          <h3 class="h3">会員情報</h3>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>お名前</td>
+                <td>data</td>
+              </tr>
+              <tr>
+                <td>フリガナ</td>
+                <td>data</td>
+              </tr>
+              <tr>
+                <td>郵便番号</td>
+                <td>data</td>
+              </tr>
+              <tr>
+                <td>住所</td>
+                <td>data</td>
+              </tr>
+              <tr>
+                <td>電話番号</td>
+                <td>data</td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td>data</td>
+              </tr>
+              <tr>
+                <td>パスワード</td>
+                <td>data</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="button-area">
+            <button type="button" class="btn btn-info btn-lg user-button">編集する</button>
+            <button type="button" class="btn btn-default btn-lg user-button">退会する</button>
+          </div>
         </div>
       </div>
-
-      <div class="header-bottom"><!-- ヘッダー下段 -->
-          <nav class="header-content">
-            <ul class="nav-list header-bottom-list">
-              <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">ホーム</a></li>
-              <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">アニメから探す</a></li>
-              <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">アーティストから探す</a></li>
-            </ul>
-          </nav>
-      </div>
-
-      <div class="header-logo"></div><!-- ロゴ画像 -->
-
-    </header>
-    <!-- ヘッダー おわり------------------------------------------------------------------------------------------------->
-<!-- メインコンテンツ　はじまり ---------------------------------------------------------------------------------->
-    <div class="body-content">
-      <div class="container-fluid main-content">
-        <h2 class="h2">マイページ</h2>
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="user-info">
-              <h3 class="h3">会員情報</h3>
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td>お名前</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>フリガナ</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>郵便番号</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>住所</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>電話番号</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>メールアドレス</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>パスワード</td>
-                    <td>data</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="button-area">
-                <button type="button" class="btn btn-info btn-lg user-button">編集する</button>
-                <button type="button" class="btn btn-default btn-lg user-button">退会する</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-8">
-            <div class="user-orders">
-              <h3 class="h3">注文履歴</h3>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th></th><!-- 画像 -->
-                    <th>注文日</th>
-                    <th>商品名</th>
-                    <th>金額</th>
-                    <th>ステータス</th>
-                    <th></th><!-- 詳細ボタン -->
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><div class="item-image"></div></td>
-                    <td>data</td>
-                    <td>data</td>
-                    <td>data</td>
-                    <td>data</td>
-                    <td><button type="button" class="btn btn-default btn-xs">詳細</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <div class="col-sm-8">
+        <div class="user-orders">
+          <h3 class="h3">注文履歴</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th><!-- 画像 -->
+                <th>注文日</th>
+                <th>商品名</th>
+                <th>金額</th>
+                <th>ステータス</th>
+                <th></th><!-- 詳細ボタン -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="item-image"></div></td>
+                <td>data</td>
+                <td>data</td>
+                <td>data</td>
+                <td>data</td>
+                <td><button type="button" class="btn btn-default btn-xs">詳細</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-</body>
+  </div>
+</div>

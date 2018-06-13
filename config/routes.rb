@@ -13,7 +13,7 @@ devise_for :users, controllers: {
 root 'items#index'
 resources :contacts, only: [:index, :show, :new, :create, :destroy]
 resources :items
-resources :genres, only: [:new, :create, :edit, :update]
+resources :genres, only: [:index, :new, :create, :edit, :update, :destroy]
 resources :cart_items, only: [:index, :create, :edit, :update, :destroy]
 resources :orders, only: [:index, :show, :new, :create, :edit, :update]
 resources :order_items, only: [:new, :create]

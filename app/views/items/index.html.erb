@@ -1,190 +1,161 @@
-<body>
+<!-- サイトトップ ユーザー用-->
+<%= render 'shared/header' %>
 
-  <!-- ヘッダー はじまり------------------------------------------------------------------------------------------------->
-  <header>
+<div class="search"></div><!-- 検索フォーム -->
 
-    <div class="header-top"><!-- ヘッダー上段 -->
-        <nav class="header-content">
-          <ul class="nav-list header-top-list">
-            <li class="nav-list-item"><%= link_to "ログイン", new_user_session_path, class: "header-top-a link-type-basic" %></li>
-            <li class="nav-list-item"><%= link_to "会員登録", new_user_registration_path, class: "header-top-a link-type-basic" %></li>
-            <li class="nav-list-item"><a class="header-top-a link-type-basic" href="">当サイトについて</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-
-    <div class="header-bottom"><!-- ヘッダー下段 -->
-        <nav class="header-content">
-          <ul class="nav-list header-bottom-list">
-            <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">ホーム</a></li>
-            <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">アニメから探す</a></li>
-            <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">アーティストから探す</a></li>
-          </ul>
-        </nav>
-    </div>
-
-    <div class="header-logo"></div><!-- ロゴ画像 -->
-
-  </header>
-  <!-- ヘッダー おわり------------------------------------------------------------------------------------------------->
-
-  <div class="search"></div><!-- 検索フォーム -->
-
-  <div class="body-content">
-    <div class="container-fluid">
-      <div class="row">
-        <!-- サイドバー　はじまり --------------------------------------------------------------------------------------->
-        <div class="col-sm-3 sidebar-content">
-          <h2 class="h2">アニメから探す</h2>
-          <div class="row sidebar-box">
-            <div class="col-sm-6">
-              <p>タイトル別</p>
-              <ul class="sidebar-list">
-                <li class="sidebar-list-item">ア行</li>
-                <li class="sidebar-list-item">カ行</li>
-                <li class="sidebar-list-item">サ行</li>
-                <li class="sidebar-list-item">タ行</li>
-                <li class="sidebar-list-item">ナ行</li>
-                <li class="sidebar-list-item">ハ行</li>
-                <li class="sidebar-list-item">マ行</li>
-                <li class="sidebar-list-item">ヤ行</li>
-                <li class="sidebar-list-item">ラ行</li>
-                <li class="sidebar-list-item">ワ行</li>
-              </ul>
-            </div>
-            <div class="col-sm-6">
-              <p>年代別</p>
-              <ul class="sidebar-list">
-                <li class="sidebar-list-item">2010年代</li>
-                <li class="sidebar-list-item">2000年代</li>
-                <li class="sidebar-list-item">1990年代</li>
-                <li class="sidebar-list-item">1980年代</li>
-                <li class="sidebar-list-item">1970年代</li>
-                <li class="sidebar-list-item">1960年代</li>
-              </ul>
-            </div>
+<div class="body-content">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- サイドバー　はじまり --------------------------------------------------------------------------------------->
+      <div class="col-sm-3 sidebar-content">
+        <h2 class="h2">アニメから探す</h2>
+        <div class="row sidebar-box">
+          <div class="col-sm-6">
+            <p>タイトル別</p>
+            <ul class="sidebar-list">
+              <li class="sidebar-list-item">ア行</li>
+              <li class="sidebar-list-item">カ行</li>
+              <li class="sidebar-list-item">サ行</li>
+              <li class="sidebar-list-item">タ行</li>
+              <li class="sidebar-list-item">ナ行</li>
+              <li class="sidebar-list-item">ハ行</li>
+              <li class="sidebar-list-item">マ行</li>
+              <li class="sidebar-list-item">ヤ行</li>
+              <li class="sidebar-list-item">ラ行</li>
+              <li class="sidebar-list-item">ワ行</li>
+            </ul>
           </div>
-          <h2 class="h2">アーティストから探す</h2>
-          <div class="row sidebar-box">
-            <div class="col-sm-6">
-              <p>五十音</p>
-              <ul class="sidebar-list">
-                <li class="sidebar-list-item">ア行</li>
-                <li class="sidebar-list-item">カ行</li>
-                <li class="sidebar-list-item">サ行</li>
-                <li class="sidebar-list-item">タ行</li>
-                <li class="sidebar-list-item">ナ行</li>
-                <li class="sidebar-list-item">ハ行</li>
-                <li class="sidebar-list-item">マ行</li>
-                <li class="sidebar-list-item">ヤ行</li>
-                <li class="sidebar-list-item">ラ行</li>
-                <li class="sidebar-list-item">ワ行</li>
-              </ul>
-            </div>
-            <div class="col-sm-6">
-              <p>ｱﾙﾌｧﾍﾞｯﾄ</p>
-              <ul class="sidebar-list">
-                <li class="alphabet sidebar-list-item">A</li>
-                <li class="alphabet sidebar-list-item">B</li>
-                <li class="alphabet sidebar-list-item">C</li>
-                <li class="alphabet sidebar-list-item">D</li>
-                <li class="alphabet sidebar-list-item">E</li>
-                <li class="alphabet sidebar-list-item">F</li>
-                <li class="alphabet sidebar-list-item">G</li>
-                <li class="alphabet sidebar-list-item">H</li>
-                <li class="alphabet sidebar-list-item">I</li>
-                <li class="alphabet sidebar-list-item">J</li>
-                <li class="alphabet sidebar-list-item">K</li>
-                <li class="alphabet sidebar-list-item">L</li>
-                <li class="alphabet sidebar-list-item">M</li>
-                <li class="alphabet sidebar-list-item">N</li>
-                <li class="alphabet sidebar-list-item">O</li>
-                <li class="alphabet sidebar-list-item">P</li>
-                <li class="alphabet sidebar-list-item">Q</li>
-                <li class="alphabet sidebar-list-item">R</li>
-                <li class="alphabet sidebar-list-item">S</li>
-                <li class="alphabet sidebar-list-item">T</li>
-                <li class="alphabet sidebar-list-item">U</li>
-                <li class="alphabet sidebar-list-item">V</li>
-                <li class="alphabet sidebar-list-item">W</li>
-                <li class="alphabet sidebar-list-item">X</li>
-                <li class="alphabet sidebar-list-item">Y</li>
-                <li class="alphabet sidebar-list-item">Z</li>
-              </ul>
-            </div>
+          <div class="col-sm-6">
+            <p>年代別</p>
+            <ul class="sidebar-list">
+              <li class="sidebar-list-item">2010年代</li>
+              <li class="sidebar-list-item">2000年代</li>
+              <li class="sidebar-list-item">1990年代</li>
+              <li class="sidebar-list-item">1980年代</li>
+              <li class="sidebar-list-item">1970年代</li>
+              <li class="sidebar-list-item">1960年代</li>
+            </ul>
           </div>
         </div>
-        <!-- サイドバー　おわり --------------------------------------------------------------------------------------->
-        <!-- メインコンテンツ　はじまり ---------------------------------------------------------------------------------->
-        <div class="col-sm-9 main-content">
-          <h2 class="h2">今期のアニメから探す</h2>
-          <div class="main-box1" style="background-color:yellow;">
+        <h2 class="h2">アーティストから探す</h2>
+        <div class="row sidebar-box">
+          <div class="col-sm-6">
+            <p>五十音</p>
+            <ul class="sidebar-list">
+              <li class="sidebar-list-item">ア行</li>
+              <li class="sidebar-list-item">カ行</li>
+              <li class="sidebar-list-item">サ行</li>
+              <li class="sidebar-list-item">タ行</li>
+              <li class="sidebar-list-item">ナ行</li>
+              <li class="sidebar-list-item">ハ行</li>
+              <li class="sidebar-list-item">マ行</li>
+              <li class="sidebar-list-item">ヤ行</li>
+              <li class="sidebar-list-item">ラ行</li>
+              <li class="sidebar-list-item">ワ行</li>
+            </ul>
           </div>
-          <h2 class="h2">商品一覧</h2>
-          <div class="main-box2 clearfix">
-            <!-- each挿入箇所 はじまり--------------------------------->
-            <div class="item-box">
-              <div class="item-image"></div>
-              <span class="item title">商品名</span>
-              <span class="item singer">singer</span>
-              <span class="item price">￥price</span>
-              <span class="item stock">在庫ありorなし</span>
-            </div>
-            <div class="item-box">
-              <div class="item-image"></div>
-              <span class="item title">商品名</span>
-              <span class="item singer">singer</span>
-              <span class="item price">￥price</span>
-              <span class="item stock">在庫ありorなし</span>
-            </div>
-            <div class="item-box">
-              <div class="item-image"></div>
-              <span class="item title">商品名</span>
-              <span class="item singer">singer</span>
-              <span class="item price">￥price</span>
-              <span class="item stock">在庫ありorなし</span>
-            </div>
-            <div class="item-box">
-              <div class="item-image"></div>
-              <span class="item title">商品名</span>
-              <span class="item singer">singer</span>
-              <span class="item price">￥price</span>
-              <span class="item stock">在庫ありorなし</span>
-            </div>
-            <div class="item-box">
-              <div class="item-image"></div>
-              <span class="item title">商品名</span>
-              <span class="item singer">singer</span>
-              <span class="item price">￥price</span>
-              <span class="item stock">在庫ありorなし</span>
-            </div>
-            <div class="item-box">
-              <div class="item-image"></div>
-              <span class="item title">商品名</span>
-              <span class="item singer">singer</span>
-              <span class="item price">￥price</span>
-              <span class="item stock">在庫ありorなし</span>
-            </div>
-            <div class="item-box">
-              <div class="item-image"></div>
-              <span class="item title">商品名</span>
-              <span class="item singer">singer</span>
-              <span class="item price">￥price</span>
-              <span class="item stock">在庫ありorなし</span>
-            </div>
-            <div class="item-box">
-              <div class="item-image"></div>
-              <span class="item title">商品名</span>
-              <span class="item singer">singer</span>
-              <span class="item price">￥price</span>
-              <span class="item stock">在庫ありorなし</span>
-            </div>
-            <!-- each挿入箇所 おわり------------------------------------>
+          <div class="col-sm-6">
+            <p>ｱﾙﾌｧﾍﾞｯﾄ</p>
+            <ul class="sidebar-list">
+              <li class="alphabet sidebar-list-item">A</li>
+              <li class="alphabet sidebar-list-item">B</li>
+              <li class="alphabet sidebar-list-item">C</li>
+              <li class="alphabet sidebar-list-item">D</li>
+              <li class="alphabet sidebar-list-item">E</li>
+              <li class="alphabet sidebar-list-item">F</li>
+              <li class="alphabet sidebar-list-item">G</li>
+              <li class="alphabet sidebar-list-item">H</li>
+              <li class="alphabet sidebar-list-item">I</li>
+              <li class="alphabet sidebar-list-item">J</li>
+              <li class="alphabet sidebar-list-item">K</li>
+              <li class="alphabet sidebar-list-item">L</li>
+              <li class="alphabet sidebar-list-item">M</li>
+              <li class="alphabet sidebar-list-item">N</li>
+              <li class="alphabet sidebar-list-item">O</li>
+              <li class="alphabet sidebar-list-item">P</li>
+              <li class="alphabet sidebar-list-item">Q</li>
+              <li class="alphabet sidebar-list-item">R</li>
+              <li class="alphabet sidebar-list-item">S</li>
+              <li class="alphabet sidebar-list-item">T</li>
+              <li class="alphabet sidebar-list-item">U</li>
+              <li class="alphabet sidebar-list-item">V</li>
+              <li class="alphabet sidebar-list-item">W</li>
+              <li class="alphabet sidebar-list-item">X</li>
+              <li class="alphabet sidebar-list-item">Y</li>
+              <li class="alphabet sidebar-list-item">Z</li>
+            </ul>
           </div>
         </div>
-        <!-- メインコンテンツ　おわり ---------------------------------------------------------------------------------->
       </div>
+      <!-- サイドバー　おわり --------------------------------------------------------------------------------------->
+      <!-- メインコンテンツ　はじまり ---------------------------------------------------------------------------------->
+      <div class="col-sm-9 main-content">
+        <h2 class="h2">今期のアニメから探す</h2>
+        <div class="main-box1" style="background-color:yellow;">
+        </div>
+        <h2 class="h2">商品一覧</h2>
+        <div class="main-box2 clearfix">
+          <!-- each挿入箇所 はじまり--------------------------------->
+          <div class="item-box-index">
+            <div class="item-image1"></div>
+            <span class="item title">商品名</span>
+            <span class="item singer">singer</span>
+            <span class="item price">￥price</span>
+            <span class="item stock">在庫ありorなし</span>
+          </div>
+          <div class="item-box-index">
+            <div class="item-image1"></div>
+            <span class="item title">商品名</span>
+            <span class="item singer">singer</span>
+            <span class="item price">￥price</span>
+            <span class="item stock">在庫ありorなし</span>
+          </div>
+          <div class="item-box-index">
+            <div class="item-image1"></div>
+            <span class="item title">商品名</span>
+            <span class="item singer">singer</span>
+            <span class="item price">￥price</span>
+            <span class="item stock">在庫ありorなし</span>
+          </div>
+          <div class="item-box-index">
+            <div class="item-image1"></div>
+            <span class="item title">商品名</span>
+            <span class="item singer">singer</span>
+            <span class="item price">￥price</span>
+            <span class="item stock">在庫ありorなし</span>
+          </div>
+          <div class="item-box-index">
+            <div class="item-image1"></div>
+            <span class="item title">商品名</span>
+            <span class="item singer">singer</span>
+            <span class="item price">￥price</span>
+            <span class="item stock">在庫ありorなし</span>
+          </div>
+          <div class="item-box-index">
+            <div class="item-image1"></div>
+            <span class="item title">商品名</span>
+            <span class="item singer">singer</span>
+            <span class="item price">￥price</span>
+            <span class="item stock">在庫ありorなし</span>
+          </div>
+          <div class="item-box-index">
+            <div class="item-image1"></div>
+            <span class="item title">商品名</span>
+            <span class="item singer">singer</span>
+            <span class="item price">￥price</span>
+            <span class="item stock">在庫ありorなし</span>
+          </div>
+          <div class="item-box-index">
+            <div class="item-image1"></div>
+            <span class="item title">商品名</span>
+            <span class="item singer">singer</span>
+            <span class="item price">￥price</span>
+            <span class="item stock">在庫ありorなし</span>
+          </div>
+          <!-- each挿入箇所 おわり------------------------------------>
+        </div>
+      </div>
+      <!-- メインコンテンツ　おわり ---------------------------------------------------------------------------------->
     </div>
   </div>
-</body>
+</div>
