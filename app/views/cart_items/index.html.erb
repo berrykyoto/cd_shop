@@ -1,76 +1,47 @@
- <body>
+<!-- カート内商品一覧 -->
+<%= render 'shared/header' %>
 
-    <!-- ヘッダー はじまり------------------------------------------------------------------------------------------------->
-  <header>
-
-    <div class="header-top"><!-- ヘッダー上段 -->
-        <nav class="header-content">
-          <ul class="nav-list header-top-list">
-            <li class="nav-list-item"><a class="header-top-a link-type-basic" href="">ログイン</a></li>
-            <li class="nav-list-item"><a class="header-top-a link-type-basic" href="">会員登録</a></li>
-            <li class="nav-list-item"><a class="header-top-a link-type-basic" href="">当サイトについて</a></li>
-          </ul>
-        </nav>
+<div class="body-content">
+  <div class="container-fluid main-content">
+    <div class="process-box">
+      <p class="process"><span class="red">カート</span>　→　配送先の入力・お支払い方法の設定　→　確認　→　完了</p>
+    </div>
+    <div class="">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>商品名</th>
+            <th>価格</th>
+            <th>数量</th>
+            <th>変更</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="item-image"></div></td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td class="button-area">
+              <button type="button" class="btn btn-info btn-xs">変更</button>
+              <button type="button" class="btn btn-default btn-xs">削除</button>
+            </td>
+            <td>data</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="total-box">
+        <p class="total">商品合計　＝</p>
       </div>
     </div>
 
-    <div class="header-bottom"><!-- ヘッダー下段 -->
-        <nav class="header-content">
-          <ul class="nav-list header-bottom-list">
-            <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">ホーム</a></li>
-            <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">アニメから探す</a></li>
-            <li class="nav-list-item"><a class="header-bottom-a link-type-basic" href="">アーティストから探す</a></li>
-          </ul>
-        </nav>
-    </div>
+    <div class="main-bottom">
 
-    <div class="header-logo"></div><!-- ロゴ画像 -->
+        <button type="button" class="btn btn-default btn-xs cart-button">買い物を続ける</button>
+        <button type="button" class="btn btn-danger btn-xs cart-button">　レジに進む　</button>
 
-  </header>
-  <!-- ヘッダー おわり------------------------------------------------------------------------------------------------->
-<!-- メインコンテンツ　はじまり ---------------------------------------------------------------------------------->
-  <div class="body-content">
-    <div class="container-fluid main-content">
-      <div class="process-box">
-        <p class="process"><span class="red">カート</span>　→　配送先の入力・お支払い方法の設定　→　確認　→　完了</p>
-      </div>
-      <div class="">
-        <table class="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th></th>
-              <th>商品名</th>
-              <th>価格</th>
-              <th>数量</th>
-              <th>変更</th>
-              <th>小計</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><div class="item-image"></div></td>
-              <td>data</td>
-              <td>data</td>
-              <td>data</td>
-              <td class="button-area">
-                <button type="button" class="btn btn-info btn-xs">変更</button>
-                <button type="button" class="btn btn-default btn-xs">削除</button>
-              </td>
-              <td>data</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="total-box">
-          <p class="total">商品合計　＝</p>
-        </div>
-      </div>
-
-      <div class="main-bottom">
-
-          <button type="button" class="btn btn-default btn-xs cart-button">買い物を続ける</button>
-          <button type="button" class="btn btn-danger btn-xs cart-button">　レジに進む　</button>
-
-      </div>
     </div>
   </div>
-</body>
+</div>
