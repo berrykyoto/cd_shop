@@ -1,1 +1,26 @@
-<%= render 'shared/header' %>
+
+				<h2>test</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>name</th>
+							<th>phone</th>
+							<th>email</th>
+							<th>title</th>
+							<th>body</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @contacts.each do |contact| %>
+						<tr>
+							<td><%= contact.name %></td>
+							<td><%= contact.phone %></td>
+							<td><%= contact.email %></td>
+							<td><%= contact.title %></td>
+							<td><%= contact.body %></td>
+							<td><%= link_to "Destroy",contact_path(contact), method: :delete ,data: { confirm: '削除しますか？' } %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+

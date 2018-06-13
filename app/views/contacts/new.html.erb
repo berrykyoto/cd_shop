@@ -1,1 +1,22 @@
-<%= render 'shared/header' %>
+
+				<%= form_for(@contact) do |f| %>
+				<div class="field row">
+				<%= f.text_field :name %>
+				</div>
+				<div class="field row">
+				<%= f.text_field :phone %>
+				</div>
+				<div class="field row">
+				<%= f.text_field :email %>
+				</div>
+				<div class="field row">
+				<%= f.text_field :title %>
+				</div>
+				<div class="field row">
+				<%= f.text_area :body %>
+				</div>
+				<div class="action row"><br>
+					<%= f.submit "送信" %>
+				</div>
+				<% end %>
+r
