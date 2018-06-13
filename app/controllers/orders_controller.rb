@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
 
 private
   	def order_params
-      	params.require(:order).permit(:send_name, :send_post_code, :send_address, :payment)
+      	params.require(:order).permit(:send_name, :send_post_code, :send_address, :payment, :user_id)
   	end
 
 end
