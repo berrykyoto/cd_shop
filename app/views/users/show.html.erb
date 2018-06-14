@@ -12,37 +12,35 @@
             <tbody>
               <tr>
                 <td>お名前</td>
-                <td>data</td>
+                <td><%= @user.name %></td>
               </tr>
               <tr>
                 <td>フリガナ</td>
-                <td>data</td>
+                <td><%= @user.name_kana %></td>
               </tr>
               <tr>
                 <td>郵便番号</td>
-                <td>data</td>
+                <td><%= @user.post_code %></td>
               </tr>
               <tr>
                 <td>住所</td>
-                <td>data</td>
+                <td><%= @user.address %></td>
               </tr>
               <tr>
                 <td>電話番号</td>
-                <td>data</td>
+                <td><%= @user.phone %></td>
               </tr>
               <tr>
                 <td>メールアドレス</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>パスワード</td>
-                <td>data</td>
+                <td><%= @user.email %></td>
               </tr>
             </tbody>
           </table>
           <div class="button-area">
-            <button type="button" class="btn btn-info btn-lg user-button">編集する</button>
-            <button type="button" class="btn btn-default btn-lg user-button">退会する</button>
+              <%= link_to "編集する", edit_user_path(@user), class: "btn btn-info btn-lg user-button" %>
+          </div>
+          <div class="button-area">
+            <%= link_to "退会する", user_path(@user), method: :delete, class: "btn btn-danger btn-lg user-button" %>
           </div>
         </div>
       </div>
