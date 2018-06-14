@@ -102,11 +102,37 @@ body{
 }
 
 /*メインの幅---------------------------------------*/
+.h2-box{
+  border-bottom:1px solid;
+  text-align: center;
+}
 .body-content{
   width:960px;
-  margin:0 auto;
+  margin: 50px auto;
   line-height:1.65;
 }
+.body-box{
+  width: 500px;
+  margin:0 auto;
+}
+.actions{
+  margin:20px 0;
+}
+.address-box{
+  height: 70px;
+  width: 500px;
+  border-radius: 5px;
+}
+.regist-box{
+  border-radius: 5px;
+  width: 500px;
+}
+.field{
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+
 /*footer--------------------------------------------*/
 .footer-wrapper{
   background-color:#42565B;
