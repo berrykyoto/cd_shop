@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
 def index
-	@contact = Contact.all
+	@contacts = Contact.all
 end
 
 def show
@@ -14,7 +14,7 @@ end
 def create
 	contact = Contact.new(contact_params)
 	contact.save
-	redirect_to contacts_path
+	redirect_to items_path
 end
 
 def destroy

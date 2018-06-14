@@ -1,3 +1,40 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2 {
+	text-align:center;
+}
+.content {
+	width: 480px;
+	text-align:center;
+	margin: 0 auto;
+}
+.button-area{
+	width: 480px;
+	text-align:center;
+	margin: 0 auto;
+}
+.ot{
+	width: 240px;
+}
+.os{
+	width:930px;
+	text-align:center;
+	margin: 0 auto;
+
+}
+label{
+	width:930px;
+	text-align:center;
+	margin: 0 auto;
+	padding:none;
+}
+.ob{
+	width:930px;
+	text-align:center;
+	margin: 0 auto;
+}
+.word{
+	 word-break:break-all;
+}
