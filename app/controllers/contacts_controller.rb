@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
 def index
-	@contact = Contact.all
+	@contacts = Contact.all
 end
 
 def show
@@ -20,7 +20,7 @@ end
 def destroy
 	contact = Contact.find(params[:id])
     contact.destroy
-    redirect_to contacts_path
+    redirect_to items_path
 end
 
 private

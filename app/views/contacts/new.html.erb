@@ -1,21 +1,37 @@
-
-				<%= form_for(@contact) do |f| %>
-				<div class="field row">
-				<%= f.text_field :name %>
-				</div>
-				<div class="field row">
-				<%= f.text_field :phone %>
-				</div>
-				<div class="field row">
-				<%= f.text_field :email %>
-				</div>
-				<div class="field row">
-				<%= f.text_field :title %>
-				</div>
-				<div class="field row">
-				<%= f.text_area :body %>
-				</div>
-				<div class="action row"><br>
-					<%= f.submit "送信" %>
-				</div>
-				<% end %>
+<%= render 'shared/header' %>
+<div class="body-content">
+	<div class="container-fluid main-content">
+    <h2 class="h2">お問い合わせ</h2>
+    <div class="row">
+    	<div class="content">
+          <table class="table">
+          	<%= form_for(@contact) do |f| %>
+            <tbody>
+              <tr>
+                <td>お名前</td>
+                <td><%= f.text_field :name %></td>
+              </tr>
+              <tr>
+                <td>電話番号</td>
+                <td><%= f.text_field :phone %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td><%= f.email_field :email %></td>
+              </tr>
+              <tr>
+                <td>お問い合わせタイトル</td>
+                <td class="ot"><%= f.text_field :title, :size =>"30" %></td>
+              </tr>
+              <tr>
+                <td>お問い合わせ内容</td>
+                <td class="on"><%= f.text_area :body, :size =>"30x10" %></td>
+              </tr>
+            </tbody>
+          </table>
+          <%= f.submit "送信", class:"btn btn-primary" %>
+          <% end %>
+      </div>
+ 	</div>
+ </div>
+</div> 
