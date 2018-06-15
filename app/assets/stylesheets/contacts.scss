@@ -2,15 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h2 {
+.oa{
 	text-align:center;
 }
 .content {
-	width: 480px;
-	text-align:center;
-	margin: 0 auto;
-}
-.button-area{
 	width: 480px;
 	text-align:center;
 	margin: 0 auto;
@@ -24,12 +19,6 @@ h2 {
 	margin: 0 auto;
 
 }
-label{
-	width:930px;
-	text-align:center;
-	margin: 0 auto;
-	padding:none;
-}
 .ob{
 	width:930px;
 	text-align:center;
@@ -37,4 +26,13 @@ label{
 }
 .word{
 	 word-break:break-all;
+}
+.tableq{
+	padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top:none;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
 }
