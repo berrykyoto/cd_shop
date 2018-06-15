@@ -21,15 +21,19 @@
         </thead>
 
         <%= form_for(@order_item) do |f| %>
-        <tbody>
-          <tr>
-            <td><div class="item-image"></div></td>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-          </tr>
-        </tbody>
+          <% @cart_items.each do |cart_item| %>
+
+            <tbody>
+              <tr>
+                <td><div class="item-image"></div></td>
+                <td><%= f.text_field : %><%= @item.title %></td>
+                <td><%= f.text_field : %><%= @item.price %></td>
+                <td><%= f.text_field : %><%= @item.quantity %></td>
+                <td>小計</td>
+              </tr>
+            </tbody>
+
+          <% end %>
         <% end %>
 
       </table>
