@@ -28,5 +28,4 @@ def contact_params
     params.require(:contact).permit(:name, :phone, :email, :title, :body)
   end
 
-
 end
