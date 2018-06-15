@@ -1,9 +1,32 @@
-
-
-<p><%= @contact.name %></p>
-<p><%= @contact.phone %></p>
-<p><%= @contact.email %></p>
-<p><%= @contact.title %></p>
-<p><%= @contact.body %></p>
-<td><%= link_to "Destroy",contact_path(@contact), method: :delete ,data: { confirm: '削除しますか？' } %></td>
-
+<%= render 'shared/header' %>
+<div class="body-content">
+  <div class="container-fluid main-content">
+    <h2 class="h2">お問い合わせ詳細</h2>
+ 		<table class="table">
+            <tbody>
+              <tr>
+                <td>お名前</td>
+                <td><%= @contact.name %></td>
+              </tr>
+              <tr>
+                <td>電話番号</td>
+                <td><%= @contact.phone %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td><%= @contact.email %></td>
+              </tr>
+              <tr>
+                <td>お問い合わせタイトル</td>
+                <td><%= @contact.title %></td>
+              </tr>
+              <tr>
+                <td>お問い合わせ内容</td>
+                <td class="word"><%= @contact.body %></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="ob"><%= link_to "削除",contact_path(@contact), method: :delete ,data: { confirm: '削除しますか？' } ,class:"btn-sm btn-danger"%></div><br>
+          <div class="ob"><%= link_to "戻る",contacts_path,class:"btn-sm btn-success" %></div>
+   	</div>
+</div> 

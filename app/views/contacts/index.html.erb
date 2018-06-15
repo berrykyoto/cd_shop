@@ -1,26 +1,32 @@
-
-				<h2>test</h2>
-				<table>
-					<thead>
-						<tr>
-							<th>name</th>
-							<th>phone</th>
-							<th>email</th>
-							<th>title</th>
-							<th>body</th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @contacts.each do |contact| %>
-						<tr>
-							<td><%= contact.name %></td>
-							<td><%= contact.phone %></td>
-							<td><%= contact.email %></td>
-							<td><%= contact.title %></td>
-							<td><%= contact.body %></td>
-							<td><%= link_to "Destroy",contact_path(contact), method: :delete ,data: { confirm: '削除しますか？' } %></td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
-
+<%= render 'shared/header' %>
+ <div class="body-content">
+   <div class="container-fluid main-content">
+    <h2 class="h2">お問い合わせ一覧</h2>
+     <div class="row">
+		<table class="table table-hover table-inverse">
+		 <thead>
+		  <tr>
+			<th>お名前</th>
+			<th>電話番号</th>
+			<th>メールアドレス</th>
+			<th>お問い合わせタイトル</th>
+			<th></th>
+			<th></th>
+		  </tr>
+		 </thead>
+ 					<tbody>
+ 						<% @contacts.each do |contact| %>
+ 						<tr>
+ 							<td><%= contact.name %></td>
+ 							<td><%= contact.phone %></td>
+ 							<td><%= contact.email %></td>
+ 							<td><%= contact.title %></td>
+							<td><%= link_to "詳細",contact_path(contact),class:"btn-sm btn-info" %></td>
+							<td><%= link_to "削除",contact_path(contact), method: :delete ,data: { confirm: '削除しますか？' },class:"btn-sm btn-danger" %></td>
+ 						</tr>
+ 						<% end %>
+ 					</tbody>
+ 				</table>
+		</div>
+	</div>
+</div>
