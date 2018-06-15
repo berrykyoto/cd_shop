@@ -1,5 +1,4 @@
 <!-- 注文内容の確認 -->
-<%= render 'shared/header' %>
 
 <div class="body-content">
   <div class="container-fluid main-content">
@@ -20,6 +19,8 @@
             <th>小計</th>
           </tr>
         </thead>
+
+        <%= form_for(@order_item) do |f| %>
         <tbody>
           <tr>
             <td><div class="item-image"></div></td>
@@ -29,6 +30,8 @@
             <td>data</td>
           </tr>
         </tbody>
+        <% end %>
+
       </table>
       <div class="total-box">
         <p class="total">商品合計　＝</p>
