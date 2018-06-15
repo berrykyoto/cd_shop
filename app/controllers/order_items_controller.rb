@@ -1,7 +1,8 @@
 class OrderItemsController < ApplicationController
 def new
 	@order_item = OrderItem.new
-	@ = CartItem.all
+	@cart_items = CartItem.all
+	@order = Order.find(params[:id])
 end
 
 def create
