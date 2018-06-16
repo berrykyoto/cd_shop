@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 
 	def new
 		@order = Order.new
+		@user = current_user
 	end
 
 	def create
