@@ -26,13 +26,12 @@
             <tbody>
               <tr>
                 <td><div class="item-image"></div></td>
-                <td><%= f.text_field : %><%= @item.title %></td>
-                <td><%= f.text_field : %><%= @item.price %></td>
-                <td><%= f.text_field : %><%= @item.quantity %></td>
+                <td><%= f.text_field :@cart_items.title %></td>
+                <td><%= f.text_field :@cart_items.price %></td>
+                <td><%= f.text_field :@cart_items.quantity %></td>
                 <td>小計</td>
               </tr>
             </tbody>
-            
 
           <% end %>
         <% end %>
