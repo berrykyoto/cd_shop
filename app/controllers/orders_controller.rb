@@ -5,8 +5,8 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@order_items = @order.order_items.all
-		@item = Item.find(params[:id])
+		@order_items = @order.order_items.all.includes(:item)
+		# @item = Item.find(params[:id])
 	end
 
 	def new
@@ -26,8 +26,8 @@ class OrdersController < ApplicationController
 
 	def edit
 		@order = Order.find(params[:id])
-		@order_items = @order.order_items.all
-		@item = Item.find(params[:id])
+		@order_items = @order.order_items.all.includes(:item)
+		# @item = Item.find(params[:id])
 	end
 
 	def update

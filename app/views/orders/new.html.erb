@@ -4,6 +4,8 @@
     <div class="process-box">
       <p class="process">カート　→　<span class="red">配送先の入力・お支払い方法の設定</span>　→　確認　→　完了</p>
     </div>
+    <%= @user.phone.to_i*@user.post_code.to_i %>
+    <!-- 変数で計算できるかお試し -->
 
 
     <%= form_for(@order) do |f| %>
@@ -19,15 +21,15 @@
           <tbody>
             <tr>
               <td>お名前</td>
-              <td><%= f.text_field :send_name %></td>
+              <td><%= f.text_field :send_name, :value => @user.name,  placeholder: "入力してください" %></td>
             </tr>
             <tr>
               <td>郵便番号</td>
-              <td><%= f.text_field :send_post_code %></td>
+              <td><%= f.text_field :send_post_code, :value => @user.post_code,  placeholder: "入力してください" %></td>
             </tr>
             <tr>
               <td>住所</td>
-              <td><%= f.text_field :send_address %></td>
+              <td><%= f.text_field :send_address, :value => @user.address,  placeholder: "入力してください" %></td>
             </tr>
           </tbody>
         </table>

@@ -5,7 +5,7 @@
   <div class="container-fluid main-content">
     <h2 class="h2">注文履歴の詳細</h2>
 
-    <%= form_for(@order) do |f| %>
+    <%= form_for(@order) do |f| %><!-- order編集フォーム　はじまり -->
 
     <div class="status-box">
       <p><%= @order.created_at %>のご注文　（　<%= f.text_field :status %>　）</p>
@@ -22,16 +22,18 @@
           </tr>
         </thead>
 
-        <% @orders_items.each do |order_item| %>
+        <% @order_items.each do |order_item| %>
+
         <tbody>
           <tr>
             <td><div class="item-image"></div></td>
-            <td><%= @item.title %></td>
-            <td><%= @item.price %></td>
+            <td><%= @order_item.item.title %></td>
+            <td><%= @order_item.item.price %></td>
             <td><%= @order_item.quantity %></td>
-            <td>data</td>
+            <td>小計</td>
           </tr>
         </tbody>
+
         <% end %>
 
       </table>
@@ -76,6 +78,7 @@
           <tbody>
             <tr>
               <td><%= f.text_field :payment %></td>
+              <!-- ここは、ラジオボタンではなく、セレクトボックスにしたほうがいい気がする。 -->
             </tr>
           </tbody>
         </table>
@@ -90,7 +93,7 @@
 
     </div>
 
-    <% end %>
+    <% end %><!-- order編集フォーム　おわり -->
 
   </div>
 </div>
