@@ -14,7 +14,7 @@
                 <td><%= f.text_field :genre_name, class:"form-control" %></td>
               </div>
               <div class="actions row">
-                <td><%= f.submit "作成" class:"btn btn-info btn-xs" %></td>
+                <td><%= f.submit "作成", class:"btn btn-info btn-xs" %></td>
               </div>
             </tr>
           <% end %>
@@ -30,8 +30,8 @@
           <% @genres.each do |genre| %>
             <tr>
               <td><%= genre.genre_name %></td>
-              <td><%= link_to "編集", edit_genre_path(@genrez), class:"btn btn-info btn-xs" %></td>
-              <td><%= link_to "削除", genre_path(@genrez), method: :delete class:"btn btn-default btn-xs" %></td>
+              <td><%= link_to "編集", edit_genre_path(genre), class:"btn btn-info btn-xs" %></td>
+              <td><%= link_to "削除", genre_path(genre), method: :delete, class:"btn btn-default btn-xs" %></td>
             </tr>
           <% end %>
         </tbody>
