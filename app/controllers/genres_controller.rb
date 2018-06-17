@@ -2,6 +2,8 @@ class GenresController < ApplicationController
 
 	def index
 		@genres = Genre.all
+		@genre = Genre.new
+		@genrez = Genre.find(params[:id])
 	end
 
 	def new
