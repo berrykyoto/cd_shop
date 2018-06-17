@@ -4,3 +4,17 @@ ja:
       style:
         single: シングル
         album: アルバム
+ja:
+  enums:
+    order:
+      status:
+        transfer: コンビニ・銀行振込
+        credit: クレジットカード決済
+        cash: 代金引換
+ja:
+  enums:
+    order:
+      status:
+        pending: 出荷準備中
+        sent: 配送中
+        complete: 配達完了
