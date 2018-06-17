@@ -1,0 +1,50 @@
+<div class="field">
+	<tr>
+		<td><%= f.label :item_image_id, "イメージ" %></td>
+		<td><%= f.attachment_field :item_image_id, placeholder: "画像のアップロード" %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :title, "商品名" %></td>
+		<td><%= f.text_field :title %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :singer, "アーティスト" %></td>
+		<td><%= f.text_field :singer %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :style, "シングル or アルバム" %></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><%= f.label :label, "レーベル" %></td>
+		<td><%= f.text_field :label %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :anime, "アニメタイトル" %></td>
+		<td><%= f.text_field :anime %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :genre, "ジャンル" %></td>
+		<td><%= f.collection_select :genre_id, Genle.all, :id, :genre_name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :comment, "商品説明" %></td>
+		<td><%= f.text_area :comment %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :age, "発売年月日" %></td>
+		<td><%= f.text_field :age %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :price, "価格" %></td>
+		<td><%= f.number_field :price %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :stock, "在庫数" %></td>
+		<td></td>
+
+<%= f.hidden_field :id %>
+<%= f.fields_for :event_details do |df| %>
+<%= render partial: "event_detail_form", locals: {df: df } %>
+<% end %>
+</div>
