@@ -106,7 +106,7 @@
 
           <div class="item-box-index">
              <% @items.each do |item| %>
-              <%=item.item_image_id%>
+              <%= attachment_image_tag items, :item_image_id %>
               <p><%=item.title%></p>
               <p><%=item.singer%></p>
               <p>¥<%=item.price%></p>
@@ -114,6 +114,7 @@
               <P>売り切れ</P>
               <% else %>
               <p>在庫有</p>
+              <% end %>
               <% end %>
           </div>
            <!-- each挿入箇所 おわり-->
@@ -123,3 +124,4 @@
     </div>
   </div>
 </div>
+<%= render 'shared/footer' %>

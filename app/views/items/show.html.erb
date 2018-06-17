@@ -5,13 +5,15 @@
   <div class="container-fluid main-content">
     <div class="row main-top">
       <div class="col-sm-6">
-        <div class="item-image2"></div>
+        <div>
+          <%= attachment_image_tag @item, :item_image_id %>
+        </div>
       </div>
       <div class="col-sm-6 item-box-show">
         <div class="item-detail">
-          <h2><%= item.title %></h2>
-          <p><%= item.singer %></p>
-          <p>¥<%= item.price %></p>
+          <h2><%= @item.title %></h2>
+          <p><%= @item.singer %></p>
+          <p>¥<%= @item.price %></p>
         </div>
         <% if quantity == 0 %>
          <p>売り切れ</p>
@@ -39,7 +41,7 @@
             </tr>
             <tr>
               <td>シングル/アルバム</td>
-              <td><%= @item.style %></td>
+              <td><%= @item.style_i18n %></td>
             </tr>
             <tr>
               <td>アーティスト</td>
@@ -66,7 +68,7 @@
           <tbody>
             <tr>
               <td>商品説明</td>
-              <td><%= @item.comment %></td>
+              <td><%= simple_format(h(@item.comment)) %></td>
             </tr>
             <% @item.records.each do |record| %>
             <tr>
@@ -87,3 +89,4 @@
     </div>
   </div>
 </div>
+<%= render 'shared/footer' %>
