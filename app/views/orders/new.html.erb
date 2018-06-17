@@ -4,9 +4,6 @@
     <div class="process-box">
       <p class="process">カート　→　<span class="red">配送先の入力・お支払い方法の設定</span>　→　確認　→　完了</p>
     </div>
-    <%= @user.phone.to_i*@user.post_code.to_i %>
-    <!-- 変数で計算できるかお試し -->
-
 
     <%= form_for(@order) do |f| %>
 
@@ -44,20 +41,23 @@
           </thead>
           <tbody>
             <tr>
-              <td><label><%= f.radio_button :payment, "コンビニ・銀行振込" %> コンビニ・銀行振込 </label></td>
+              <td><label><%= f.radio_button :payment, :transfer %> コンビニ・銀行振込 </label></td>
             </tr>
             <tr>
-              <td><label><%= f.radio_button :payment, "クレジットカード決済" %> クレジットカード決済</label></td>
+              <td><label><%= f.radio_button :payment, :credit %> クレジットカード決済</label></td>
             </tr>
             <tr>
-              <td><label><%= f.radio_button :payment, "代金引換" %> 代金引換</label></td>
+              <td><label><%= f.radio_button :payment, :cash %> 代金引換</label></td>
+            </tr>
+             <tr>
+              <td><%= f.select :status, Order.statuses.keys, {} , class: 'form-control btn btn-default' %></td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <p><%= f.hidden_field :user_id, :value => @user.id %></p><!-- ユーザーのIDをわたす -->
-      <p><%= f.hidden_field :status, :value => "出荷準備中" %></p><!-- ステータスをわたす -->
+      <p><%= f.hidden_field :status, :value => 0 %></p><!-- ステータス0=出荷準備中をわたす -->
 
       <div class="main-bottom">
 

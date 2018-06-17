@@ -8,7 +8,9 @@
     <%= form_for(@order) do |f| %><!-- order編集フォーム　はじまり -->
 
     <div class="status-box">
-      <p><%= @order.created_at %>のご注文　（　<%= f.text_field :status %>　）</p>
+      <p><%= @order.created_at %>のご注文　     
+         <%= f.select :status, Order.statuses.keys, {prompt: @order.status }, class: 'form-control btn btn-info' %>
+      </p>
     </div>
     <div class="">
       <table class="table table-striped table-bordered">
