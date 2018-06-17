@@ -1,7 +1,13 @@
 <!-- サイトトップ 管理者用-->
 <%= render 'shared/header' %>
 
-<div class="search"></div><!-- 検索フォーム -->
+<div>
+  <%= form_tag admin_index__path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+    <p><%= text_field_tag :search, params[:serch] %>
+       <%= submit_tag "検索", :title => nil %>
+   </p>
+  <% end %>
+</div><!-- 検索フォーム -->
 
 <div class="body-content">
   <div class="container-fluid">
@@ -28,13 +34,13 @@
               <% @items.each do |item| %>
               <tr>
                 <td><%= item.id %></td>
-                <td><%= item.item_image_id %></td>
+                <td><%= attachment_image_tag item, :item_image_id %></td>
                 <td><%= item.title %></td>
                 <td><%= item.singer %></td>
-                <td><%= item.style %></td>
+                <td><%= item.style_i18n %></td>
                 <td><%= item.label %></td>
                 <td><%= item.genre_name %></td>
-                <td><%= item.price %></td>
+                <td>¥<%= item.price %></td>
                 <td><%= item.stock %></td>
                 <td><%= link_to"詳細",item_path(item.id),class:"btn-info btn-xs"%></td>
                 <td><%= link_to "編集",edit_item_path(@item), class:"btn btn-info btn-xs"%></td>
@@ -46,3 +52,4 @@
     </div>
   </div>
 </div>
+<%= render 'shared/footer' %>
