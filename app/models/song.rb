@@ -1,4 +1,4 @@
 class Song < ApplicationRecord
-belongs_to :record, inverse_of: :songs
-validates :record, presence: true
+belongs_to :record
+# validates :record, presence: true
 end

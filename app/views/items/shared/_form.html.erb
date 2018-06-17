@@ -1,7 +1,7 @@
 <div class="field">
 	<tr>
 		<td><%= f.label :item_image_id, "イメージ" %></td>
-		<td><%= f.attachment_field :item_image_id, placeholder: "画像のアップロード" %></td>
+		<td><%= f.attachment_field :item_image, placeholder: "画像のアップロード" %></td>
 	</tr>
 	<tr>
 		<td><%= f.label :title, "商品名" %></td>
@@ -24,8 +24,8 @@
 		<td><%= f.text_field :anime %></td>
 	</tr>
 	<tr>
-		<td><%= f.label :genre, "ジャンル" %></td>
-		<td><%= f.collection_select :genre_id, Genle.all, :id, :genre_name %></td>
+		<td><%= f.label :genre_id, "ジャンル" %></td>
+		<td><%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></td>
 	</tr>
 	<tr>
 		<td><%= f.label :comment, "商品説明" %></td>
@@ -41,7 +41,7 @@
 	</tr>
 	<tr>
 		<td><%= f.label :stock, "在庫数" %></td>
-		<td><%= f.number_field :stock %>></td>
+		<td><%= f.number_field :stock %></td>
 	</tr>
 			<%= f.hidden_field :id %>
 	<%= f.fields_for :event_details do |df| %>
