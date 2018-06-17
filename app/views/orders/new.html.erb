@@ -34,7 +34,6 @@
           </tbody>
         </table>
       </div>
-      <!-- hid　　den fieldでユーザーのIDをわたす -->
 
       <div class="payment"><!-- お支払い方法の設定 -->
         <table>
@@ -57,8 +56,8 @@
         </table>
       </div>
 
-      <p><%= f.hidden_field :user_id, :value => @user.id %></p>
-      <p><%= f.hidden_field :status, :value => "出荷準備中" %></p>
+      <p><%= f.hidden_field :user_id, :value => @user.id %></p><!-- ユーザーのIDをわたす -->
+      <p><%= f.hidden_field :status, :value => "出荷準備中" %></p><!-- ステータスをわたす -->
 
       <div class="main-bottom">
 
