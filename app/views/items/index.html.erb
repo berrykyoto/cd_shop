@@ -6,8 +6,14 @@
 <div class="body-content">
   <div class="container-fluid">
     <div class="row">
-      <!-- サイドバー　はじまり --------------------------------------------------------------------------------------->
-      <div class="col-sm-3 sidebar-content">
+      <%= form_tag items_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+        <p>
+          <%= text_field_tag :search, params[:serch] %>
+          <%= submit_tag "検索", :title => nil %>
+        </p>
+      <% end %>
+       <!-- サイドバー　はじまり -->
+      <!-- <div class="col-sm-3 sidebar-content">
         <h2 class="h2">アニメから探す</h2>
         <div class="row sidebar-box">
           <div class="col-sm-6">
@@ -86,76 +92,34 @@
             </ul>
           </div>
         </div>
-      </div>
-      <!-- サイドバー　おわり --------------------------------------------------------------------------------------->
-      <!-- メインコンテンツ　はじまり ---------------------------------------------------------------------------------->
+      </div> -->
+       <!-- サイドバー　おわり -->
+      <!-- メインコンテンツ　はじまり -->
       <div class="col-sm-9 main-content">
         <h2 class="h2">今期のアニメから探す</h2>
         <div class="main-box1" style="background-color:yellow;">
         </div>
         <h2 class="h2">商品一覧</h2>
         <div class="main-box2 clearfix">
-          <!-- each挿入箇所 はじまり--------------------------------->
+
+          <!-- each挿入箇所 はじまり -->
+
           <div class="item-box-index">
-            <div class="item-image1"></div>
-            <span class="item title">商品名</span>
-            <span class="item singer">singer</span>
-            <span class="item price">￥price</span>
-            <span class="item stock">在庫ありorなし</span>
+             <% @items.each do |item| %>
+              <%=item.item_image_id%>
+              <p><%=item.title%></p>
+              <p><%=item.singer%></p>
+              <p>¥<%=item.price%></p>
+              <% if item.stock == 0 %>
+              <P>売り切れ</P>
+              <% else %>
+              <p>在庫有</p>
+              <% end %>
           </div>
-          <div class="item-box-index">
-            <div class="item-image1"></div>
-            <span class="item title">商品名</span>
-            <span class="item singer">singer</span>
-            <span class="item price">￥price</span>
-            <span class="item stock">在庫ありorなし</span>
-          </div>
-          <div class="item-box-index">
-            <div class="item-image1"></div>
-            <span class="item title">商品名</span>
-            <span class="item singer">singer</span>
-            <span class="item price">￥price</span>
-            <span class="item stock">在庫ありorなし</span>
-          </div>
-          <div class="item-box-index">
-            <div class="item-image1"></div>
-            <span class="item title">商品名</span>
-            <span class="item singer">singer</span>
-            <span class="item price">￥price</span>
-            <span class="item stock">在庫ありorなし</span>
-          </div>
-          <div class="item-box-index">
-            <div class="item-image1"></div>
-            <span class="item title">商品名</span>
-            <span class="item singer">singer</span>
-            <span class="item price">￥price</span>
-            <span class="item stock">在庫ありorなし</span>
-          </div>
-          <div class="item-box-index">
-            <div class="item-image1"></div>
-            <span class="item title">商品名</span>
-            <span class="item singer">singer</span>
-            <span class="item price">￥price</span>
-            <span class="item stock">在庫ありorなし</span>
-          </div>
-          <div class="item-box-index">
-            <div class="item-image1"></div>
-            <span class="item title">商品名</span>
-            <span class="item singer">singer</span>
-            <span class="item price">￥price</span>
-            <span class="item stock">在庫ありorなし</span>
-          </div>
-          <div class="item-box-index">
-            <div class="item-image1"></div>
-            <span class="item title">商品名</span>
-            <span class="item singer">singer</span>
-            <span class="item price">￥price</span>
-            <span class="item stock">在庫ありorなし</span>
-          </div>
-          <!-- each挿入箇所 おわり------------------------------------>
+           <!-- each挿入箇所 おわり-->
         </div>
       </div>
-      <!-- メインコンテンツ　おわり ---------------------------------------------------------------------------------->
+      <!-- メインコンテンツ　おわり -->
     </div>
   </div>
 </div>
