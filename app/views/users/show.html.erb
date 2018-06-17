@@ -6,7 +6,7 @@
     <h2 class="h2">マイページ</h2>
     <div class="row">
       <div class="col-sm-4">
-        <div class="user-info">
+        <div>
           <h3 class="h3">会員情報</h3>
           <table class="table">
             <tbody>
@@ -59,14 +59,16 @@
               </tr>
             </thead>
             <tbody>
+              <% @cart_items.each do |cart_item| %>
               <tr>
                 <td><div class="item-image"></div></td>
+                <td><%= @order_item.created_at %></td>
+                <td><%= @item.name %></td>
                 <td>data</td>
                 <td>data</td>
-                <td>data</td>
-                <td>data</td>
-                <td><button type="button" class="btn btn-default btn-xs">詳細</button></td>
+                <td><%= link_to "詳細", user_path(user), class: "btn btn-default btn-xs" %></td>
               </tr>
+              <% end %>
             </tbody>
           </table>
         </div>

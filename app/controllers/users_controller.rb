@@ -2,10 +2,6 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
-		@total_price = 0
-		@users.each do |user|
-			@total_price = @total_price + user.id * user.id
-		end
 	end
 
 	def show

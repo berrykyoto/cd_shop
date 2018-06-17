@@ -20,7 +20,6 @@
                 <th>メールアドレス</th>
                 <th></th>
                 <th></th>
-                <th>小計</th>
               </tr>
             </thead>
             <tbody>
@@ -35,14 +34,10 @@
                 <td><%= user.email %></td>
                 <td><%= link_to "詳細", user_path(user), class: "btn btn-success btn-sm" %></td>
                 <td><%= link_to "編集", edit_user_path(user), class: "btn btn-info btn-sm" %></td>
-                <td><%= user.id * user.id %></td>
               </tr>
               <% end %>
             </tbody>
           </table>
-          <div class="total-box">
-            <p class="total">商品合計　　￥<%= @total_price %></p>
-          </div>
     </div>
   </div>
 </div>
