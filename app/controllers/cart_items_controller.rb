@@ -3,9 +3,9 @@ def index
 	@cart_items = CartItem.all
 	@cart_item = CartItem.find(params[:id])
 	@current_cart_item_array = []
-    @cart_items.current_cart_item.times do |quantity|
+    @cart_item.stock.times do |quantity|
       if quantity < 10
-        @current_cart_item_array << [quantity, quantity]
+        @current_cart_item_array << [quantity + 1, quantity + 1]
       else
         break
       end

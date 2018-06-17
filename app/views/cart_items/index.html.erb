@@ -24,7 +24,7 @@
             <td><div class="item-image"><%= item.item_image_id %></div></td>
             <td><%= item.name %></td>
             <td>￥<%= item.price %></td>
-            <%=form_for(@cart_items) do |f|%>
+            <%=form_for(@cart_item) do |f|%>
               <td><%= f.select :quantity, @current_cart_item_array %>
               </td>
             <% end %>
