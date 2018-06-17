@@ -6,58 +6,24 @@
     <h2 class="h2">商品の新規追加</h2>
     <div class="row">
 
-      <div class="col-sm-4 main-left">
-        <div class="item-image-new"></div>
+      <!-- <div class="col-sm-4 main-left"> -->
+        <!-- <div class="item-image-new"></div> -->
         <table class="table">
           <tbody>
-            <tr>
-              <td>商品名</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>シングル/アルバム</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>アーティスト</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>レーベル</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>ジャンル</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>アニメタイトル</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>発売年月日</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>商品説明</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>価格</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>在庫数</td>
-              <td>data</td>
-            </tr>
+            <%= form_for(@item) do |f| %>
+
+            <%= render partial: "items/shared/form", locals: {f: f } %>
+
+
           </tbody>
         </table>
         <div class="button-area">
-          <button type="button" class="btn btn-info btn-lg item-new-button">新規追加</button>
+          <%= f.submit "新規追加", class: "btn btn-info" %>
         </div>
-      </div>
+        <% end %>
+      <!-- </div> -->
 
-      <div class="col-sm-8 left-box">
+<!--       <div class="col-sm-8 left-box">
         <div class="record-box">
           <table class="table record-table">
             <tbody>
@@ -83,7 +49,7 @@
               </tr>
             </tbody>
           </table>
-        </div>
+        </div> -->
 
       </div>
     </div>

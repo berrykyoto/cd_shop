@@ -1,0 +1,10 @@
+<div class="field">
+	<tr>
+		<td><%= df.label :record_name, "レコード" %></td>
+		<td><%= df.text_field :record_name %></td>
+	</tr>
+			<%= df.hidden_field :id %>
+	<%= df.fields_for :topics do |tf| %>
+		<%= render partial: "items/shared/song_form", locals: {tf: tf } %>
+	<% end %>
+</div>

@@ -6,9 +6,9 @@ class ItemsController < ApplicationController
 	def show
 		@item = Item.find(params[:id]).includes(records: [:songs])
 		@current_item_array = []
-    	@items.current_item.times do |quantity|
+    	@item.stock.times do |quantity|
       		if quantity < 10
-        		@current_item_array << [quantity, quantity]
+        		@current_item_array << [quantity + 1, quantity + 1]
       		else
         		break
       		end

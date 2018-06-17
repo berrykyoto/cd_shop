@@ -13,7 +13,7 @@
 	</tr>
 	<tr>
 		<td><%= f.label :style, "シングル or アルバム" %></td>
-		<td></td>
+		<td><%= f.select :style, Item.styles_i18n.invert %></td>
 	</tr>
 	<tr>
 		<td><%= f.label :label, "レーベル" %></td>
@@ -41,10 +41,10 @@
 	</tr>
 	<tr>
 		<td><%= f.label :stock, "在庫数" %></td>
-		<td></td>
-
-<%= f.hidden_field :id %>
-<%= f.fields_for :event_details do |df| %>
-<%= render partial: "event_detail_form", locals: {df: df } %>
-<% end %>
+		<td><%= f.number_field :stock %>></td>
+	</tr>
+			<%= f.hidden_field :id %>
+	<%= f.fields_for :event_details do |df| %>
+		<%= render partial: "items/shared/record_form", locals: {df: df } %>
+	<% end %>
 </div>
