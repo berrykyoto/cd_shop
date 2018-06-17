@@ -1,6 +1,17 @@
 class CartItemsController < ApplicationController
 def index
-	@cart_items = Cart_item.all
+	@cart_items = CartItem.all
+	@cart_item = CartItem.find(params[:id])
+	@current_cart_item_array = []
+    @cart_items.current_cart_item.times do |quantity|
+      if quantity < 10
+        @current_cart_item_array << [quantity, quantity]
+      else
+        break
+      end
+    end
+    @sub_price = 
+    @total_price = 
 end
 
 def create
@@ -19,6 +30,12 @@ def update
 	@cart_item = Cart_item.find(params[:id])
 	@cart_item.update(cart_item_params)
 	redirect_to cart_items_path
+end
+
+def update_quantity
+    @cart_item = Cart_item.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to cart_items_path
 end
 
 def destroy
