@@ -10,8 +10,10 @@ def index
         break
       end
     end
-    @sub_price = 
-    @total_price = 
+    @total_price = 0
+	@items.each do |item|
+		@total_price = @total_price + item.price * item.quantity
+	end
 end
 
 def create
