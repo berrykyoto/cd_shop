@@ -9,18 +9,21 @@
       </div>
       <div class="col-sm-6 item-box-show">
         <div class="item-detail">
-          <h2 class="title">title</h2>
-          <p class="singer">singer</p>
-          <p class="price">￥price</p>
-          <p class="stock">在庫ありorなし</p>
+          <h2><%= item.title %></h2>
+          <p><%= item.singer %></p>
+          <p>¥<%= item.price %></p>
         </div>
+        <% if quantity == 0 %>
+         <p>売り切れ</p>
+         <% else %>
         <div class="cart-area">
           <span class="quantity">購入数</span>
-          <form>
-            <input class="quantity-form" type="integer" name="quantity">枚
-          </form>
+            <%= form_for (@item) do |f| %>
+            <%= f.select :quantity, @current_item_array %>枚
+            <% end %> 
+             <% end %>
           <div class="cart-button-area">
-            <button type="button" class="btn btn-info btn-lg btn-block cart-button">カートに入れる</button>
+            <%= link_to "カートに入れる", class:"btn btn-info btn-lg btn-block cart-button", :controler => "cart_items", :action => "create", :method => :post %>
           </div>
         </div>
       </div>
@@ -32,28 +35,29 @@
           <tbody>
             <tr>
               <td>商品名</td>
-              <td>data</td>
+              <td><%= @item.title %></td>
             </tr>
             <tr>
               <td>シングル/アルバム</td>
-              <td>data</td>
+              <td><%= @item.style %></td>
             </tr>
             <tr>
               <td>アーティスト</td>
-              <td>data</td>
+              <td><%= @item.singer %></td>
             </tr>
             <tr>
               <td>レーベル</td>
-              <td>data</td>
+              <td><%= @item.label %></td>
             </tr>
             <tr>
               <td>ジャンル</td>
-              <td>data</td>
+              <td><%= @item.genre_name %></td>
             </tr>
             <tr>
               <td>発売日</td>
-              <td>data</td>
+              <td><%= @item.age %></td>
             </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
@@ -62,16 +66,21 @@
           <tbody>
             <tr>
               <td>商品説明</td>
+              <td><%= @item.comment %></td>
             </tr>
-            <tr>
-              <td>商品説明</td>
-            </tr>
-            <tr>
-              <td>収録曲</td>
-            </tr>
+            <% @item.records.each do |record| %>
             <tr>
               <td>収録曲</td>
+              <td><%= record.record_name%></td>
             </tr>
+              <% record.songs.each do |song| %>
+                <tr>
+                  <td><%= song.song_name%></td>
+                  <td><%= song.song_time%></td>
+                  <td><%= song.song_number%></td>
+                </tr>
+              <% end %>
+            <% end %>
           </tbody>
         </table>
       </div>
