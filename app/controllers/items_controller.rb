@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
 	def create
 		@item = Item.new(item_params)
-		@item.save
+		@item.save(item_params)
 		redirect_to admin_index_path
 	end
 
@@ -59,7 +59,7 @@ private
 			:singer,
 			:title,
 			:style,
-			:item_image_id,
+			:item_image,
 			:price,
 			:label,
 			:genre_id,
