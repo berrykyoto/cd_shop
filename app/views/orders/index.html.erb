@@ -23,9 +23,9 @@
             <% @orders.each do |order| %>
             <tbody>
               <tr>
-                <td><%= order.created_at %></td>
-                <td><%= order.user_id %></td>
-                <td></td>
+                <td><%= order.order_ietm.created_at %></td>
+                <td><%= order.user.name %>/<%= order.user_id %></td>
+                <td><%= order.order_item.item.title %></td>
                 <td></td>
                 <td><%= order.status %></td>
                 <td><%= link_to "詳細", order_path(order), class: "btn btn-info btn-xs" %></td>
