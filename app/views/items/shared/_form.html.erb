@@ -44,7 +44,8 @@
 		<td><%= f.number_field :stock %></td>
 	</tr>
 			<%= f.hidden_field :id %>
-	<%= f.fields_for :event_details do |df| %>
+			<%= f.hidden_field :admin_id %>
+	<%= f.fields_for :records do |df| %>
 		<%= render partial: "items/shared/record_form", locals: {df: df } %>
 	<% end %>
 </div>
