@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@orders = @user.orders.page(params[:page])
+		@order.order_items.each do |order|
+			@total_price = @total_price + order.order_item.item.price * order_item.quantity
+		end
 	end
 
 	def edit

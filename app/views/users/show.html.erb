@@ -59,14 +59,14 @@
               </tr>
             </thead>
             <tbody>
-              <% @cart_items.each do |cart_item| %>
+              <% @orders.each do |order| %>
               <tr>
-                <td><div class="item-image"></div></td>
-                <td><%= @order_item.created_at %></td>
-                <td><%= @item.name %></td>
-                <td>data</td>
-                <td>data</td>
-                <td><%= link_to "詳細", user_path(user), class: "btn btn-default btn-xs" %></td>
+                <td><%= attachment_image_tag .order.order_item.item, :order_image_id, :fill, 50, 50, fallback: "noimage.png", size: '50x50' %></td>
+                <td><%= order.order_item.created_at %></td>
+                <td><%= order.order_item.item.name %></td>
+                <td><%= @total_price %></td>
+                <td><%= order.status %></td>
+                <td><%= link_to "詳細", order_item_path(order_item), class: "btn btn-default btn-xs" %></td>
               </tr>
               <% end %>
             </tbody>

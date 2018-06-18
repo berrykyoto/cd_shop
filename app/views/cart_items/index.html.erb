@@ -19,11 +19,11 @@
           </tr>
         </thead>
         <tbody>
-          <% @items.each do |item| %>
+          <% @cart_items.each do |cart_item| %>
           <tr>
-            <td><div class="item-image"><%= item.item_image_id %></div></td>
-            <td><%= item.name %></td>
-            <td>￥<%= item.price %></td>
+            <td><%= attachment_image_tag cart_item.item, :item_image_id, :fill, 50, 50, fallback: "noimage.png", size: '50x50' %></td>
+            <td><%= cart_item.item.name %></td>
+            <td>￥<%= cart_item.item.price %></td>
             <%=form_for(@cart_item) do |f|%>
               <td><%= f.select :quantity, @current_cart_item_array %>
               </td>
@@ -32,7 +32,7 @@
               <%= link_to "変更 /", cart_items_path, :controller => "cart_items", :action => "update_quantity", :method => :put, class: "btn btn-info btn-xs" %>
               <%= link_to "削除", cart_items_path, method: :delete, class: "btn btn-default btn-xs" %>
             </td>
-            <td>￥<%= item.price * item.quantity %></td>
+            <td>￥<%= cart_item.item.price * cart_item.item.quantity %></td>
           </tr>
           <% end %>
         </tbody>
