@@ -11,8 +11,8 @@ def index
       end
     end
     @total_price = 0
-	@items.each do |item|
-		@total_price = @total_price + item.price * item.quantity
+	@cart_items.each do |cart_item|
+		@total_price = @total_price + cart_item.item.price * cart_item.quantity
 	end
 end
 
