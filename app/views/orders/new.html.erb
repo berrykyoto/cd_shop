@@ -49,9 +49,6 @@
             <tr>
               <td><label><%= f.radio_button :payment, :cash %> 代金引換</label></td>
             </tr>
-             <tr>
-              <td><%= f.select :status, Order.statuses.keys, {} , class: 'form-control btn btn-default' %></td>
-            </tr>
           </tbody>
         </table>
       </div>

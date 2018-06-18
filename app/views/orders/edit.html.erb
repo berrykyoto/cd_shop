@@ -9,7 +9,7 @@
 
     <div class="status-box">
       <p><%= @order.created_at %>のご注文　     
-         <%= f.select :status, Order.statuses.keys, {prompt: @order.status }, class: 'form-control btn btn-info' %>
+         <%= f.select :status, Order.statuses_i18n.invert.keys, {prompt: @order.status}, class: 'form-control btn btn-default' %>
       </p>
     </div>
     <div class="">
@@ -29,10 +29,10 @@
         <tbody>
           <tr>
             <td><div class="item-image"></div></td>
-            <td><%= @order_item.item.title %></td>
-            <td><%= @order_item.item.price %></td>
-            <td><%= @order_item.quantity %></td>
-            <td>小計</td>
+            <td><%= order_item.item.title %></td>
+            <td><%= order_item.item.price %></td>
+            <td><%= order_item.quantity %></td>
+            <td>￥<%= order_item.item.price*order_item.quantity %></td>
           </tr>
         </tbody>
 
@@ -40,7 +40,7 @@
 
       </table>
       <div class="total-box">
-        <p class="total">商品合計　＝</p>
+        <p class="total">商品合計　￥<%= @total_price %></p>
       </div>
     </div>
 

@@ -7,6 +7,11 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		@order_items = @order.order_items.all.includes(:item)
 		# @item = Item.find(params[:id])
+
+		@total_price = 0
+			@order_items.each do |order_item|
+				@total_price = @total_price + order_item.item.price * order_item.quantity
+		end
 	end
 
 	def new
@@ -28,6 +33,11 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		@order_items = @order.order_items.all.includes(:item)
 		# @item = Item.find(params[:id])
+
+		@total_price = 0
+			@order_items.each do |order_item|
+				@total_price = @total_price + order_item.item.price * order_item.quantity
+		end
 	end
 
 	def update

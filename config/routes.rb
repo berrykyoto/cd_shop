@@ -17,7 +17,8 @@ resources :contacts, only: [:index, :show, :new, :create, :destroy]
 resources :items
 resources :genres, only: [:index, :new, :create, :edit, :update, :destroy]
 resources :cart_items, only: [:index, :create, :edit, :update, :destroy]
-resources :orders, only: [:index, :show, :new, :create, :edit, :update]
+resources :orders
+			# , only: [:index, :show, :new, :create, :edit, :update]
 resources :order_items, only: [:new, :create]
 resources :users, only: [:index, :show, :edit, :update, :destroy]
 resources :admins, only: [:show, :edit, :update]
