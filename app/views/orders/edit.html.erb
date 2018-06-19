@@ -30,9 +30,9 @@
           <tr>
             <td><div class="item-image"></div></td>
             <td><%= order_item.item.title %></td>
-            <td><%= order_item.item.price %></td>
+            <td><%= order_item.sub_price/order_item.quantity %></td>
             <td><%= order_item.quantity %></td>
-            <td>￥<%= order_item.item.price*order_item.quantity %></td>
+            <td>￥<%= order_item.sub_price %></td>
           </tr>
         </tbody>
 
@@ -79,7 +79,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= f.text_field :payment %></td>
+              <td><%= f.select :payment, Order.payments_i18n.invert.keys, {prompt: @order.payment}, class: 'form-control btn btn-default' %></td>
               <!-- ここは、ラジオボタンではなく、セレクトボックスにしたほうがいい気がする。 -->
             </tr>
           </tbody>

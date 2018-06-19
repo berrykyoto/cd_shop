@@ -1,16 +1,28 @@
 class OrdersController < ApplicationController
 	def index
-		@orders = Order.all
+		@orders = Order.all.includes(:user)
+		@order = Order.find(params[:id])
+		@order_items = @order.order_item.all
+		# 各オーダーごとのオーダーアイテムを全件取得
+		@first_item = @order_items.first.item.title
+		# 全件取得したオーダーアイテム（複数）のうち、先頭の商品名を取得
+
+		@total_price = 0
+			@order_items.each do |order_item|
+				@total_price = @total_price + order_item.sub_total
+		# オーダーの合計金額（sub_priceの合計）を計算する。
+		end
 	end
 
 	def show
 		@order = Order.find(params[:id])
-		@order_items = @order.order_items.all.includes(:item)
-		# @item = Item.find(params[:id])
+		@order_items = @order.order_item.all.includes(:item)
+		# 各オーダーごとのオーダーアイテムを全件取得
 
 		@total_price = 0
 			@order_items.each do |order_item|
-				@total_price = @total_price + order_item.item.price * order_item.quantity
+				@total_price = @total_price + order_item.sub_total
+		# オーダーの合計金額（sub_priceの合計）を計算する。
 		end
 	end
 
@@ -31,12 +43,13 @@ class OrdersController < ApplicationController
 
 	def edit
 		@order = Order.find(params[:id])
-		@order_items = @order.order_items.all.includes(:item)
-		# @item = Item.find(params[:id])
+		@order_items = @order.order_item.all.includes(:item)
+		# 各オーダーごとのオーダーアイテムを全件取得
 
 		@total_price = 0
 			@order_items.each do |order_item|
-				@total_price = @total_price + order_item.item.price * order_item.quantity
+				@total_price = @total_price + order_item.sub_total
+		# オーダーの合計金額（sub_priceの合計）を計算する。
 		end
 	end
 
