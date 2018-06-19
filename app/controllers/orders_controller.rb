@@ -1,11 +1,10 @@
 class OrdersController < ApplicationController
 	def index
 		@orders = Order.all.includes(:user)
-		@order = Order.find(params[:id])
-		@order_items = @order.order_item.all
-		# 各オーダーごとのオーダーアイテムを全件取得
-		@first_item = @order_items.first.item.title
-		# 全件取得したオーダーアイテム（複数）のうち、先頭の商品名を取得
+		@order_items = @orders.OrderItem.all
+		# オーダーアイテムを全件取得
+		# @first_item = @order_items.first.item.title
+		# オーダーアイテム（複数）のうち、先頭の商品名を取得
 
 		@total_price = 0
 			@order_items.each do |order_item|
@@ -16,7 +15,7 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@order_items = @order.order_item.all.includes(:item)
+		@order_items = @order.OrderItem.all.includes(:item)
 		# 各オーダーごとのオーダーアイテムを全件取得
 
 		@total_price = 0
@@ -43,7 +42,7 @@ class OrdersController < ApplicationController
 
 	def edit
 		@order = Order.find(params[:id])
-		@order_items = @order.order_item.all.includes(:item)
+		@order_items = @order.OrderItem.all.includes(:item)
 		# 各オーダーごとのオーダーアイテムを全件取得
 
 		@total_price = 0
