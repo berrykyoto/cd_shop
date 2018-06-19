@@ -62,7 +62,7 @@
             <tbody>
               <% @orders.each do |order| %>
               <tr>
-                <td><%= attachment_image_tag order.order_item.item, :order_image, :fill, 50, 50, fallback: "noimage.png", size: '50x50' %></td>
+                <td><%= attachment_image_tag order.order_item.item, :item_image, :fill, 50, 50, fallback: "noimage.png", size: '50x50' %></td>
                 <td><%= order.order_item.created_at %></td>
                 <td><%= order.order_item.item.name %></td>
                 <td><%= @total_price %></td> <!-- # 合計 -->
