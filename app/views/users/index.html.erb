@@ -2,7 +2,14 @@
 <%= render 'shared/header' %>
 
 
-<div class="search"></div><!-- 検索フォーム -->
+<div class="search">
+  <%= form_tag users_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+        <p>
+          <%= text_field_tag :search, params[:serch] %>
+          <%= submit_tag "検索", :name => nil %>
+        </p>
+  <% end %>
+</div><!-- 検索フォーム -->
 
 <div class="body-content">
   <div class="container-fluid">
