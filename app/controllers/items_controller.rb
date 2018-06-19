@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
 	end
 
 	def show
-		@item = Item.find(params[:id]).includes(records: [:songs])
+		@cart_item = CartItem.new
+		@item = Item.includes(records: [:songs]).find(params[:id])
 		@current_item_array = []
     	@item.stock.times do |quantity|
       		if quantity < 10
@@ -16,29 +17,31 @@ class ItemsController < ApplicationController
 	end
 
 	def new
+		@admin = current_admin.id
 		@item = Item.new
 		@item.records.build
 		@item.records.first.songs.build
 	end
 
 	def create
+		@admin = current_admin.id
 		@item = Item.new(item_params)
-		@item.save(item_params)
+		@item.save
 		redirect_to admin_index_path
 	end
 
 	def edit
-		@item = Item.find(params[:id]).includes(records: [:songs])
+		@item = Item.includes(records: [:songs]).find(params[:id])
 	end
 
 	def update
-		@item = Item.find(params[:id]).includes(records: [:songs])
+		@item = Item.includes(records: [:songs]).find(params[:id])
 		@item.update(item_params)
 		redirect_to admin_show_path(item.id)
 	end
 
 	def destroy
-		@item = Item.find(params[:id]).includes(records: [:songs])
+		@item = Item.includes(records: [:songs]).find(params[:id])
 		@item.destroy
 		redirect_to admin_index_path
 
@@ -49,7 +52,7 @@ class ItemsController < ApplicationController
 	end
 
 	def admin_show
-		@item = Item.find(params[:id]).includes(records: [:songs])
+		@item = Item.includes(records: [:songs]).find(params[:id])
 	end
 
 private

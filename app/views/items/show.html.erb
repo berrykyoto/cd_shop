@@ -6,7 +6,7 @@
     <div class="row main-top">
       <div class="col-sm-6">
         <div>
-          <%= attachment_image_tag @item, :item_image_id %>
+          <%= attachment_image_tag @item, :item_image %>
         </div>
       </div>
       <div class="col-sm-6 item-box-show">
@@ -15,18 +15,20 @@
           <p><%= @item.singer %></p>
           <p>¥<%= @item.price %></p>
         </div>
-        <% if quantity == 0 %>
-         <p>売り切れ</p>
-         <% else %>
-        <div class="cart-area">
+        <% if @item.stock == 0 %>
+          <p>売り切れ</p>
+        <% else %>
+          <div class="cart-area">
           <span class="quantity">購入数</span>
-            <%= form_for (@item) do |f| %>
+            <%= form_for (@cart_item) do |f| %>
             <%= f.select :quantity, @current_item_array %>枚
-            <% end %> 
-             <% end %>
-          <div class="cart-button-area">
-            <%= link_to "カートに入れる", class:"btn btn-info btn-lg btn-block cart-button", :controler => "cart_items", :action => "create", :method => :post %>
-          </div>
+            <%= f.hidden_field :item_id, :value => @item %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+             <div class="cart-button-area">
+            <%= f.submit "カートに入れる",class:"btn btn-info btn-lg cart-button" %>
+             </div>
+            <% end %>
+         <% end %>
         </div>
       </div>
     </div>
@@ -53,13 +55,12 @@
             </tr>
             <tr>
               <td>ジャンル</td>
-              <td><%= @item.genre_name %></td>
+              <td><%= @item.genre.genre_name %></td>
             </tr>
             <tr>
               <td>発売日</td>
               <td><%= @item.age %></td>
             </tr>
-            <% end %>
           </tbody>
         </table>
       </div>
@@ -77,9 +78,9 @@
             </tr>
               <% record.songs.each do |song| %>
                 <tr>
+                  <td><%= song.song_number%></td>
                   <td><%= song.song_name%></td>
                   <td><%= song.song_time%></td>
-                  <td><%= song.song_number%></td>
                 </tr>
               <% end %>
             <% end %>

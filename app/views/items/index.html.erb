@@ -106,7 +106,9 @@
 
           <div class="item-box-index">
              <% @items.each do |item| %>
-              <%= attachment_image_tag items, :item_image_id %>
+             <%= link_to (item_path(item.id)) do %>
+              <%= attachment_image_tag item, :item_image %>
+              <% end %>
               <p><%=item.title%></p>
               <p><%=item.singer%></p>
               <p>¥<%=item.price%></p>
