@@ -20,15 +20,15 @@
         </thead>
 
         <% @order_items.each do |order_item| %>
-        <tbody>
-          <tr>
-            <td><div class="item-image"></div></td>
-            <td><%= order_item.item.title %></td>
-            <td><%= order_item.item.price %></td>
-            <td><%= order_item.quantity %></td>
-            <td><%= order_item.item.price*order_item.quantity %></td>
-          </tr>
-        </tbody>
+          <tbody>
+            <tr>
+              <td><div class="item-image"></div></td>
+              <td><%= order_item.item.title %></td>
+              <td><%= order_item.sub_price / order_item.quantity %></td>
+              <td><%= order_item.quantity %></td>
+              <td>￥<%= order_item.sub_price %></td>
+            </tr>
+          </tbody>
         <% end %>
 
       </table>
