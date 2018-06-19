@@ -47,7 +47,8 @@
       <div class="col-sm-8">
         <div class="user-orders">
           <h3 class="h3">注文履歴</h3>
-          <table class="table">
+          <% if  @orders.present? %>
+           <table class="table">
             <thead>
               <tr>
                 <th></th><!-- 画像 -->
@@ -61,16 +62,19 @@
             <tbody>
               <% @orders.each do |order| %>
               <tr>
-                <td><%= attachment_image_tag .order.order_item.item, :order_image_id, :fill, 50, 50, fallback: "noimage.png", size: '50x50' %></td>
+                <td><%= attachment_image_tag order.order_item.item, :order_image, :fill, 50, 50, fallback: "noimage.png", size: '50x50' %></td>
                 <td><%= order.order_item.created_at %></td>
                 <td><%= order.order_item.item.name %></td>
-                <td><%= @total_price %></td>
+                <td><%= @total_price %></td> <!-- # 合計 -->
                 <td><%= order.status %></td>
                 <td><%= link_to "詳細", order_item_path(order_item), class: "btn btn-default btn-xs" %></td>
               </tr>
               <% end %>
             </tbody>
           </table>
+          <% else %>
+           <p>ご注文履歴がありません</p>
+          <% end %>
         </div>
       </div>
     </div>

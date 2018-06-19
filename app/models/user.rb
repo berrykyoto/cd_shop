@@ -5,4 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 has_many :orders
 has_many :cart_items
+
+attachment :item_image
+
+def self.search(search)
+    if search
+      User.where(['name LIKE ?', "%#{search}%"])
+    else
+      User.all
+    end
+end
+
+
 end

@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
 
 	def index
-		@users = User.all
+		@users = User.search(params[:search])
 	end
 
 	def show
 		@user = User.find(params[:id])
 		@orders = @user.orders.page(params[:page])
-		@order.order_items.each do |order|
-			@total_price = @total_price + order.order_item.item.price * order_item.quantity
+		if @orders.present?
+			@order = Order.find(params[:id])
+			@order_item = @order.order_item.first # order_itemの最初のレコード取得
+			@order_items = @order.order_item.all
+			@total_price = @order_items.sum(:sub_price) # 合計処理
 		end
 	end
 
