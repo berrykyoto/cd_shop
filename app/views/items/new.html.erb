@@ -12,6 +12,8 @@
           <tbody>
             <%= form_for(@item) do |f| %>
 
+            <%= f.hidden_field :admin_id, :value => @admin %>
+
             <%= render partial: "items/shared/form", locals: {f: f } %>
 
 

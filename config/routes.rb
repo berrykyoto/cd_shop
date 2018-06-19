@@ -12,7 +12,7 @@ devise_for :users, controllers: {
 
 root 'items#index'
 get '/admin_index' => "items#admin_index"
-get '/admin_show/:id' => "items#admin_show"
+get '/admin_show/:id' => "items#admin_show", as:'admin_show'
 resources :contacts, only: [:index, :show, :new, :create, :destroy]
 resources :items
 resources :genres, only: [:index, :new, :create, :edit, :update, :destroy]

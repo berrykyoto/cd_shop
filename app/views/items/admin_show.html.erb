@@ -6,7 +6,7 @@
     <div class="row main-top">
       <div class="col-sm-6">
         <div>
-          <%= attachment_image_tag @item, :item_image_id %>
+          <%= attachment_image_tag @item, :item_image %>
         </div>
       </div>
       <div class="col-sm-6 item-box-show">
@@ -41,13 +41,12 @@
             </tr>
             <tr>
               <td>ジャンル</td>
-              <td><%= @item.genre_name %></td>
+              <td><%= @item.genre.genre_name %></td>
             </tr>
             <tr>
               <td>発売日</td>
               <td><%= @item.age %></td>
             </tr>
-            <% end %>
           </tbody>
         </table>
       </div>
@@ -65,9 +64,9 @@
             </tr>
               <% record.songs.each do |song| %>
                 <tr>
+                  <td><%= song.song_number%></td>
                   <td><%= song.song_name%></td>
                   <td><%= song.song_time%></td>
-                  <td><%= song.song_number%></td>
                 </tr>
               <% end %>
             <% end %>
