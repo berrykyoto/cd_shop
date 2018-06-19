@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
 def new
 	@order_item = OrderItem.new
-	@cart_items = current_user.cart_item.all.includes(:item)
+	@cart_items = current_user.CartItem.all.includes(:item)
 	@orders = Order.all
 	@order = current_user.@orders.last
 	# 前ページでクリエイトした送付先情報などを取得（カレントユーザーに紐づいたorders（複数）のうち最後（最新）のorder）

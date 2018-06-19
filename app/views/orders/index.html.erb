@@ -23,9 +23,9 @@
             <% @orders.each do |order| %>
             <tbody>
               <tr>
-                <td><%= order.order_ietm.created_at %></td>
+                <td><%= order.order_ietms.first.created_at %></td>
                 <td><%= order.user.name %>/<%= order.user_id %></td>
-                <td><%= first_item %></td>
+                <td><%= order.order_items.first.item.title %></td>
                 　<!-- order_itemsのうち最初の商品のみ表示する。あってんのかな？？？ -->
                 <td><%= total_price %></td>
                 　<!--  order_itemのsub_priceの合計-->
