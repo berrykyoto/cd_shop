@@ -22,6 +22,7 @@ def create
 		end
 	if @order_item.save
 		flash[:notice] = '注文が完了しました'
+		CartItem.destroy_all
         redirect_to root_path# トップページに遷移
     else
     	render :new
