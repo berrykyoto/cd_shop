@@ -8,9 +8,11 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@orders = @user.orders.page(params[:page])
 		if @orders.present?
-			@orders = Order.find(params[:id])
-			@order_items = @order.order_item.all
-			@total_price = @order_items.sum(:sub_price)
+			@orders.each do |order|
+				@order_items = order.order_items.all
+				@total_price = order.order_items.sum(:sub_price)
+
+			end
 		end
 	end
 

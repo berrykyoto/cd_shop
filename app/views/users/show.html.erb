@@ -62,12 +62,12 @@
             <tbody>
               <% @orders.each do |order| %>
               <tr>
-                <td><%= attachment_image_tag order.order_item.last.item, :item_image, :fill, 30, 30, fallback: "noimage.png", size: '30x30' %></td>
-                <td><%= order.order_item.created_at %></td>
-                <td><%= order.order_item.item.last.title %></td>
+                <td><%= attachment_image_tag order.order_items.first.item, :item_image, :fill, 30, 30, fallback: "noimage.png", size: '30x30' %></td>
+                <td><%= order.created_at %></td>
+                <td><%= order.order_items.first.item.title %></td>
                 <td><%= @total_price %></td> <!-- # 合計 -->
                 <td><%= order.status %></td>
-                <td><%= link_to "詳細", order_item_path(order_item), class: "btn btn-default btn-xs" %></td>
+                <td><%= link_to "詳細", order_path(order), class: "btn btn-default btn-xs" %></td>
               </tr>
               <% end %>
             </tbody>
