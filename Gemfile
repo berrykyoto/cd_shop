@@ -59,3 +59,4 @@ gem "refile-mini_magick"
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'enum_help'
+gem 'nested_form_fields'
