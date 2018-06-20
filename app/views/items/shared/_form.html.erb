@@ -41,7 +41,7 @@
 	</tr>
 	<tr>
 		<td><%= f.label :stock, "在庫数" %></td>
-		<td><%= f.number_field :stock, min: 1 %></td>
+		<td><%= f.number_field :stock, min: 0 %></td>
 	</tr>
 			<%= f.hidden_field :id %>
 	<%= f.fields_for :records do |df| %>
