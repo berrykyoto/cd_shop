@@ -26,10 +26,13 @@
               <%= link_to "管理者ページ", admin_path(current_admin.id), class: "header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
-              <%= link_to "商品一覧", admin_index_path, class: "header-top-a link-type-basic" %>
+              <%= link_to 'ジャンルの新規追加', genres_path, class: "header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
               <%= link_to '商品の新規追加', new_item_path, class: "header-top-a link-type-basic" %>
+            </li>
+            <li class="nav-list-item">
+              <%= link_to "商品一覧", admin_index_path, class: "header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
               <%= link_to "ユーザー一覧", users_path, class: "header-top-a link-type-basic" %>

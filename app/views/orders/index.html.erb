@@ -23,11 +23,11 @@
             <% @orders.each do |order| %>
             <tbody>
               <tr>
-                <td><%= order.order_ietms.first.created_at %></td>
+                <td><%= order.created_at %></td>
                 <td><%= order.user.name %>/<%= order.user_id %></td>
-                <td><%= order.order_items.first.item.title %></td>
+                <td><%= @first_item.item.title %></td>
                 　<!-- order_itemsのうち最初の商品のみ表示する。あってんのかな？？？ -->
-                <td><%= total_price %></td>
+                <td>￥<%= @total_price %></td>
                 　<!--  order_itemのsub_priceの合計-->
                 <td><%= order.status %></td>
                 <td><%= link_to "詳細", order_path(order), class: "btn btn-info btn-xs" %></td>
