@@ -6,7 +6,7 @@
     <div class="row main-top">
       <div class="col-sm-6">
         <div>
-          <%= attachment_image_tag @item, :item_image %>
+          <%= attachment_image_tag @item, :item_image, :fill, 400, 400, fallback: "noimage.png", size: '400x400'  %>
         </div>
       </div>
       <div class="col-sm-6 item-box-show">
