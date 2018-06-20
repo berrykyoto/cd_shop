@@ -3,55 +3,69 @@
   <div class="body-box">
   <h2 class="h2-box">新規会員登録</h2>
 
+  <table class="table">
+    <tbody>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-
-  <div class="field">
-    <%= f.label :name, "お名前(姓名)" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "regist-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name_kana, "お名前(フリガナ)" %><br />
-    <%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", class: "regist-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :post_code, "郵便番号" %><br />
-    <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class: "regist-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address, "住所" %><br />
-    <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "address-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone, "電話番号" %><br />
-    <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "regist-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "regist-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "password", class: "regist-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード再確認" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "regist-box" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録する", class:"btn btn-primary btn-lg btn-block"%>
+  <tr>
+    <div class="field">
+    <td><%= f.label :name, "お名前(姓名)" %></td>
+    <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "regist-box" %></td>
+    </div>
+  </tr>
+  <tr>
+    <div class="field">
+    <td><%= f.label :name_kana, "お名前(フリガナ)" %></td>
+    <td><%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", class: "regist-box" %></td>
+    </div>
+  </tr>
+  <tr>
+    <div class="field">
+    <td><%= f.label :post_code, "郵便番号" %></td>
+    <td><%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class: "regist-box" %></td>
+    </div>
+  </tr>
+  <tr>
+    <div class="field">
+      <td><%= f.label :address, "住所" %></td>
+      <td><%= f.text_field :address, autofocus: true, autocomplete: "address", class: "address-box" %></td>
+    </div>
+  </tr>
+  <tr>
+    <div class="field">
+      <td><%= f.label :phone, "電話番号" %></td>
+      <td><%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "regist-box" %></td>
+    </div>
+  </tr>
+  <tr>
+    <div class="field">
+    <td><%= f.label :email, "メールアドレス" %></td>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "regist-box" %></td>
+    </div>
+  </tr>
+  <tr>
+    <div class="field">
+    <td><%= f.label :password, "パスワード" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %>文字以上)</em>
+      <% end %></td>
+    <td><%= f.password_field :password, autocomplete: "password", class: "regist-box" %></td>
+    </div>
+  </tr>
+  <tr>
+    <div class="field">
+    <td><%= f.label :password_confirmation, "パスワード再確認" %></td>
+    <td><%= f.password_field :password_confirmation, autocomplete: "off", class: "regist-box" %></td>
+    </div>
+  </tr>
+  </tbody>
+</table>
+  <div class="login-box">
+    <div class="actions">
+      <%= f.submit "登録する", class:"btn btn-primary btn-lg"%>
+    </div>
   </div>
 <% end %>
 

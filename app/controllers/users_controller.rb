@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@orders = @user.orders.page(params[:page])
 		if @orders.present?
-			@order = Order.find(params[:id])
 			@order_item = @order.order_item.first # order_itemの最初のレコード取得
 			@order_items = @order.order_item.all
 			@total_price = @order_items.sum(:sub_price) # 合計処理
