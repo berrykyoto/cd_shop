@@ -27,8 +27,10 @@
                 <td><%= order.user.name %>/<%= order.user_id %></td>
                 <td><%= @first_item.item.title %></td>
                 　<!-- order_itemsのうち最初の商品のみ表示する。あってんのかな？？？ -->
-                <td>￥<%= @total_price %></td>
+                <td><% order.order_items.each do |order_item| %>
+                ￥<%= @total_price + order_item.sub_price %>
                 　<!--  order_itemのsub_priceの合計-->
+                <% end %></td>
                 <td><%= order.status %></td>
                 <td><%= link_to "詳細", order_path(order), class: "btn btn-info btn-xs" %></td>
                 <td><%= link_to "編集", edit_order_path(order), class: "btn btn-default btn-xs" %></td>

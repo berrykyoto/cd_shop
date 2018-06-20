@@ -21,9 +21,9 @@ def create
 			@total_price = @total_price + cart_item.item.price * cart_item.quantity
 		end
 	if @order_item.save
-		flash[:notice] = '注文が完了しました'
 		CartItem.destroy_all
         redirect_to root_path# トップページに遷移
+        flash[:notice] = '注文が完了しました'
     else
     	render :new
     end

@@ -7,10 +7,7 @@ class OrdersController < ApplicationController
 		# オーダーアイテム（複数）のうち、先頭の商品名を取得
 
 		@total_price = 0
-			@order_items.each do |order_item|
-				@total_price = @total_price + order_item.sub_price
 		# オーダーの合計金額（sub_priceの合計）を計算する。
-		end
 	end
 
 	def show
