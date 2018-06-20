@@ -3,34 +3,44 @@
   <div class="body-box">
   <h2 class="h2-box">管理者登録ページ</h2>
 
+<table class="table">
+  <tbody>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :name, "名前" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "regist-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "regist-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "regist-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード再確認" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "regist-box" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録", class:"btn btn-primary btn-lg btn-block" %>
+  <tr>
+    <div class="field">
+    <td><%= f.label :name, "名前" %></td>
+    <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "regist-box" %></td>
+    </div>
+  </tr>
+  <tr>
+    <div class="field">
+    <td><%= f.label :email, "メールアドレス" %></td>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "regist-box" %></td>
+    </div>
+  </tr>
+  <tr>
+    <div class="field">
+    <td><%= f.label :password, "パスワード" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %>文字以上)</em>
+      <% end %></td>
+    <td><%= f.password_field :password, autocomplete: "off", class: "regist-box" %><td>
+    </div>
+  </td>
+  <tr>
+    <div class="field">
+    <td><%= f.label :password_confirmation, "パスワード再確認" %></td>
+    <td><%= f.password_field :password_confirmation, autocomplete: "off", class: "regist-box" %></td>
+    </div>
+  </tr>
+  </tbody>
+</table>
+  <div class="login-box">
+    <div class="actions">
+      <%= f.submit "登録", class:"btn btn-primary btn-lg btn-block" %>
+    </div>
   </div>
 <% end %>
 </div>

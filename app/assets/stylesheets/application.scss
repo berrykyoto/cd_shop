@@ -105,6 +105,7 @@ body{
 .h2-box{
   border-bottom:1px solid;
   text-align: center;
+  font-size: 18px;
 }
 .body-content{
   width:960px;
@@ -116,16 +117,17 @@ body{
   margin:0 auto;
 }
 .actions{
+  width: 115px;
   margin:20px 0;
 }
 .address-box{
   height: 70px;
-  width: 500px;
+  width: 300px;
   border-radius: 5px;
 }
 .regist-box{
   border-radius: 5px;
-  width: 500px;
+  width: 200px;
 }
 .field{
   font-size: 15px;
@@ -140,6 +142,10 @@ body{
   font-size: 20px;
   text-align: center;
   padding-bottom: 50px;
+}
+.login-box{
+  width: 120px;
+  margin: 20px auto;
 }
 
 
