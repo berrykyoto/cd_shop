@@ -1,7 +1,7 @@
 <div class="field">
 	<tr>
 		<td><%= tf.label :song_number, "曲順" %></td>
-		<td><%= tf.number_field :song_number %></td>
+		<td><%= tf.number_field :song_number, min: 1 %></td>
 
 		<td><%= tf.label :song_name, "曲名" %></td>
 		<td><%= tf.text_field :song_name %></td>

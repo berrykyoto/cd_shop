@@ -2,16 +2,6 @@ class CartItemsController < ApplicationController
 def index
 	@cart_items = CartItem.all
 	if @cart_items.present?
-		@cart_item_array = []
-		@cart_items.each do |cart_item|
-    	cart_item.item.stock.times do |quantity|
-      		if quantity < 10
-        		@cart_item_array << [quantity + 1, quantity + 1]
-      		else
-        		break
-      		end
-      	end
-        end
     	@total_price = 0
 		@cart_items.each do |cart_item|
 			@total_price = @total_price + cart_item.item.price * cart_item.quantity
