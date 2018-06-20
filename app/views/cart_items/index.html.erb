@@ -14,7 +14,7 @@
             <th></th>
             <th>商品名</th>
             <th>価格</th>
-            <th>数量</th>
+            <th><%if flash[:notice] %><p id="notice"><%= flash[:notice] %></p><% end %>数量</th>
             <th>変更</th>
             <th>小計</th>
           </tr>
@@ -23,17 +23,18 @@
           <% @cart_items.each do |cart_item| %>
           <tr>
             <td><%= attachment_image_tag cart_item.item, :item_image, :fill, 50, 50, fallback: "noimage.png", size: '50x50' %></td>
-            <td><%= cart_item.item.name %></td>
+            <td><%= cart_item.item.title %></td>
             <td>￥<%= cart_item.item.price %></td>
-            <%=form_for(@cart_item) do |f|%>
-              <td><%= f.select :quantity, @current_cart_item_array %>
+            <%=form_for(cart_item) do |f|%>
+              <td><%= f.select :quantity, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"]] %><br>
+                  残り<%= cart_item.item.stock %>個<br>
+                  ※在庫数以上は購入できません。
               </td>
+              <td class="button-area"><%= f.submit "変更",class:"btn btn-info btn-xs" %>
             <% end %>
-            <td class="button-area">
-              <%= link_to "変更 /", cart_items_path, :controller => "cart_items", :action => "update_quantity", :method => :put, class: "btn btn-info btn-xs" %>
-              <%= link_to "削除", cart_items_path, method: :delete, class: "btn btn-default btn-xs" %>
-            </td>
-            <td>￥<%= cart_item.item.price * cart_item.item.quantity %></td>
+                  <%= link_to "削除", cart_item_path(cart_item.id), method: :delete,data: { confirm: '削除しますか？' }, class:"btn btn-default btn-xs" %></td>
+
+            <td>￥<%= cart_item.item.price * cart_item.quantity %></td>
           </tr>
           <% end %>
         </tbody>
@@ -45,8 +46,8 @@
 
     <div class="main-bottom">
 
-        <%= link_to "買い物を続ける", cart_items_path, class: "btn btn-default btn-xs cart-button" %>
-        <%= link_to "　レジに進む　", cart_items_path, class: "btn btn-danger btn-xs cart-button" %>
+        <%= link_to "買い物を続ける", items_path, class: "btn btn-default btn-xs cart-button" %>
+        <%= link_to "　レジに進む　", new_order_path, class: "btn btn-danger btn-xs cart-button" %>
 
     </div>
   <% else %>
@@ -54,7 +55,7 @@
     <div class="row">
     <p class="pbox">カートに商品がありません</p>
     <div class="main-bottom">
-      <%= link_to "買い物を続ける", cart_items_path, class: "btn btn-primary btn-xs" %>
+      <%= link_to "買い物を続ける", items_path, class: "btn btn-primary btn-xs" %>
     </div>
     </div>
   </div>
