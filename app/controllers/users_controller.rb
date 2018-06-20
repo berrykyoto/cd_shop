@@ -8,9 +8,9 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@orders = @user.orders.page(params[:page])
 		if @orders.present?
-			@order_item = @order.order_item.first # order_itemの最初のレコード取得
+			@orders = Order.find(params[:id])
 			@order_items = @order.order_item.all
-			@total_price = @order_items.sum(:sub_price) # 合計処理
+			@total_price = @order_items.sum(:sub_price)
 		end
 	end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 	def destroy
 		user = User.find(params[:id])
   		user.destroy
-  		redirect_to items_path #redirect先変える
+  		redirect_to items_path
   	end
 
 private

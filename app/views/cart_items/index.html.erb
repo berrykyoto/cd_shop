@@ -26,8 +26,17 @@
             <td><%= cart_item.item.title %></td>
             <td>￥<%= cart_item.item.price %></td>
             <%=form_for(cart_item) do |f|%>
-              <td><%= f.select :quantity, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"]] %><br>
-                  残り<%= cart_item.item.stock %>個<br>
+              <td>
+                <% if cart_item.item.stock < 10 %>
+                <%= f.number_field :quantity, min: 1, max: cart_item.item.stock %><br>
+                <% else %>
+                <%= f.number_field :quantity, min: 1, max: 10 %><br>
+                <% end %>
+                <% if cart_item.item.stock > 10 %>
+                  在庫あり<br>
+                <% else %>
+                  残りわずか<br>
+                <% end %>
                   ※在庫数以上は購入できません。
               </td>
               <td class="button-area"><%= f.submit "変更",class:"btn btn-info btn-xs" %>
