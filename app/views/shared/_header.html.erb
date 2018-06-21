@@ -8,14 +8,14 @@
           <% if  user_signed_in? %>
 
             <li class="nav-list-item">
-              <%= link_to "マイページ", user_path(current_user.id), class: "header-top-a link-type-basic" %>
+              <%= link_to "マイページ(注文履歴)", user_path(current_user.id), class: "header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
               <%= link_to "カート", cart_items_path(current_user.id), class: "header-top-a link-type-basic" %>
             </li>
-            <li class="nav-list-item">
+            <!-- <li class="nav-list-item">
               <%= link_to "注文履歴", user_path(current_user.id), class: "header-top-a link-type-basic" %>
-            </li>
+            </li> -->
             <li class="nav-list-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-top-a link-type-basic" %>
             </li>

@@ -7,13 +7,6 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@orders = @user.orders.page(params[:page])
-		if @orders.present?
-			@orders.each do |order|
-				@order_items = order.order_items.all
-				@total_price = order.order_items.sum(:sub_price)
-
-			end
-		end
 	end
 
 	def edit
