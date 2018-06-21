@@ -53,15 +53,15 @@
           <tbody>
             <tr>
               <td>お名前</td>
-              <td><%= @order.last.send_name %></td>
+              <td><%= @orders.last.send_name %></td>
             </tr>
             <tr>
               <td>郵便番号</td>
-              <td><%= @order.last.send_post_code %></td>
+              <td><%= @orders.last.send_post_code %></td>
             </tr>
             <tr>
               <td>住所</td>
-              <td><%= @order.last.send_address %></td>
+              <td><%= @orders.last.send_address %></td>
             </tr>
 
           </tbody>
@@ -77,7 +77,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= @order.last.payment %></td>
+              <td><%= @orders.last.payment %></td>
             </tr>
           </tbody>
         </table>
@@ -87,18 +87,15 @@
 
     <div class="main-bottom">
 
-       <!-- オーダーアイテムを新規作成 -->
+       <!-- オーダーアイテムを新規作成 --><!-- ユーザーが入力していない必要項目をcreateに渡す -->
         <%= form_for(@order_item) do |f| %>
-          <% @cart_items.each do |cart_item| %>
-            <p><%= f.hidden_field :item_id, :value => cart_item.item.id %></p>
-            <p><%= f.hidden_field :quantity, :value => cart_item.quantity %></p>
-            <p><%= f.hidden_field :sub_price, :value => cart_item.item.price * cart_item.quantity %></p>
-            <!-- 隠しフィールドで入力していない必要項目をcreateに渡す -->
 
+          <% @cart_items.each do |cart_item| %>
+            <p><%= f.hidden_field :order_id, :value => @orders.last.id %></p>
           <% end %>
-          <p><%= f.hidden_field :order_id, :value => @order.last.id %></p>
+          <p><%= f.submit '　確定して注文する　', class: "btn btn-danger btn-xs cart-button" %></p>
           <button type="button" class="btn btn-default btn-xs cart-button">　　前に戻る　　</button>
-            <%= f.submit '　確定して注文する　', class:"btn btn-danger btn-xs cart-button" %>
+
         <% end %>
 
     </div>

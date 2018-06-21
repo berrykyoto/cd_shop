@@ -24,23 +24,21 @@
           </tr>
         </thead>
 
-        <% @order_items.each do |order_item| %>
-
-        <tbody>
-          <tr>
-            <td><%= attachment_image_tag order_item.item, :item_image, :fill, 20, 20, fallback: "noimage.png", size: '20x20' %></td>
-            <td><%= order_item.item.title %></td>
-            <td><%= order_item.sub_price / order_item.quantity %></td>
-            <td><%= order_item.quantity %></td>
-            <td>￥<%= order_item.sub_price %></td>
-          </tr>
-        </tbody>
-
+        <% @order.order_items.each do |order_item| %>
+          <tbody>
+            <tr>
+              <td><%= attachment_image_tag order_item.item, :item_image, :fill, 20, 20, fallback: "noimage.png", size: '20x20' %></td>
+              <td><%= order_item.item.title %></td>
+              <td><%= order_item.sub_price / order_item.quantity %></td>
+              <td><%= order_item.quantity %></td>
+              <td>￥<%= order_item.sub_price %></td>
+            </tr>
+          </tbody>
         <% end %>
 
       </table>
       <div class="total-box">
-        <p class="total">商品合計　￥<%= @total_price %></p>
+        <p class="total">商品合計　￥<%= @order.order_items.last.total_price %></p>
       </div>
     </div>
 
@@ -79,8 +77,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= f.select :payment, Order.payments_i18n.invert.keys, {prompt: @order.payment}, class: 'form-control btn btn-default' %></td>
-              <!-- ここは、ラジオボタンではなく、セレクトボックスにしたほうがいい気がする。 -->
+              <td><%= f.select :payment, Order.payments_i18n.invert, {prompt: @order.payment}, class: 'form-control btn btn-default' %></td>
             </tr>
           </tbody>
         </table>
