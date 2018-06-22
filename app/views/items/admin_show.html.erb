@@ -59,8 +59,7 @@
             </tr>
             <% @item.records.each do |record| %>
             <tr>
-              <td>収録曲</td>
-              <td><%= record.record_name%></td>
+              <td>収録曲(<%= record.record_name %>)</td>
             </tr>
               <% record.songs.each do |song| %>
                 <tr>

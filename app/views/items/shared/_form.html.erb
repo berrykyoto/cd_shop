@@ -1,89 +1,61 @@
+<%= form_for(@item) do |f| %>
 <div class="field">
-	<tr>
-		<td><%= f.label :item_image_id, "イメージ" %></td>
-		<td><%= f.attachment_field :item_image, placeholder: "画像のアップロード" %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :title, "商品名" %></td>
-		<td><%= f.text_field :title %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :singer, "アーティスト" %></td>
-		<td><%= f.text_field :singer %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :style, "シングル or アルバム" %></td>
-		<td><%= f.select :style, Item.styles_i18n.invert %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :label, "レーベル" %></td>
-		<td><%= f.text_field :label %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :anime, "アニメタイトル" %></td>
-		<td><%= f.text_field :anime %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :genre_id, "ジャンル" %></td>
-		<td><%= f.collection_select(:genre_id, Genre.all, :id, :genre_name) %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :comment, "商品説明" %></td>
-		<td><%= f.text_area :comment %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :age, "発売年月日" %></td>
-		<td><%= f.text_field :age %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :price, "価格" %></td>
-		<td><%= f.number_field :price, min: 0 %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :stock, "在庫数" %></td>
-		<td><%= f.number_field :stock, min: 0 %></td>
-	</tr>
-			<%= f.hidden_field :id %>
+           <%= f.hidden_field :admin_id, :value => @admin %>
 
+	<div class="field">
+		<%= f.label :item_image_id, "イメージ" %>
+		<%= f.attachment_field :item_image, placeholder: "画像のアップロード" %>
+	</div>
+	<div class="field">
+		<%= f.label :title, "商品名" %>
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.label :singer, "アーティスト" %>
+		<%= f.text_field :singer %>
+	</div>
+	<div class="field">
+		<%= f.label :style, "シングル or アルバム" %>
+		<%= f.select :style, Item.styles_i18n.invert %>
+	</div>
+	<div class="field">
+		<%= f.label :label, "レーベル" %>
+		<%= f.text_field :label %>
+	</div>
+	<div class="field">
+		<%= f.label :anime, "アニメタイトル" %>
+		<%= f.text_field :anime %>
+	</div>
+	<div class="field">
+		<%= f.label :genre_id, "ジャンル" %>
+		<%= f.collection_select(:genre_id, Genre.all, :id, :genre_name) %>
+	</div>
+	<div class="field">
+		<%= f.label :comment, "商品説明" %>
+		<%= f.text_area :comment %>
+	</div>
+	<div class="field">
+		<%= f.label :age, "発売年月日" %>
+		<%= f.text_field :age %>
+	</div>
+	<div class="field">
+		<%= f.label :price, "価格" %>
+		<%= f.number_field :price, min: 0 %>
+	</div>
+	<div class="field">
+		<%= f.label :stock, "在庫数" %>
+		<%= f.number_field :stock, min: 0 %>
+	</div>
+	<div id="records">
+		<%= f.fields_for :records do |record| %>
+			<%= render "items/shared/record_fields", { f: record, records: @records  }%>
+		<% end %>
+	<div id="links">
+		<%= link_to_add_association 'add record',f, :records, partial: "items/shared/record_fields", render_options: {locals:{ records: @records }}%>
+	</div>
 
-<%= f.nested_fields_for :records, wrapper_tag: :tr do |q| %>
-	<tr>
-		<td><%= q.label :record_name, "レコード" %></td>
-		<td><%= q.text_field :record_name %></td>
-	</tr>
-			<%= q.hidden_field :id %>
-
-<!-- <table class="table">
-<tbody> -->
-	<%= q.nested_fields_for :songs, wrapper_tag: :tr do |r| %>
-		
-			<td><%= r.label :song_number, "曲順" %></td>
-			<td><%= r.number_field :song_number, min: 1 %></td>
-		
-		
-			<td><%= r.label :song_name, "曲名" %></td>
-			<td><%= r.text_field :song_name %></td>
-		
-		
-			<td><%= r.label :song_time, "時間" %></td>
-			<td><%= r.text_field :song_time %></td>
-		
-				<%= r.hidden_field :id %>
-		
-			<td><%= r.remove_nested_fields_link 'Delete song', class: 'btn btn-danger', role: 'button' %></td>
-		
-	<% end %>
-<!-- </tbody>
-</table> -->
-	<td><%= q.add_nested_fields_link :songs, 'Add song', class: 'btn btn-primary', role: 'button' %></td>
-<!-- </tbody>
-</table> -->
-		<td><%= q.remove_nested_fields_link 'Delete record', class: 'btn btn-danger', role: 'button' %></td>
-
-<% end %>
-</tbody>
-</table>
-<%= f.add_nested_fields_link :records, 'Add record', class: 'btn btn-primary', role: 'button' %>
+ <div class="button-area">
+          <%= f.submit "完了", class: "btn btn-info" %>
+ </div>
 </div>
-<!-- </tbody>
-</table> -->
+<% end %>
