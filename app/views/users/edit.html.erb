@@ -3,61 +3,74 @@
 
 <div class="body-content">
   <div class="container-fluid main-content">
-    <h2 class="h2">会員ページ</h2>
+    <h2 class="h2">会員編集ページ</h2>
     <div class="user-info">
       <h3 class="h3">会員情報</h3>
+
+    <table class="table">
+      <tbody>
       <%= form_for(@user) do |f| %>
   
-
+        <tr>
           <div class="field">
-            <%= f.label :name, "お名前(姓名)" %><br />
-            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "regist-box" %>
+            <td><%= f.label :name, "お名前(姓名)" %></td>
+            <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "regist-box" %></td>
           </div>
-
+        </tr>
+        <tr>
           <div class="field">
-            <%= f.label :name_kana, "お名前(フリガナ)" %><br />
-            <%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", class: "regist-box" %>
+            <td><%= f.label :name_kana, "お名前(フリガナ)" %></td>
+            <td><%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", class: "regist-box" %></td>
           </div>
-
+        </tr>
+        <tr>
           <div class="field">
-            <%= f.label :post_code, "郵便番号" %><br />
-            <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class: "regist-box" %>
+            <td><%= f.label :post_code, "郵便番号" %></td>
+            <td><%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class: "regist-box" %></td>
           </div>
-
+        </tr>
+        <tr>
           <div class="field">
-            <%= f.label :address, "住所" %><br />
-            <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "address-box" %>
+            <td><%= f.label :address, "住所" %></td>
+            <td><%= f.text_area :address, autofocus: true, autocomplete: "address", class: "address-box" %></td>
           </div>
-
+        </tr>
+        <tr>
           <div class="field">
-            <%= f.label :phone, "電話番号" %><br />
-            <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "regist-box" %>
+            <td><%= f.label :phone, "電話番号" %></td>
+            <td><%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "regist-box" %></td>
           </div>
-
+        </tr>
+        <tr>
           <div class="field">
-            <%= f.label :email, "メールアドレス" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "regist-box" %>
+            <td><%= f.label :email, "メールアドレス" %></td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "regist-box" %></td>
           </div>
-
+        </tr>
+        <tr>
           <div class="field">
-            <%= f.label :password, "パスワード" %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %>文字以上)</em>
-            <% end %><br />
-              <%= f.password_field :password, autocomplete: "password", class: "regist-box" %>
+            <td><%= f.label :password, "パスワード" %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %>文字以上)</em>
+              <% end %></td>
+              <td><%= f.password_field :password, autocomplete: "password", class: "regist-box" %></td>
           </div>
-
+        </tr>
+        <tr>
           <div class="field">
-            <%= f.label :password_confirmation, "パスワード再確認" %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: "regist-box" %>
+            <td><%= f.label :password_confirmation, "パスワード再確認" %></td>
+            <td><%= f.password_field :password_confirmation, autocomplete: "off", class: "regist-box" %></td>
           </div>
-
-
+        </tr>
+        <tr>
           <div class="actions">
-            <%= f.submit "更新", class:"btn btn-info btn-lg btn-block" %>
+            <td><%= f.submit "更新", class:"btn btn-info btn-lg btn-block" %></td>
           </div>
+        </tr>
       <% end %>
       </div>
+      </tbody>
+    </table>
     </div>
   </div>
 </div>
