@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+
+	before_action :authenticate_user!, except: [:index, :show, :admin_index, :admin_show]
+
 	def index
 		@items = Item.search(params[:search])
 	end

@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@orders = Order.all.includes(:user)
 	end
@@ -16,9 +17,6 @@ class OrdersController < ApplicationController
 		@order = Order.new(order_params)
 		 @order.save
         	redirect_to new_order_item_path
-    	# else
-    	# 	render :new
-    	# end
 	end
 
 	def edit
