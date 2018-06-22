@@ -8,7 +8,7 @@
     <%= form_for(@order) do |f| %><!-- order編集フォーム　はじまり -->
 
     <div class="status-box">
-      <p><%= @order.created_at %>のご注文
+      <p><%= @order.order_items.first[:created_at].strftime("%Y/%m/%d") %>のご注文
       <p><%= f.select :status, Order.statuses_i18n.invert.keys, {prompt: @order.status}, class: 'form-control btn btn-default' %></p>
       </p>
     </div>

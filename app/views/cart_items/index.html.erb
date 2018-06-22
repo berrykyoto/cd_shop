@@ -39,9 +39,9 @@
                 <% end %>
                   ※在庫数以上は購入できません。
               </td>
-              <td class="button-area"><%= f.submit "変更",class:"btn btn-info btn-xs" %>
+              <td class="button-area"><%= f.submit "更新",class:"btn btn-info btn-xs" %>
             <% end %>
-                  <%= link_to "削除", cart_item_path(cart_item.id), method: :delete,data: { confirm: '削除しますか？' }, class:"btn btn-default btn-xs" %></td>
+                  <%= link_to "削除", cart_item_path(cart_item.id), method: :delete,data: { confirm: 'カートから出してよろしいですか？' }, class:"btn btn-default btn-xs" %></td>
 
             <td>￥<%= cart_item.item.price * cart_item.quantity %></td>
           </tr>

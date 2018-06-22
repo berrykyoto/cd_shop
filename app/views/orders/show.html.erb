@@ -5,7 +5,7 @@
   <div class="container-fluid main-content">
     <h2 class="h2">注文履歴の詳細</h2>
     <div class="status-box">
-      <p><%= @order.created_at %>のご注文</p>
+      <p><%= @order.order_items.first[:created_at].strftime("%Y/%m/%d") %>のご注文</p>
       <p><%= @order.status_i18n %></p><!-- 日付、ステータスの表示 -->
     </div>
     <div class="">
