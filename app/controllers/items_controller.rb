@@ -19,8 +19,10 @@ class ItemsController < ApplicationController
 	def new
 		@admin = current_admin.id
 		@item = Item.new
-		@item.records.build
-		@item.records.first.songs.build
+		@record = @item.records.build
+		@song = @record.songs.build
+		# @item.records.build
+		# @item.records.first.songs.build
 	end
 
 	def create
@@ -31,13 +33,15 @@ class ItemsController < ApplicationController
 	end
 
 	def edit
+		@admin = current_admin.id
 		@item = Item.includes(records: [:songs]).find(params[:id])
 	end
 
 	def update
+		@admin = current_admin.id
 		@item = Item.includes(records: [:songs]).find(params[:id])
 		@item.update(item_params)
-		redirect_to admin_show_path(item.id)
+		redirect_to admin_show_path(@item)
 	end
 
 	def destroy

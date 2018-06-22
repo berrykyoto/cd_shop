@@ -8,20 +8,11 @@
 
       <!-- <div class="col-sm-4 main-left"> -->
         <!-- <div class="item-image-new"></div> -->
-        <table class="table">
-          <tbody>
-            <%= form_for(@item) do |f| %>
+    <!--     <table class="table">
+          <tbody> -->
 
-            <%= f.hidden_field :admin_id, :value => @admin %>
+            <%= render partial: "items/shared/form", item: @item %>
 
-            <%= render partial: "items/shared/form", locals: {f: f } %>
-
-
-
-        <div class="button-area">
-          <%= f.submit "新規追加", class: "btn btn-info" %>
-        </div>
-        <% end %>
       <!-- </div> -->
 
 <!--       <div class="col-sm-8 left-box">
@@ -55,4 +46,3 @@
       </div>
     </div>
   </div>
-</div>
