@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!, except: [:index]
 
 	def index
+		if admin_signed_in?
 		@users = User.search(params[:search])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def show
@@ -29,6 +34,10 @@ class UsersController < ApplicationController
   	end
 
 private
+	def correct_user
+		@admin = Admin.find(params[:id])
+		redirect_to(root_path) unless @admin == current_user
+	end
   	def user_params
       	params.require(:user).permit(:name, :name_kana, :email, :post_code, :address, :phone, :password)
   	end
