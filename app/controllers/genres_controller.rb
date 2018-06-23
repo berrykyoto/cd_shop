@@ -1,13 +1,21 @@
 class GenresController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:index, :new, :create, :edit, :update]
 
 	def index
-		@genres = Genre.all
-		@genre = Genre.new
+		if admin_signed_in?
+			@genres = Genre.all
+			@genre = Genre.new
+		else
+			redirect_to root_path
+		end
 	end
 
 	def new
-		@genre = Genre.new
+		if admin_signed_in?
+			@genre = Genre.new
+		else
+			redirect_to root_path
+		end
 	end
 
 	def create
@@ -17,7 +25,11 @@ class GenresController < ApplicationController
 	end
 
 	def edit
-		@genre = Genre.find(params[:id])
+		if admin_signed_in?
+			@genre = Genre.find(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def update

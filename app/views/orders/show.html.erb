@@ -81,14 +81,15 @@
       </div>
     </div>
 
+    <% if admin_signed_in? %>
+        <div class="main-bottom"><!-- 管理者ログイン時のみ表示 -->
 
-    <div class="main-bottom"><!-- 管理者ログイン時のみ表示 -->
+            <%= link_to "編集する", edit_order_path(@order), class:"btn btn-info btn-lg" %>
 
-        <button type="button" class="btn btn-default btn-xs cart-button">前に戻る</button>
-        <%= link_to "編集する", edit_order_path(@order), class:"btn btn-info btn-xs cart-button" %>
-        <%= link_to "削除する", order_path(@order), method: :delete, class: "btn btn-danger btn-lg user-button" %>
-
-    </div>
+        </div>
+    <% end %>
 
   </div>
 </div>
+
+<%= render 'shared/footer' %>

@@ -18,9 +18,16 @@
           </tr>
         </tbody>
       </table>
-      <div class="button-area">
-        <%= link_to "編集する", edit_admin_path(@admin), class: "btn btn-info btn-lg user-button" %>
+      <div class="admin-button-area clearfix">
+        <div class="admin-button">
+          <%= link_to "編集する", edit_admin_path(@admin), class: "btn btn-info btn-lg user-button" %>
+        </div>
+        <div class="admin-button admin-pass-button">
+          <%= link_to "パスワード変更", admin_password_edit_path(@admin), class: "password-button" %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= render 'shared/footer' %>

@@ -1,11 +1,19 @@
 class ContactsController < ApplicationController
-	before_action :authenticate_user!, except: [:new]
+	before_action :authenticate_user!, except: [:index, :show, :new, :create, :destroy]
 def index
-	@contacts = Contact.all
+	if admin_signed_in?
+		@contacts = Contact.all
+	else
+		redirect_to root_path
+	end
 end
 
 def show
-	@contact = Contact.find(params[:id])
+	if admin_signed_in?
+		@contact = Contact.find(params[:id])
+	else
+		redirect_to root_path
+	end
 end
 
 def new
@@ -19,9 +27,11 @@ def create
 end
 
 def destroy
-	contact = Contact.find(params[:id])
-    contact.destroy
-    redirect_to items_path
+	if admin_signed_in?
+		contact = Contact.find(params[:id])
+	    contact.destroy
+	    redirect_to contacts_path
+	end
 end
 
 private

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-	before_action :authenticate_user!, except: [:index, :show, :admin_index, :admin_show]
+	before_action :authenticate_user!, except: [:index, :show, :new, :create, :edit, :update, :admin_index, :admin_show]
 
 	def index
 		@items = Item.search(params[:search])
@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
 	def show
 		@cart_item = CartItem.new
-		@item = Item.includes(records: [:songs]).find(params[:id])
+		@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
 		@current_item_array = []
     	@item.stock.times do |quantity|
       		if quantity < 10
@@ -20,12 +20,16 @@ class ItemsController < ApplicationController
 	end
 
 	def new
-		@admin = current_admin.id
-		@item = Item.new
-		@record = @item.records.build
-		@song = @record.songs.build
-		# @item.records.build
-		# @item.records.first.songs.build
+		if admin_signed_in?
+			@admin = current_admin.id
+			@item = Item.new
+			@record = @item.records.build
+			@song = @record.songs.build
+			# @item.records.build
+			# @item.records.first.songs.build
+		else
+			redirect_to root_path
+		end
 	end
 
 	def create
@@ -36,8 +40,12 @@ class ItemsController < ApplicationController
 	end
 
 	def edit
-		@admin = current_admin.id
-		@item = Item.includes(records: [:songs]).find(params[:id])
+		if admin_signed_in?
+			@admin = current_admin.id
+			@item = Item.includes(records: [:songs]).find(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def update
@@ -47,19 +55,27 @@ class ItemsController < ApplicationController
 		redirect_to admin_show_path(@item)
 	end
 
-	def destroy
-		@item = Item.includes(records: [:songs]).find(params[:id])
-		@item.destroy
-		redirect_to admin_index_path
+	# def destroy
+	# 	@item = Item.includes(records: [:songs]).find(params[:id])
+	# 	@item.destroy
+	# 	redirect_to admin_index_path
 
-	end
+	# end
 
 	def admin_index
-		@items = Item.search(params[:search])
+		if admin_signed_in?
+			@items = Item.search(params[:search])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def admin_show
-		@item = Item.includes(records: [:songs]).find(params[:id])
+		if admin_signed_in?
+			@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 private

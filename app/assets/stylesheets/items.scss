@@ -124,6 +124,21 @@ textarea {
   height:200px;
   background-color:#DAE2E5;
 }
+
+.item-button{
+  margin-top:20px;
+}
+.item-form-box{
+  width:350px;
+  margin-bottom:20px;
+}
+.item-form{
+  display:block;
+  margin-left: auto;
+  width:300px;
+}
+
+
 /*edit-------------------------------------------------*/
 .item-image-edit{
   background-image: url(item.png);
@@ -134,7 +149,18 @@ textarea {
 }
 
 /*admin_show-------------------------------------------------*/
-.admin_show-button{
-  display:block;
-  margin:40px auto;
+.button-area-admin_show{
+  width:200px;
+  margin-top:100px;
+}
+.record-head{
+  font-size:14px;
+  font-weight: 500;
+}
+.detail1{
+  font-size:18px;
+  font-weight: 500;
+}
+.detail2{
+  font-size:15px;
 }

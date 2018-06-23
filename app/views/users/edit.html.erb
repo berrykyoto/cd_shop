@@ -7,10 +7,10 @@
     <div class="user-info">
       <h3 class="h3">会員情報</h3>
 
-    <table class="table">
-      <tbody>
       <%= form_for(@user) do |f| %>
-  
+      <table class="table">
+      <tbody>
+
         <tr>
           <div class="field">
             <td><%= f.label :name, "お名前(姓名)" %></td>
@@ -47,30 +47,16 @@
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "regist-box" %></td>
           </div>
         </tr>
-        <tr>
-          <div class="field">
-            <td><%= f.label :password, "パスワード" %>
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %>文字以上)</em>
-              <% end %></td>
-              <td><%= f.password_field :password, autocomplete: "password", class: "regist-box" %></td>
-          </div>
-        </tr>
-        <tr>
-          <div class="field">
-            <td><%= f.label :password_confirmation, "パスワード再確認" %></td>
-            <td><%= f.password_field :password_confirmation, autocomplete: "off", class: "regist-box" %></td>
-          </div>
-        </tr>
-        <tr>
-          <div class="actions">
-            <td><%= f.submit "更新", class:"btn btn-info btn-lg btn-block" %></td>
-          </div>
-        </tr>
-      <% end %>
       </div>
       </tbody>
     </table>
+      <div class="actions user-update">
+        <%= f.submit "更 新", class:"btn btn-info btn-lg btn-block" %>
+      </div>
+    <% end %>
+
     </div>
   </div>
 </div>
+
+<%= render 'shared/footer' %>

@@ -1,12 +1,20 @@
 class AdminsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:show, :edit, :update, :admin_password_edit]
 
 	def show
-		@admin = Admin.find(params[:id])
+		if admin_signed_in?
+			@admin = Admin.find(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def edit
-		@admin = Admin.find(params[:id])
+		if admin_signed_in?
+			@admin = Admin.find(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def update
@@ -16,6 +24,14 @@ class AdminsController < ApplicationController
       	else
       		render :edit
       	end
+	end
+
+	def admin_password_edit
+		if admin_signed_in?
+			@admin = Admin.find(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 private
