@@ -1,12 +1,16 @@
 class CartItemsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:index, :edit, :update]
 def index
-	@cart_items = CartItem.all
-	if @cart_items.present?
-    	@total_price = 0
-		@cart_items.each do |cart_item|
-			@total_price = @total_price + cart_item.item.price * cart_item.quantity
+	if user_signed_in?
+		@cart_items = CartItem.all
+		if @cart_items.present?
+	    	@total_price = 0
+			@cart_items.each do |cart_item|
+				@total_price = @total_price + cart_item.item.price * cart_item.quantity
+			end
 		end
+	else
+		redirect_to root_path
 	end
 end
 
@@ -18,7 +22,11 @@ def create
 end
 
 def edit
-	@cart_item = CartItem.find(params[:id])
+	if user_signed_in?
+		@cart_item = CartItem.find(params[:id])
+	else
+		redirect_to root_path
+	end
 end
 
 def update

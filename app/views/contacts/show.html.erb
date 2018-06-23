@@ -26,7 +26,8 @@
               </tr>
             </tbody>
           </table>
-          <div class="ob"><%= link_to "削除",contact_path(@contact), method: :delete ,data: { confirm: '削除しますか？' } ,class:"btn-sm btn-danger"%></div><br>
-          <div class="ob"><%= link_to "戻る",contacts_path,class:"btn-sm btn-success" %></div>
+          <div class="ob"><%= link_to "削除",contact_path(@contact), method: :delete ,data: { confirm: '削除しますか？' } ,class:"btn btn-lg btn-danger"%></div>
    	</div>
-</div> 
+</div>
+
+<%= render 'shared/footer' %>

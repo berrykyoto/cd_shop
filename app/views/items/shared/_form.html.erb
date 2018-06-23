@@ -1,6 +1,11 @@
+
 <%= form_for(@item) do |f| %>
 <div class="field">
            <%= f.hidden_field :admin_id, :value => @admin %>
+
+
+<div class="item-form-box">
+	
 
 	<div class="field">
 		<%= f.label :item_image_id, "イメージ" %>
@@ -8,23 +13,23 @@
 	</div>
 	<div class="field">
 		<%= f.label :title, "商品名" %>
-		<%= f.text_field :title %>
+		<%= f.text_field :title, class: "item-form" %>
 	</div>
 	<div class="field">
 		<%= f.label :singer, "アーティスト" %>
-		<%= f.text_field :singer %>
+		<%= f.text_field :singer, class: "item-form" %>
 	</div>
 	<div class="field">
 		<%= f.label :style, "シングル or アルバム" %>
-		<%= f.select :style, Item.styles_i18n.invert %>
+		<%= f.select :style, Item.styles_i18n.invert, class: "item-form" %>
 	</div>
 	<div class="field">
 		<%= f.label :label, "レーベル" %>
-		<%= f.text_field :label %>
+		<%= f.text_field :label, class: "item-form" %>
 	</div>
 	<div class="field">
 		<%= f.label :anime, "アニメタイトル" %>
-		<%= f.text_field :anime %>
+		<%= f.text_field :anime, class: "item-form" %>
 	</div>
 	<div class="field">
 		<%= f.label :genre_id, "ジャンル" %>
@@ -32,30 +37,38 @@
 	</div>
 	<div class="field">
 		<%= f.label :comment, "商品説明" %>
-		<%= f.text_area :comment %>
+		<%= f.text_area :comment, class: "item-form" %>
 	</div>
 	<div class="field">
 		<%= f.label :age, "発売年月日" %>
-		<%= f.text_field :age %>
+		<%= f.text_field :age, class: "item-form" %>
 	</div>
 	<div class="field">
 		<%= f.label :price, "価格" %>
-		<%= f.number_field :price, min: 0 %>
+		<%= f.number_field :price, min: 0, class: "item-form" %>
 	</div>
 	<div class="field">
 		<%= f.label :stock, "在庫数" %>
-		<%= f.number_field :stock, min: 0 %>
+		<%= f.number_field :stock, min: 0, class: "item-form" %>
 	</div>
+
+</div>
+
 	<div id="records">
 		<%= f.fields_for :records do |record| %>
 			<%= render "items/shared/record_fields", { f: record, records: @records  }%>
 		<% end %>
+	</div>
 	<div id="links">
-		<%= link_to_add_association 'add record',f, :records, partial: "items/shared/record_fields", render_options: {locals:{ records: @records }}%>
+		<%= link_to_add_association '＋',f, :records, partial: "items/shared/record_fields", render_options: {locals:{ records: @records }}, class: "btn btn-sm btn-default" %>
 	</div>
 
- <div class="button-area">
-          <%= f.submit "完了", class: "btn btn-info" %>
+
+
+
+ <div class="button-area item-button">
+          <%= f.submit "　完 了　", class: "btn btn-lg btn-info" %>
  </div>
 </div>
 <% end %>
+

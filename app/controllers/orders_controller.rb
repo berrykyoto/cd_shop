@@ -1,11 +1,19 @@
 class OrdersController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:index, :show, :edit, :update]
 	def index
-		@orders = Order.all.includes(:user)
+		if admin_signed_in?
+			@orders = Order.all.includes(:user)
+		else
+			redirect_to root_path
+		end
 	end
 
 	def show
-		@order = Order.find(params[:id])
+		if admin_signed_in?
+			@order = Order.find(params[:id])
+		else
+			@order = Order.find(params[:id])
+		end
 	end
 
 	def new
@@ -20,7 +28,11 @@ class OrdersController < ApplicationController
 	end
 
 	def edit
-		@order = Order.find(params[:id])
+		if admin_signed_in?
+			@order = Order.find(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def update
@@ -32,15 +44,15 @@ class OrdersController < ApplicationController
     	end
 	end
 
-	def destroy
-		order = Order.find(params[:id])
-  		order.destroy
-  		redirect_to orders_path
-  	end
+	# def destroy
+	# 	order = Order.find(params[:id])
+ #  		order.destroy
+ #  		redirect_to orders_path
+ #  	end
 
 private
   	def order_params
-      	params.require(:order).permit(:send_name, :send_post_code, :send_address, :payment, :user_id)
+      	params.require(:order).permit(:send_name, :send_post_code, :send_address, :payment, :user_id, :status)
   	end
 
 end

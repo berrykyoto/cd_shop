@@ -18,7 +18,7 @@
       <td><%= f.password_field :password, autocomplete: "off", class: "regist-box" %></td>
     </tr>
   </div>
-    
+
   <% if devise_mapping.rememberable? -%>
   <tr>
     <div class="field">
@@ -45,4 +45,5 @@
   </div>
 </div>
 
+<%= render 'shared/footer' %>
 

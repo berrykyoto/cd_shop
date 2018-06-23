@@ -21,8 +21,8 @@
  							<td><%= contact.phone %></td>
  							<td><%= contact.email %></td>
  							<td><%= contact.title %></td>
-							<td><%= link_to "詳細",contact_path(contact),class:"btn-sm btn-info" %></td>
-							<td><%= link_to "削除",contact_path(contact), method: :delete ,data: { confirm: '削除しますか？' },class:"btn-sm btn-danger" %></td>
+							<td><%= link_to "詳細",contact_path(contact),class:"btn btn-sm btn-info" %></td>
+							<td><%= link_to "削除",contact_path(contact), method: :delete ,data: { confirm: '削除しますか？' },class:"btn btn-sm btn-danger" %></td>
  						</tr>
  						<% end %>
  					</tbody>
@@ -30,3 +30,5 @@
 		</div>
 	</div>
 </div>
+
+<%= render 'shared/footer' %>

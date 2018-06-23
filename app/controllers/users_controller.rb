@@ -1,36 +1,68 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!, except: [:index]
+	before_action :authenticate_user!, except: [:index, :show, :edit, :update, :destroy, :user_password_edit]
 
 	def index
 		if admin_signed_in?
-		@users = User.search(params[:search])
+			@users = User.search(params[:search])
 		else
 			redirect_to root_path
 		end
 	end
 
 	def show
-		@user = User.find(params[:id])
-		@orders = @user.orders.page(params[:page])
+		if user_signed_in?
+			@user = User.find(params[:id])
+			@orders = @user.orders.page(params[:page])
+		else admin_signed_in?
+			@user = User.find(params[:id])
+			@orders = @user.orders.page(params[:page])
+		end
 	end
 
 	def edit
-		@user = User.find(params[:id])
+		if user_signed_in?
+			@user = User.find(params[:id])
+		else admin_signed_in?
+			@user = User.find(params[:id])
+		end
 	end
 
 	def update
-		@user = User.find(params[:id])
-     	if @user.update(user_params)
-        	redirect_to user_path(@user.id)
-    	else
-      		render :edit
-    	end
+		if user_signed_in?
+			@user = User.find(params[:id])
+	     	if @user.update(user_params)
+	        	redirect_to user_path(@user.id)
+	    	else
+	      		render :edit
+	    	end
+	    else admin_signed_in?
+	    	@user = User.find(params[:id])
+	     	if @user.update(user_params)
+	        	redirect_to user_path(@user.id)
+	    	else
+	      		render :edit
+	    	end
+	    end
 	end
 
 	def destroy
-		user = User.find(params[:id])
-  		user.destroy
-  		redirect_to items_path
+		if user_signed_in?
+			user = User.find(params[:id])
+	  		user.destroy
+	  		redirect_to items_path
+	  	else admin_signed_in?
+	  		user = User.find(params[:id])
+	  		user.destroy
+	  		redirect_to items_path
+	  	end
+  	end
+
+  	def user_password_edit
+  		if user_signed_in?
+			@user = User.find(params[:id])
+		else admin_signed_in?
+			@user = User.find(params[:id])
+		end
   	end
 
 private
