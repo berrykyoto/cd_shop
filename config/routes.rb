@@ -15,6 +15,13 @@ get '/admin_index' => "items#admin_index"
 get '/admin_show/:id' => "items#admin_show", as:'admin_show'
 get '/user_password_edit/:id' => "users#user_password_edit", as:'user_password_edit'
 get '/admin_password_edit/:id' => "admins#admin_password_edit", as:'admin_password_edit'
+get '/aboute' => "users#aboute"
+get '/payment' => "users#payment"
+get '/return' => "users#return"
+get '/privacy' => "users#privacy"
+get '/tokutei' => "users#tokutei"
+get '/delivery' => "users#delivery"
+
 resources :contacts, only: [:index, :show, :new, :create, :destroy]
 resources :items
 resources :genres, only: [:index, :new, :create, :edit, :update, :destroy]

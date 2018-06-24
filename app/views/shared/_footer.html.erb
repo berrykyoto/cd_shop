@@ -15,13 +15,13 @@
       <div class="col-sm-6 footer-right">
         <div class="">
           <ul class="footer-list">
-            <li class="footer-list-item">ホーム</li>
-            <li class="footer-list-item">当サイトについて</li>
-            <li class="footer-list-item">支払い方法について</li>
-            <li class="footer-list-item">配送・送料について</li>
-            <li class="footer-list-item">返品について</li>
-            <li class="footer-list-item">特定商取引法に基づく表記</li>
-            <li class="footer-list-item">プライバシーポリシー</li>
+            <%= link_to "ホーム", items_path, class:"footer-list-item" %><br>
+            <%= link_to "当サイトについて", aboute_path, class:"footer-list-item" %><br>
+            <%= link_to "お支払方法について", payment_path, class:"footer-list-item" %><br>
+            <%= link_to "送料について", delivery_path, class:"footer-list-item" %><br>
+            <%= link_to "返品について", return_path, class:"footer-list-item" %><br>
+            <%= link_to "特定商取引法に基づく表記", tokutei_path, class:"footer-list-item" %><br>
+            <%= link_to "プライバシーポリシー", privacy_path, class:"footer-list-item" %><br>
             <%= link_to "お問い合わせ", new_contact_path, class:"footer-list-item" %>
         </div>
       </div>

@@ -106,12 +106,12 @@ body{
 
 /*メインの幅---------------------------------------*/
 .blue-box{
-  padding: 20px 0;
+  padding: 20px 0 10px 0;
   background-color: #CEF6F5;
 }
 .blue-box-c{
   width: 500px;
-  padding: 20px 0;
+  padding: 20px 0 10px 0;
   margin: 0 auto;
   background-color: #CEF6F5;
 }
@@ -133,20 +133,25 @@ body{
   width: 500px;
   margin:0 auto;
 }
+.body-box-about{
+  width: 700px;
+  margin:0 auto;
+}
 .actions{
   width: 115px;
   margin:20px 0;
 }
 .address-box{
-  height: 70px;
-  width: 300px;
+  height: 90px;
+  width: 200px;
   border-radius: 5px;
   border: solid 1px;
   border-color: #9EBCC6;
 }
 .regist-box{
-  border-radius: 5px;
+  height: 25px;
   width: 200px;
+  border-radius: 5px;
   border: solid 1px;
   border-color: #9EBCC6;
 }
