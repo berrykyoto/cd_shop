@@ -11,9 +11,10 @@
       </div>
       <div class="col-sm-6 item-box-show">
         <div class="item-detail">
-          <h2><%= @item.title %></h2>
-          <p><%= @item.singer %></p>
-          <p>¥<%= @item.price %></p>
+          <h2 class="title detail1"><%= @item.title %></h2>
+          <p class="singer detail2"><%= @item.singer %></p>
+          <p class="price detail2">¥<%= @item.price %></p>
+          <p class="stock detail2">残り<%= @item.stock %>枚です</p>
         </div>
 <!-- 購入ボタン　条件分岐 ここから-->
         <% if @item.stock == 0 %>
@@ -23,12 +24,13 @@
         <% else %>
 
           <% if user_signed_in? %>
-
+            <%= form_for (@cart_item) do |f| %>
             <div class="cart-area">
-            <span class="quantity">購入数</span>
-
-              <%= form_for (@cart_item) do |f| %>
-                <%= f.select :quantity, @current_item_array %>枚
+              <div class="item-show">
+              <div class="item-show-buy">
+                購入数<%= f.select :quantity, @current_item_array %>枚
+              </div>
+              </div>
                 <%= f.hidden_field :item_id, :value => @item.id %>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
                 <div class="cart-button-area">
@@ -36,7 +38,7 @@
                 </div>
               <% end %>
 
-              </div>
+            </div>
 
           <% else %>
 

@@ -24,7 +24,7 @@
                 <th>レーベル</th>
                 <th>ジャンル</th>
                 <th>価格</th>
-                <th>在庫数</th>
+                <th>在庫</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -34,10 +34,10 @@
               <tr>
                 <td><%= item.id %></td>
                 <td><%= attachment_image_tag item, :item_image, :fill, 30, 30, fallback: "noimage.png", size: '30x30'  %></td>
-                <td><%= item.title %></td>
-                <td><%= item.singer %></td>
+                <td><%= item.title.truncate(12) %></td>
+                <td><%= item.singer.truncate(12) %></td>
                 <td><%= item.style_i18n %></td>
-                <td><%= item.label %></td>
+                <td><%= item.label.truncate(12) %></td>
                 <td><%= item.genre.genre_name %></td>
                 <td>¥<%= item.price %></td>
                 <td><%= item.stock %></td>
