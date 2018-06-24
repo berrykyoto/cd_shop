@@ -2,29 +2,31 @@
 <%= render 'shared/header' %>
 
 <div class="body-content">
+  <div class="body-box">
   <div class="container-fluid">
+    <div class="row">
     <h2 class="h2">ジャンルの追加</h2>
-    <div class="main-top">
+      <div class="main-top">
+      <%= form_for(@genre) do |f| %>
       <table class="table">
         <tbody>
-          <%= form_for(@genre) do |f| %>
-              <div class="field row">
+              <div class="field">
                 <tr>
                   <td><%= f.label :genre_name, "ジャンル名" %></td>
-                  <td><%= f.text_field :genre_name %></td>
+                  <td><%= f.text_field :genre_name,class:"form-control" %></td>
                 </tr>
               </div>
-              <div class="actions row">
-                <tr>
-                  <td><%= f.submit '更新', class:"btn btn-info btn-xs" %></td>
-                </tr>
-              </div>
-            </tr>
-          <% end %>
         </tbody>
       </table>
-      <%= link_to "戻る", genres_path %>
+            <div class="genre-main">
+              <div class="actions genre-sub">
+                <%= f.submit ' 更 新 ', class:"btn btn-info btn-lg" %>
+              </div>
+            </div>
+      <% end %>
+      </div>
     </div>
+  </div>
   </div>
 </div>
 

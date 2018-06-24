@@ -102,12 +102,23 @@ textarea {
   width:350px;
   position:absolute;
   top:150px;
-  left:5px;
+  left:100px;
 }
 .cart-button{
   height:60px;
   border:0 none;
 }
+.item-show{
+  width:450px;
+  margin: 0 auto;
+  }
+  .item-show-buy{
+  font-size:22px;
+  width:200px;
+  height:100px;
+  padding-top:70px;
+  margin: 0 auto;
+  }
 /*new-------------------------------------------------*/
 .item-image-new{
   background-image: url(noimage.png);

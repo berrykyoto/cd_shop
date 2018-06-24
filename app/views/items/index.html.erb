@@ -1,17 +1,17 @@
 <!-- サイトトップ ユーザー用-->
 <%= render 'shared/header' %>
-
-<div class="search"></div><!-- 検索フォーム -->
-
-<div class="body-content">
-  <div class="container-fluid">
-    <div class="row">
-      <%= form_tag items_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+<div class="search">
+  <%= form_tag items_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
         <p>
           <%= text_field_tag :search, params[:serch] %>
           <%= submit_tag "検索", :title => nil %>
         </p>
       <% end %>
+</div><!-- 検索フォーム -->
+
+<div class="body-content">
+  <div class="container-fluid">
+    <div class="row">
        <!-- サイドバー　はじまり -->
       <!-- <div class="col-sm-3 sidebar-content">
         <h2 class="h2">アニメから探す</h2>
