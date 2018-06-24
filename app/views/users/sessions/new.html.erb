@@ -9,9 +9,9 @@
     </div>
   </div>
 
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <table class="table">
     <tbody>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <tr>
       <td><%= f.label :email, "メールアドレス" %></td>

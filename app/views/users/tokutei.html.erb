@@ -1,0 +1,61 @@
+<%= render 'shared/header' %>
+<div class="body-content">
+  <div class="body-box-about">
+  <h2 class="h2-box">特定商取引法に基づく表記</h2>
+
+    <table class="table">
+      <tbody>
+              <tr>
+                <td>事業者</td>
+                <td>アニソンしかうらないお店</td>
+              </tr>
+              <tr>
+                <td>代表者</td>
+                <td>○○○○</td>
+              </tr>
+              <tr>
+                <td>ホームページ</td>
+                <td><%= link_to "アニソンしかうらないお店", items_path %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td>ｘｘｘ＠ｘｘ.ｘｘ</td>
+              </tr>
+              <tr>
+                <td>所在地</td>
+                <td>〒000-0000  ｘｘ市ｘｘ区ｘｘ町0-0</td>
+              </tr>
+              <tr>
+                <td>電話番号</td>
+                <td>000-000-0000</td>
+              </tr>
+              <tr>
+                <td>販売価格帯</td>
+                <td>各商品に表記された価格に準じます</td>
+              </tr>
+              <tr>
+                <td>商品などの引き渡し時期</td>
+                <td>入金確認後、1~7日程度で発送</td>
+              </tr>
+              <tr>
+                <td>お支払方法</td>
+                <td>コンビニ・銀行振り込み  クレジットカード決済  代金引換</td>
+              </tr>
+              <tr>
+                <td>商品代金以外に必要な費用</td>
+                <td>支払い方法により所定の手数料</td>
+              </tr>
+      </tbody>
+    </table>
+
+  <div class="main-bottom">
+
+        <%= link_to "トップページに戻る", items_path, class: "btn btn-default btn-sm" %>
+
+  </div>
+
+
+  </div>
+</div>
+
+<%= render 'shared/footer' %>

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show, :edit, :update, :destroy, :user_password_edit]
+	before_action :authenticate_user!, except: [:index, :show, :edit, :update, :destroy, :user_password_edit, :aboute, :payment, :return, :privacy, :tokutei, :delivery]
+
 
 	def index
 		if admin_signed_in?
@@ -64,6 +65,25 @@ class UsersController < ApplicationController
 			@user = User.find(params[:id])
 		end
   	end
+
+  	def aboute
+  	end
+
+  	def payment
+  	end
+
+	def return
+  	end
+
+  	def privacy
+  	end
+
+  	def tokutei
+  	end
+
+  	def delivery
+  	end
+
 
 private
 	def correct_user
