@@ -5,6 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 has_many :orders
 has_many :cart_items
+validates :name, presence: true
+validates :namekana, presence: true
+validates :email, presence: true
+validates :post_code, presence: true
+validates :address, presence: true
+validates :phone, presence: true
 
 
 def self.search(search)

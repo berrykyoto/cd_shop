@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
 		if admin_signed_in?
 			@admin = Admin.find(params[:id])
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
@@ -13,14 +13,14 @@ class AdminsController < ApplicationController
 		if admin_signed_in?
 			@admin = Admin.find(params[:id])
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
 	def update
 		@admin = Admin.find(params[:id])
       	if @admin.update(admin_params)
-      		redirect_to admin_path(@admin)
+      		redirect_to admin_path(@admin), notice: "更新できました。"
       	else
       		render :edit
       	end
@@ -30,7 +30,7 @@ class AdminsController < ApplicationController
 		if admin_signed_in?
 			@admin = Admin.find(params[:id])
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 

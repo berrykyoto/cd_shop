@@ -6,7 +6,7 @@ class GenresController < ApplicationController
 			@genres = Genre.all
 			@genre = Genre.new
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
@@ -14,34 +14,34 @@ class GenresController < ApplicationController
 		if admin_signed_in?
 			@genre = Genre.new
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
 	def create
 		@genre = Genre.new(genre_params)
 		@genre.save
-		redirect_to genres_path
+		redirect_to genres_path, notice: "ジャンルが追加されました。"
 	end
 
 	def edit
 		if admin_signed_in?
 			@genre = Genre.find(params[:id])
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
 	def update
 		@genre = Genre.find(params[:id])
 		@genre.update(genre_params)
-		redirect_to genres_path
+		redirect_to genres_path, notice: "更新できました。"
 	end
-	def destroy
-		@genre = Genre.find(params[:id])
-		@genre.destroy
-		redirect_to genres_path
-	end
+	# def destroy
+	# 	@genre = Genre.find(params[:id])
+	# 	@genre.destroy
+	# 	redirect_to genres_path
+	# end
 
 private
   	def genre_params
