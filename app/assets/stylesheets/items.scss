@@ -44,9 +44,10 @@
     display: -ms-flex;
     display: -o-flex;
     display: flex;
+    flex-wrap:wrap;
 }
 .item-box-index{
-  margin:18px;
+  margin:16px;
 }
 .item-image1{
   background-image: url(item.png);
