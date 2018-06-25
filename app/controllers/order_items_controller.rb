@@ -25,11 +25,13 @@ def create
 			@total_price = @total_price + @order_item.sub_price
 			@order_item.total_price = @total_price
 			@order_item.save
+			@item = @order_item.item
+			@item.stock = @item.stock - @order_item.quantity
+			@item.save
 		end
 
 		CartItem.destroy_all
-        redirect_to root_path# トップページに遷移
-        flash[:notice] = '注文が完了しました'
+        redirect_to root_path, notice: "注文が確定しました。"
 
 end
 

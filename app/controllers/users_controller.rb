@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 		if admin_signed_in?
 			@users = User.search(params[:search])
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
@@ -32,14 +32,14 @@ class UsersController < ApplicationController
 		if user_signed_in?
 			@user = User.find(params[:id])
 	     	if @user.update(user_params)
-	        	redirect_to user_path(@user.id)
+	        	redirect_to user_path(@user.id), notice: "更新できました。"
 	    	else
 	      		render :edit
 	    	end
 	    else admin_signed_in?
 	    	@user = User.find(params[:id])
 	     	if @user.update(user_params)
-	        	redirect_to user_path(@user.id)
+	        	redirect_to user_path(@user.id), notice: "更新できました。"
 	    	else
 	      		render :edit
 	    	end
@@ -50,11 +50,11 @@ class UsersController < ApplicationController
 		if user_signed_in?
 			user = User.find(params[:id])
 	  		user.destroy
-	  		redirect_to items_path
+	  		redirect_to items_path, notice: "退会しました。"
 	  	else admin_signed_in?
 	  		user = User.find(params[:id])
 	  		user.destroy
-	  		redirect_to users_path
+	  		redirect_to users_path, notice: "会員を退会させました。"
 	  	end
   	end
 
@@ -88,7 +88,7 @@ class UsersController < ApplicationController
 private
 	def correct_user
 		@admin = Admin.find(params[:id])
-		redirect_to(root_path) unless @admin == current_user
+		redirect_to(root_path) unless @admin == current_user, notice: "無効なURLです。"
 	end
   	def user_params
       	params.require(:user).permit(:name, :name_kana, :email, :post_code, :address, :phone, :password)

@@ -10,7 +10,7 @@ def index
 			end
 		end
 	else
-		redirect_to root_path
+		redirect_to root_path, notice: "無効なURLです。"
 	end
 end
 
@@ -18,14 +18,14 @@ def create
 	@cart_item = CartItem.new(cart_item_params)
 	@cart_item.user_id = current_user.id
 	@cart_item.save
-	redirect_to cart_items_path
+	redirect_to cart_items_path, notice: "カートに商品が追加されました。"
 end
 
 def edit
 	if user_signed_in?
 		@cart_item = CartItem.find(params[:id])
 	else
-		redirect_to root_path
+		redirect_to root_path, notice: "無効なURLです。"
 	end
 end
 
@@ -41,13 +41,13 @@ end
 def update_quantity
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
-    redirect_to cart_items_path
+    redirect_to cart_items_path, notice: "枚数が変更されました。"
 end
 
 def destroy
 	@cart_item = CartItem.find(params[:id])
 	@cart_item.destroy
-	redirect_to cart_items_path
+	redirect_to cart_items_path, notice: "削除されました。"
 end
 
 private

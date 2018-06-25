@@ -15,5 +15,13 @@ def self.search(search)
 end
 
 enum style: { single: 0, album: 1 }
+validates :singer, presence: true
+validates :title, presence: true
+validates :price, presence: true
+validates :label, presence: true
+validates :stock, presence: true
+validates :comment, presence: true
+validates :anime, presence: true
+validates :age, presence: true
 
 end

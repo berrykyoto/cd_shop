@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 		if admin_signed_in?
 			@orders = Order.all.includes(:user)
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
@@ -31,16 +31,16 @@ class OrdersController < ApplicationController
 		if admin_signed_in?
 			@order = Order.find(params[:id])
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
 	def update
 		@order = Order.find(params[:id])
 		if @order.update(order_params)
-       		redirect_to orders_path
+       		redirect_to orders_path, notice: "更新できました。"
     	else
-     		render :edit
+     		render :edit, notice: "なんか間違ってます。入力内容を確認してください。"
     	end
 	end
 

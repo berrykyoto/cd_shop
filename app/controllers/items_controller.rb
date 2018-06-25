@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 			# @item.records.build
 			# @item.records.first.songs.build
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効URLです。"
 		end
 	end
 
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
 		@admin = current_admin.id
 		@item = Item.new(item_params)
 		@item.save
-		redirect_to admin_index_path
+		redirect_to admin_index_path, notice: "商品が追加されました。"
 	end
 
 	def edit
@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
 			@admin = current_admin.id
 			@item = Item.includes(records: [:songs]).find(params[:id])
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
 		@admin = current_admin.id
 		@item = Item.includes(records: [:songs]).find(params[:id])
 		@item.update(item_params)
-		redirect_to admin_show_path(@item)
+		redirect_to admin_show_path(@item), notice: "更新できました。"
 	end
 
 	# def destroy
@@ -71,7 +71,7 @@ class ItemsController < ApplicationController
 		if admin_signed_in?
 			@items = Item.search(params[:search])
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
@@ -79,7 +79,7 @@ class ItemsController < ApplicationController
 		if admin_signed_in?
 			@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
 		else
-			redirect_to root_path
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
