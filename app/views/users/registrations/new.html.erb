@@ -30,7 +30,10 @@
   </tr>
   <tr>
     <div class="field">
-    <td><%= f.label :post_code, "郵便番号" %></td>
+    <td><%= f.label :post_code, "郵便番号" %><br>
+      ハイフンなし、半角数字で入力してください<br>
+      (例: 123-4567 → 1234567)
+    </td>
     <td><%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class: "regist-box" %></td>
     </div>
   </tr>
@@ -42,7 +45,10 @@
   </tr>
   <tr>
     <div class="field">
-      <td><%= f.label :phone, "電話番号" %></td>
+      <td><%= f.label :phone, "電話番号" %><br>
+        ハイフンなし、半角数字で入力してください<br>
+        (例:123-4567-8910 → 12345678910)
+      </td>
       <td><%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "regist-box" %></td>
     </div>
   </tr>
