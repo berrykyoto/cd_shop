@@ -27,6 +27,7 @@
                 <th>メールアドレス</th>
                 <th></th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -41,6 +42,7 @@
                 <td><%= user.email %></td>
                 <td><%= link_to "詳細", user_path(user), class: "btn btn-info btn-sm" %></td>
                 <td><%= link_to "編集", edit_user_path(user), class: "btn btn-default btn-sm" %></td>
+                <td><%= link_to "削除", user_path(user.id), method: :delete, class: "btn btn-danger btn-sm" %></td>
               </tr>
               <% end %>
             </tbody>
