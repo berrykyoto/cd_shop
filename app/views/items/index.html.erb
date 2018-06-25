@@ -95,7 +95,7 @@
       </div> -->
        <!-- サイドバー　おわり -->
       <!-- メインコンテンツ　はじまり -->
-      <div class="col-sm-9 main-content">
+      <div class="main-content">
         <h2 class="h2">今期のアニメから探す</h2>
         <div class="main-box1" style="background-color:yellow;">
         </div>
@@ -103,9 +103,8 @@
         <div class="main-box2 clearfix">
 
           <!-- each挿入箇所 はじまり -->
-
-          <div class="item-box-index">
-             <% @items.each do |item| %>
+          <% @items.each do |item| %>
+            <div class="item-box-index">
              <%= link_to (item_path(item.id)) do %>
               <%= attachment_image_tag item, :item_image, :fill, 200, 200, fallback: "noimage.png", size: '200x200'  %>
               <% end %>
@@ -117,9 +116,8 @@
               <% else %>
               <p><%= item.stock %>個在庫有</p>
               <% end %>
-              <% end %>
-          </div>
-           <!-- each挿入箇所 おわり-->
+            </div>
+           <% end %><!-- each挿入箇所 おわり-->
         </div>
       </div>
       <!-- メインコンテンツ　おわり -->
