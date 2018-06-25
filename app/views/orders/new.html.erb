@@ -21,7 +21,10 @@
               <td><%= f.text_field :send_name, :value => @user.name,  placeholder: "入力してください" %></td>
             </tr>
             <tr>
-              <td>郵便番号</td>
+              <td>郵便番号<br>
+                ハイフンなし、半角数字で入力してください<br>
+                (例: 123-4567 → 1234567)
+              </td>
               <td><%= f.text_field :send_post_code, :value => @user.post_code,  placeholder: "入力してください" %></td>
             </tr>
             <tr>

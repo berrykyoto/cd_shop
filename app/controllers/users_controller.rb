@@ -86,10 +86,10 @@ class UsersController < ApplicationController
 
 
 private
-	def correct_user
-		@admin = Admin.find(params[:id])
-		redirect_to(root_path) unless @admin == current_user, notice: "無効なURLです。"
-	end
+	# def correct_user
+	# 	@admin = Admin.find(params[:id])
+	# 	redirect_to(root_path) unless @admin == current_user, notice: "無効なURLです。"
+	# end
   	def user_params
       	params.require(:user).permit(:name, :name_kana, :email, :post_code, :address, :phone, :password)
   	end
