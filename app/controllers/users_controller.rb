@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 	  	else admin_signed_in?
 	  		user = User.find(params[:id])
 	  		user.destroy
-	  		redirect_to items_path
+	  		redirect_to users_path
 	  	end
   	end
 
