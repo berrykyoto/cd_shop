@@ -8,16 +8,13 @@
           <% if  user_signed_in? %>
 
             <li class="nav-list-item">
-              <%= link_to "マイページ(注文履歴)", user_path(current_user.id), class: "header-top-a link-type-basic" %>
+              <%= link_to " マイページ(注文履歴)", user_path(current_user.id), class: "glyphicon glyphicon-user header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
-              <%= link_to "カート", cart_items_path(current_user.id), class: "header-top-a link-type-basic" %>
+              <%= link_to " カート", cart_items_path(current_user.id), class: "glyphicon glyphicon-shopping-cart header-top-a link-type-basic" %>
             </li>
-            <!-- <li class="nav-list-item">
-              <%= link_to "注文履歴", user_path(current_user.id), class: "header-top-a link-type-basic" %>
-            </li> -->
             <li class="nav-list-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-top-a link-type-basic" %>
+              <%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out header-top-a link-type-basic" %>
             </li>
 
           <% elsif  admin_signed_in? %>
@@ -50,13 +47,13 @@
           <% else %>
 
             <li class="nav-list-item">
-              <%= link_to "ログイン", new_user_session_path, class: "header-top-a link-type-basic" %>
+              <%= link_to " ログイン", new_user_session_path, class: "glyphicon glyphicon-log-in header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
-              <%= link_to "会員登録", new_user_registration_path, class: "header-top-a link-type-basic" %>
+              <%= link_to " 会員登録", new_user_registration_path, class: "glyphicon glyphicon-edit header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
-              <%= link_to '当サイトについて','#', class: "header-top-a link-type-basic" %>
+              <%= link_to ' 当サイトについて','#', class: "glyphicon glyphicon-link header-top-a link-type-basic" %>
             </li>
 
           <% end %>
@@ -69,9 +66,7 @@
   <div class="header-bottom"><!-- ヘッダー下段 -->
       <nav class="header-content">
         <ul class="nav-list header-bottom-list">
-          <li class="nav-list-item"><%= link_to "ホーム", root_path, class: "header-bottom-a link-type-basic" %></li>
-          <li class="nav-list-item"><%= link_to 'アニメから探す','#', class: "header-bottom-a link-type-basic" %></li>
-          <li class="nav-list-item"><%= link_to 'アーティストから探す','#', class: "header-bottom-a link-type-basic" %></li>
+          <li class="nav-list-item"><%= link_to " ホーム", root_path, class: "glyphicon glyphicon-home header-bottom-a link-type-basic" %></li>
         </ul>
       </nav>
   </div>
