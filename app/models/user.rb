@@ -5,12 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 has_many :orders
 has_many :cart_items
-validates :name, presence: true
-validates :namekana, presence: true
+
+validates :name, presence: true, length: { minimum: 2, maximum: 50 }
+validates :name_kana, presence: true, length: { minimum: 2, maximum: 50 }
 validates :email, presence: true
-validates :post_code, presence: true
-validates :address, presence: true
-validates :phone, presence: true
+validates :post_code, presence: true, numericality: { only_integer: true }
+validates :address, presence: true, length: { minimum: 2, maximum: 100 }
+validates :phone, presence: true, numericality: { only_integer: true }
 
 
 def self.search(search)
