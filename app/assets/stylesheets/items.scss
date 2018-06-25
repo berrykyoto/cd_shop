@@ -31,17 +31,22 @@
 
 
 /*indexメイン -------------------------------------------------*/
-.main-box1{
-  height:400px;
+.item-index-top-box{
+  margin-bottom:40px;
 }
 .main-box2{
   width:960px;
   margin:0 auto;
 }
-
+.flex{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
 .item-box-index{
-  margin:15px;
-  float:left;
+  margin:18px;
 }
 .item-image1{
   background-image: url(item.png);
@@ -112,13 +117,14 @@ textarea {
   width:450px;
   margin: 0 auto;
   }
-  .item-show-buy{
+.item-show-buy{
   font-size:22px;
   width:200px;
   height:100px;
   padding-top:70px;
   margin: 0 auto;
   }
+
 /*new-------------------------------------------------*/
 .item-image-new{
   background-image: url(noimage.png);

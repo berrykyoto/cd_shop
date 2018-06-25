@@ -9,6 +9,11 @@ class ItemsController < ApplicationController
 	def show
 		@cart_item = CartItem.new
 		@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
+		@cart_items = CartItem.all
+		@total_price = 0
+			@cart_items.each do |cart_item|
+				@total_price = @total_price + cart_item.item.price * cart_item.quantity
+			end
 		@current_item_array = []
     	@item.stock.times do |quantity|
       		if quantity < 10

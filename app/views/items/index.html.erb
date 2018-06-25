@@ -10,6 +10,7 @@
 </div><!-- 検索フォーム -->
 
 <div class="body-content">
+  <%if flash[:notice] %><p id="notice"><%= flash[:notice] %></p><% end %>
   <div class="container-fluid">
     <div class="row">
        <!-- サイドバー　はじまり -->
@@ -97,27 +98,43 @@
       <!-- メインコンテンツ　はじまり -->
       <div class="main-content">
         <h2 class="h2">今期のアニメから探す</h2>
-        <div class="main-box1" style="background-color:yellow;">
+        <div class="item-index-top-box">
+          <div id="myCarousel" class="carousel slide">
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+              </ol>
+              <!-- Carousel items -->
+              <div class="carousel-inner">
+                <div class="active item"><a href="/items"><%= image_tag 'top1.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top2.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top1.jpg', size: '960x350' %></a></div>
+              </div>
+              <!-- Carousel nav -->
+              <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+              <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          </div>
         </div>
         <h2 class="h2">商品一覧</h2>
         <div class="main-box2 clearfix">
-
-          <!-- each挿入箇所 はじまり -->
-          <% @items.each do |item| %>
-            <div class="item-box-index">
-             <%= link_to (item_path(item.id)) do %>
-              <%= attachment_image_tag item, :item_image, :fill, 200, 200, fallback: "noimage.png", size: '200x200'  %>
-              <% end %>
-              <p><%=item.title%></p>
-              <p><%=item.singer%></p>
-              <p>¥<%=item.price%></p>
-              <% if item.stock == 0 %>
-              <P>売り切れ</P>
-              <% else %>
-              <p><%= item.stock %>個在庫有</p>
-              <% end %>
-            </div>
-           <% end %><!-- each挿入箇所 おわり-->
+          <div class="flex">
+            <% @items.each do |item| %>
+                <div class="item-box-index">
+                 <%= link_to (item_path(item.id)) do %>
+                  <%= attachment_image_tag item, :item_image, :fill, 200, 200, fallback: "noimage.png", size: '200x200'  %>
+                  <% end %>
+                  <p><%=item.title%></p>
+                  <p><%=item.singer%></p>
+                  <p>¥<%=item.price%></p>
+                  <% if item.stock == 0 %>
+                  <P>売り切れ</P>
+                  <% else %>
+                  <p><%= item.stock %>個在庫有</p>
+                  <% end %>
+                </div>
+             <% end %><!-- each挿入箇所 おわり-->
+           </div>
         </div>
       </div>
       <!-- メインコンテンツ　おわり -->
