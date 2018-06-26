@@ -8,14 +8,19 @@ class ItemsController < ApplicationController
 
 	def show
 		if Item.exists?(id: params[:id])
-			@cart_item = CartItem.new
-			@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
-			@cart_items = current_user.cart_items.all
-			@cart_items.each do |cart_item|
-				if  cart_item.item_id == @item.id
-					@cart_item = cart_item
-					@cart_item.save
+			if user_signed_in?
+				@cart_item = CartItem.new
+				@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
+				@cart_items = current_user.cart_items.all
+				@cart_items.each do |cart_item|
+					if  cart_item.item_id == @item.id
+						@cart_item = cart_item
+						@cart_item.save
+					end
 				end
+			else
+				@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
+				redirect_to admin_show_path(@item)
 			end
 	    else
 			redirect_to root_path, notice: "無効なURLです。"

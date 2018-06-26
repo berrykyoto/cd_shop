@@ -15,9 +15,11 @@ class UsersController < ApplicationController
 			if user_signed_in?
 				@user = User.find(params[:id])
 				@orders = @user.orders.page(params[:page])
-			else admin_signed_in?
+			elsif admin_signed_in?
 				@user = User.find(params[:id])
 				@orders = @user.orders.page(params[:page])
+			else
+				redirect_to root_path
 			end
 		else
 			redirect_to root_path, notice: "無効なURLです。"
@@ -28,8 +30,10 @@ class UsersController < ApplicationController
 		if User.exists?(id: params[:id])
 			if user_signed_in?
 				@user = User.find(params[:id])
-			else admin_signed_in?
+			elsif admin_signed_in?
 				@user = User.find(params[:id])
+			else
+				redirect_to root_path, notice: "無効なURLです。"
 			end
 		else
 			redirect_to root_path, notice: "無効なURLです。"
@@ -62,7 +66,7 @@ class UsersController < ApplicationController
 	  	else admin_signed_in?
 	  		user = User.find(params[:id])
 	  		user.destroy
-	  		redirect_to users_path, notice: "会員を退会させました。"
+	  		redirect_to users_path
 	  	end
   	end
 
@@ -70,8 +74,10 @@ class UsersController < ApplicationController
   		if User.exists?(id: params[:id])
 	  		if user_signed_in?
 				@user = User.find(params[:id])
-			else admin_signed_in?
+			elsif admin_signed_in?
 				@user = User.find(params[:id])
+			else
+				redirect_to root_path, notice: "無効なURLです。"
 			end
 		else
 			redirect_to root_path, notice: "無効なURLです。"
