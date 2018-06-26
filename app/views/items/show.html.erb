@@ -11,22 +11,22 @@
       </div>
       <div class="col-sm-6 item-box-show">
         <div class="item-detail">
-          <h2 class="title detail1"><%= @item.title %></h2>
+          <p class="title detail1"><%= @item.title %></h2>
           <p class="singer detail2"><%= @item.singer %></p>
           <p class="price detail2">¥<%= @item.price %></p>
           <p class="stock detail2">
             <% if @item.stock > 10 %>
-                  在庫あり<br>
-                <% else %>
-                  残りわずか<br>
-                <% end %>
+              在庫あり
+            <% elsif @item.stock < 10 && @item.stock > 0 %>
+              残りわずか
+            <% elsif @item.stock == 0 %>
+              売り切れ
+            <% end %>
           </p>
         </div>
 <!-- 購入ボタン　条件分岐 ここから-->
         <% if @item.stock == 0 %>
-
-          <p>売り切れ</p>
-
+        <!-- カートに入れるボタンを非表示にする -->
         <% else %>
 
           <% if user_signed_in? %>
@@ -34,14 +34,19 @@
               <%= form_for (@cart_item) do |f| %>
               <div class="cart-area">
                 <div class="item-show">
+                  <% @cart_items.each do |cart_item| %>
+                    <% if cart_item.item_id == @item.id %>
+                      <p class="cart-notice">カートに同じ商品があります。<br>数量を変更する場合は、こちらから編集してください。</p>
+                    <% end %>
+                  <% end %>
 
                 <% if @item.stock < 10 %>
                   <div class="item-show-buy">
-                    購入数<%= f.number_field :quantity, min: 1, max: @item.stock, value: 1 %>枚
+                    購入数<%= f.number_field :quantity, min: 1, max: @item.stock %>枚
                   </div>
                 <% else %>
                   <div class="item-show-buy">
-                    購入数<%= f.number_field :quantity, min: 1, max: 10, value: 1 %>枚
+                    購入数<%= f.number_field :quantity, min: 1, max: 10 %>枚
                   </div>
                 <% end %>
 
@@ -73,7 +78,7 @@
         <table class="table table-striped table-bordered">
           <tbody>
             <tr>
-              <td>商品名</td>
+              <td class="col-sm-4">商品名</td>
               <td><%= @item.title %></td>
             </tr>
             <tr>
@@ -119,9 +124,9 @@
           <tbody>
               <% record.songs.each do |song| %>
                 <tr>
-                  <td><%= song.song_number%></td>
-                  <td><%= song.song_name%></td>
-                  <td><%= song.song_time%></td>
+                  <td class="col-sm-1"><%= song.song_number%></td>
+                  <td class="col-sm-8"><%= song.song_name%></td>
+                  <td class="col-sm-3"><%= song.song_time%></td>
                 </tr>
               <% end %>
           </tbody>
