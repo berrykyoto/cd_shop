@@ -7,21 +7,19 @@ class ItemsController < ApplicationController
 	end
 
 	def show
-		@cart_item = CartItem.new
-		@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
-		@cart_items = CartItem.all
-		@total_price = 0
+		if Item.exists?(id: params[:id])
+			@cart_item = CartItem.new
+			@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
+			@cart_items = current_user.cart_items.all
 			@cart_items.each do |cart_item|
-				@total_price = @total_price + cart_item.item.price * cart_item.quantity
+				if  cart_item.item_id == @item.id
+					@cart_item = cart_item
+					@cart_item.save
+				end
 			end
-		@current_item_array = []
-    	@item.stock.times do |quantity|
-      		if quantity < 10
-        		@current_item_array << [quantity + 1, quantity + 1]
-      		else
-        		break
-      		end
-    	end
+	    else
+			redirect_to root_path, notice: "無効なURLです。"
+		end
 	end
 
 	def new
@@ -45,9 +43,13 @@ class ItemsController < ApplicationController
 	end
 
 	def edit
-		if admin_signed_in?
-			@admin = current_admin.id
-			@item = Item.includes(records: [:songs]).find(params[:id])
+		if Item.exists?(id: params[:id])
+			if admin_signed_in?
+				@admin = current_admin.id
+				@item = Item.includes(records: [:songs]).find(params[:id])
+			else
+				redirect_to root_path, notice: "無効なURLです。"
+			end
 		else
 			redirect_to root_path, notice: "無効なURLです。"
 		end
@@ -76,8 +78,12 @@ class ItemsController < ApplicationController
 	end
 
 	def admin_show
-		if admin_signed_in?
-			@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
+		if Item.exists?(id: params[:id])
+			if admin_signed_in?
+				@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
+			else
+				redirect_to root_path, notice: "無効なURLです。"
+			end
 		else
 			redirect_to root_path, notice: "無効なURLです。"
 		end
