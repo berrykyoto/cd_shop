@@ -32,12 +32,6 @@
                 <% else %>
                 <%= f.number_field :quantity, min: 1, max: 10 %>　<%= f.submit "更新",class:"btn btn-info btn-xs" %><br>
                 <% end %>
-                <% if cart_item.item.stock > 10 %>
-                  在庫あり<br>
-                <% else %>
-                  残りわずか<br>
-                <% end %>
-                  ※在庫数以上は購入できません。
               </td>
               <td class="button-area">
               <% end %>
