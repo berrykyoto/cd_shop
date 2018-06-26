@@ -8,7 +8,7 @@
     <div class="blue-content">
       <p>会員登録を行います。</p>
       <p>下記のフォームに必要事項を入力し、登録ボタンをクリックしてください。</p>
-      <p>プライバシーポリシーについて</p>
+      <p><%= link_to "プライバシーポリシー", privacy_path %>について</p>
     </div>
   </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
