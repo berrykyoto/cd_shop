@@ -13,10 +13,10 @@
             <tr>
               <th class="col-xs-1"></th>
               <th class="col-xs-3">商品名</th>
-              <th class="col-xs-2">価格</th>
+              <th class="col-xs-2">価格(税込)</th>
               <th class="col-xs-3"><%if flash[:notice] %><p id="notice"><%= flash[:notice] %></p><% end %>数量</th>
               <th class="col-xs-1">削除</th>
-              <th class="col-xs-3">小計</th>
+              <th class="col-xs-3">小計(税込)</th>
             </tr>
           </thead>
           <tbody>
@@ -49,7 +49,7 @@
         </tbody>
       </table>
       <div class="total-box">
-        <p class="total">商品合計　　￥<%= @total_price %></p>
+        <p class="total">商品合計　　￥<%= @total_price %>(税込)</p>
       </div>
     </div>
 

@@ -31,11 +31,8 @@ end
 
 def update
 	@cart_item = CartItem.find(params[:id])
-	if @cart_item.update(cart_item_params)
+	@cart_item.update(cart_item_params)
 		redirect_to cart_items_path, notice: "枚数が変更されました。"
-	else
-		redirect_to cart_items_path, notice: "在庫が足りません。"
-	end
 end
 
 def update_quantity
