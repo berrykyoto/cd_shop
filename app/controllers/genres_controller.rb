@@ -10,13 +10,13 @@ class GenresController < ApplicationController
 		end
 	end
 
-	def new
-		if admin_signed_in?
-			@genre = Genre.new
-		else
-			redirect_to root_path, notice: "無効なURLです。"
-		end
-	end
+	# def new
+	# 	if admin_signed_in?
+	# 		@genre = Genre.new
+	# 	else
+	# 		redirect_to root_path, notice: "無効なURLです。"
+	# 	end
+	# end
 
 	def create
 		@genre = Genre.new(genre_params)

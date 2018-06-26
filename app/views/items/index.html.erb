@@ -60,6 +60,8 @@
                       <tr>
                       <% if item.stock == 0 %>
                       <td>売り切れ</td>
+                      <% elsif item.stock < 10 %>
+                      <td>残りわずか</td>
                       <% else %>
                       <td>在庫あり</td>
                       <% end %>
