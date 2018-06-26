@@ -37,11 +37,8 @@ class OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
-		if @order.update(order_params)
-       		redirect_to orders_path, notice: "更新できました。"
-    	else
-     		render :edit, notice: "なんか間違ってます。入力内容を確認してください。"
-    	end
+		@order.update(order_params)
+       	redirect_to orders_path, notice: "更新できました。"
 	end
 
 	# def destroy

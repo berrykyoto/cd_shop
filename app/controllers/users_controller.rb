@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show, :edit, :update, :destroy, :user_password_edit, :aboute, :payment, :return, :privacy, :tokutei, :delivery]
+	before_action :authenticate_user!, except: [:index, :show, :edit, :update, :destroy, :user_password_edit, :about, :payment, :return, :privacy, :tokutei, :delivery]
 
 
 	def index
@@ -11,20 +11,28 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		if user_signed_in?
-			@user = User.find(params[:id])
-			@orders = @user.orders.page(params[:page])
-		else admin_signed_in?
-			@user = User.find(params[:id])
-			@orders = @user.orders.page(params[:page])
+		if User.exists?(id: params[:id])
+			if user_signed_in?
+				@user = User.find(params[:id])
+				@orders = @user.orders.page(params[:page])
+			else admin_signed_in?
+				@user = User.find(params[:id])
+				@orders = @user.orders.page(params[:page])
+			end
+		else
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
 	def edit
-		if user_signed_in?
-			@user = User.find(params[:id])
-		else admin_signed_in?
-			@user = User.find(params[:id])
+		if User.exists?(id: params[:id])
+			if user_signed_in?
+				@user = User.find(params[:id])
+			else admin_signed_in?
+				@user = User.find(params[:id])
+			end
+		else
+			redirect_to root_path, notice: "無効なURLです。"
 		end
 	end
 
@@ -59,37 +67,18 @@ class UsersController < ApplicationController
   	end
 
   	def user_password_edit
-  		if user_signed_in?
-			@user = User.find(params[:id])
-		else admin_signed_in?
-			@user = User.find(params[:id])
+  		if User.exists?(id: params[:id])
+	  		if user_signed_in?
+				@user = User.find(params[:id])
+			else admin_signed_in?
+				@user = User.find(params[:id])
+			end
+		else
+			redirect_to root_path, notice: "無効なURLです。"
 		end
   	end
 
-  	def aboute
-  	end
-
-  	def payment
-  	end
-
-	def return
-  	end
-
-  	def privacy
-  	end
-
-  	def tokutei
-  	end
-
-  	def delivery
-  	end
-
-
 private
-	# def correct_user
-	# 	@admin = Admin.find(params[:id])
-	# 	redirect_to(root_path) unless @admin == current_user, notice: "無効なURLです。"
-	# end
   	def user_params
       	params.require(:user).permit(:name, :name_kana, :email, :post_code, :address, :phone, :password)
   	end

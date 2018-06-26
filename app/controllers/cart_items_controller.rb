@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :edit, :update]
 def index
 	if user_signed_in?
-		@cart_items = CartItem.all
+		@cart_items = current_user.cart_items.all
 		if @cart_items.present?
 	    	@total_price = 0
 			@cart_items.each do |cart_item|
