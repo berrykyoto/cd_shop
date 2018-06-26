@@ -42,11 +42,11 @@
 
                 <% if @item.stock < 10 %>
                   <div class="item-show-buy">
-                    購入数<%= f.number_field :quantity, min: 1, max: @item.stock %>枚
+                    購入数<%= f.select :quantity, @current_item_array %>枚
                   </div>
                 <% else %>
                   <div class="item-show-buy">
-                    購入数<%= f.number_field :quantity, min: 1, max: 10 %>枚
+                    購入数<%= f.select :quantity, @current_item_array %>枚
                   </div>
                 <% end %>
 
