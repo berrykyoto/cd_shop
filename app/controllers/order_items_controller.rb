@@ -2,7 +2,7 @@ class OrderItemsController < ApplicationController
 	before_action :authenticate_user!
 def new
 	@order_item = OrderItem.new
-	@cart_items = CartItem.all
+	@cart_items = current_user.cart_items.all
 	@orders = Order.all
 	# 前ページでクリエイトした送付先情報などを取得（カレントユーザーに紐づいたorders（複数）のうち最後（最新）のorder）
 
