@@ -18,6 +18,14 @@ class ItemsController < ApplicationController
 						@cart_item.save
 					end
 				end
+				@current_item_array = []
+    	@item.stock.times do |quantity|
+      		if quantity < 10
+        		@current_item_array << [quantity + 1, quantity + 1]
+      		else
+        		break
+      		end
+    	end
 			else
 				@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
 				redirect_to admin_show_path(@item)
