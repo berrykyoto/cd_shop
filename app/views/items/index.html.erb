@@ -1,10 +1,11 @@
 <!-- サイトトップ ユーザー用-->
 <%= render 'shared/header' %>
-<div class="search">
+<p class="kensaku">商品名・アーティスト名・アニメタイトルで検索できます。</p>
+<div class="item-search">
   <%= form_tag items_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
         <p>
           <%= text_field_tag :search, params[:serch] %>
-          <%= submit_tag "検索", :title => nil %>
+          <%= submit_tag "検索", :title => nil,:singer => nil,:anime => nil %>
         </p>
       <% end %>
 </div><!-- 検索フォーム -->
@@ -124,14 +125,31 @@
                  <%= link_to (item_path(item.id)) do %>
                   <%= attachment_image_tag item, :item_image, :fill, 200, 200, fallback: "noimage.png", size: '200x200'  %>
                   <% end %>
-                  <p><%=item.title%></p>
-                  <p><%=item.singer%></p>
-                  <p>¥<%=item.price%></p>
-                  <% if item.stock == 0 %>
-                  <P>売り切れ</P>
-                  <% else %>
-                  <p><%= item.stock %>個在庫有</p>
-                  <% end %>
+                  <div class="nakami-box">
+                  <table>
+                    <tbody class="nakami">
+                      <tr>
+                        <td><b>『<%=item.title%>』</b></td>
+                      </tr>
+                      <tr>
+                        <td><%=item.singer%></td>
+                      </tr>
+                      <tr>
+                      <td><%=item.anime%></td>
+                      </tr>
+                      <tr>
+                    　<td>¥<%=item.price%></td>
+                      </tr>
+                      <tr>
+                      <% if item.stock == 0 %>
+                      <td>売り切れ</td>
+                      <% else %>
+                      <td>在庫あり</td>
+                      <% end %>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
                 </div>
              <% end %><!-- each挿入箇所 おわり-->
            </div>

@@ -8,7 +8,7 @@ has_many :order_items
 attachment :item_image
 def self.search(search)
     if search
-      Item.where(['title LIKE ?', "%#{search}%"])
+      Item.where(['title LIKE :item OR singer LIKE :item OR anime LIKE :item', item: "%#{search}%"])
     else
       Item.all
     end
