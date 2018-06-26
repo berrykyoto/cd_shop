@@ -39,7 +39,11 @@
           </table>
           <div class="button-area clearfix">
             <%= link_to "編集する", edit_user_path(@user), class: "btn btn-info btn-lg user-button" %>
-            <%= link_to "退会する", user_path(@user), method: :delete, class: "btn btn-danger btn-lg user-button" %>
+            <% if user_signed_in? %>
+              <%= link_to "退会する", user_path(@user), method: :delete, data: { confirm: '本当に退会しますか？' }, class: "btn btn-danger btn-lg user-button" %>
+            <% else admin_signed_in? %>
+              <%= link_to "退会させる", user_path(@user), method: :delete, data: { confirm: 'ユーザーを退会させますか？' }, class: "btn btn-danger btn-lg" %>
+            <% end %>
           </div>
 
            <%= link_to "パスワード変更", user_password_edit_path(@user), class: "password-button" %>
