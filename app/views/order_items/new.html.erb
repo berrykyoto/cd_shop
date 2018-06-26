@@ -28,7 +28,15 @@
               <td><%= attachment_image_tag cart_item.item, :item_image, :fill, 20, 20, fallback: "noimage.png", size: '20x20' %></td>
               <td><%= cart_item.item.title %></td>
               <td>¥<%= cart_item.item.price %></td>
-              <td><%= cart_item.quantity %></td>
+              <%=form_for(cart_item) do |f|%>
+              <td>
+                <% if cart_item.item.stock < 10 %>
+                <%= f.number_field :quantity, min: 1, max: cart_item.item.stock %>　<%= f.submit "更新",class:"btn btn-info btn-xs" %><br>
+                <% else %>
+                <%= f.number_field :quantity, min: 1, max: 10 %>　<%= f.submit "更新",class:"btn btn-info btn-xs" %><br>
+                <% end %>
+              </td>
+              <% end %>
               <td>¥<%= cart_item.item.price * cart_item.quantity %></td>　<!-- 価格×数量＝小計 -->
             </tr>
           </tbody>
