@@ -32,13 +32,13 @@ end
 def update
 	@cart_item = CartItem.find(params[:id])
 	@cart_item.update(cart_item_params)
-		redirect_to cart_items_path, notice: "枚数が変更されました。"
+		redirect_to cart_items_path, notice: "数量が変更されました。"
 end
 
 def update_quantity
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
-    redirect_to cart_items_path, notice: "枚数が変更されました。"
+    redirect_to cart_items_path, notice: "数量が変更されました。"
 end
 
 def destroy
