@@ -40,7 +40,7 @@
             <% @items.each do |item| %>
                 <div class="item-box-index">
                  <%= link_to (item_path(item.id)) do %>
-                  <%= attachment_image_tag item, :item_image, :fill, 208, 208, fallback: "noimage.png", size: '208x208'  %>
+                  <%= attachment_image_tag item, :item_image, :fill, 208, 208, fallback: "noimage.png", size: '208x208' %>
                   <% end %>
                   <div class="nakami-box">
                   <table>
