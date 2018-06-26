@@ -16,7 +16,7 @@ validates :phone, presence: true, numericality: { only_integer: true }
 
 def self.search(search)
     if search
-      User.where(['name LIKE ?', "%#{search}%"])
+      User.where(['name LIKE :user OR phone LIKE :user OR address LIKE :user', user: "%#{search}%"])
     else
       User.all
     end

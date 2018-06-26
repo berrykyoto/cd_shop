@@ -1,10 +1,10 @@
 <!-- サイトトップ 管理者用-->
 <%= render 'shared/header' %>
-
-<div class="search">
+<p class="admin-kensaku">商品名・アーティスト名・アニメタイトルで検索</p>
+<div class="item-search">
   <%= form_tag admin_index_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
     <p><%= text_field_tag :search, params[:serch] %>
-       <%= submit_tag "検索", :title => nil %>
+        <%= submit_tag "検索", :title => nil,:singer => nil,:anime => nil %>
    </p>
   <% end %>
 </div><!-- 検索フォーム -->

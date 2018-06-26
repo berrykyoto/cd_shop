@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*indexなんちゃって検索フォーム画像-----------------------------------------*/
-.search{
+.item-search{
   background-image: url(search.png);
   background-size:cover;
-  width: 320px;
+  width: 200px;
   height:24px;
   margin:20px auto;
 }
@@ -61,6 +61,9 @@
 }
 .title{
   font-size:15px;
+}
+.nakami-box{
+  width:200px;
 }
 /*index ここまで-------------------------------------------------*/
 
@@ -181,4 +184,19 @@ textarea {
 }
 .detail2{
   font-size:15px;
+}
+
+/*検索機能-------------------------------------------------*/
+.kensaku{
+  text-align:center;
+   padding-top: 20px;
+
+}
+.admin-kensaku{
+  text-align:center;
+  padding-top: 30px;
+}
+.user-kensaku{
+  text-align:center;
+  padding-top: 30px;
 }

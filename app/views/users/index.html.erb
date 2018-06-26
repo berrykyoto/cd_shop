@@ -1,12 +1,12 @@
 <!-- ユーザー 一覧 管理者用-->
 <%= render 'shared/header' %>
+<p class="user-kensaku">氏名・住所・電話番号で検索</p>
 
-
-<div class="search">
+<div class="item-search">
   <%= form_tag users_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
         <p>
           <%= text_field_tag :search, params[:serch] %>
-          <%= submit_tag "検索", :name => nil %>
+          <%= submit_tag "検索", :name => nil,:address => nil,:phone => nil %>
         </p>
   <% end %>
 </div><!-- 検索フォーム -->
@@ -19,7 +19,7 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>お名前</th>
+                <th>氏名</th>
                 <th>フリガナ</th>
                 <th>郵便番号</th>
                 <th>住所</th>
