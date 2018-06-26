@@ -14,89 +14,6 @@
   <%if flash[:notice] %><p id="notice"><%= flash[:notice] %></p><% end %>
   <div class="container-fluid">
     <div class="row">
-       <!-- サイドバー　はじまり -->
-      <!-- <div class="col-sm-3 sidebar-content">
-        <h2 class="h2">アニメから探す</h2>
-        <div class="row sidebar-box">
-          <div class="col-sm-6">
-            <p>タイトル別</p>
-            <ul class="sidebar-list">
-              <li class="sidebar-list-item">ア行</li>
-              <li class="sidebar-list-item">カ行</li>
-              <li class="sidebar-list-item">サ行</li>
-              <li class="sidebar-list-item">タ行</li>
-              <li class="sidebar-list-item">ナ行</li>
-              <li class="sidebar-list-item">ハ行</li>
-              <li class="sidebar-list-item">マ行</li>
-              <li class="sidebar-list-item">ヤ行</li>
-              <li class="sidebar-list-item">ラ行</li>
-              <li class="sidebar-list-item">ワ行</li>
-            </ul>
-          </div>
-          <div class="col-sm-6">
-            <p>年代別</p>
-            <ul class="sidebar-list">
-              <li class="sidebar-list-item">2010年代</li>
-              <li class="sidebar-list-item">2000年代</li>
-              <li class="sidebar-list-item">1990年代</li>
-              <li class="sidebar-list-item">1980年代</li>
-              <li class="sidebar-list-item">1970年代</li>
-              <li class="sidebar-list-item">1960年代</li>
-            </ul>
-          </div>
-        </div>
-        <h2 class="h2">アーティストから探す</h2>
-        <div class="row sidebar-box">
-          <div class="col-sm-6">
-            <p>五十音</p>
-            <ul class="sidebar-list">
-              <li class="sidebar-list-item">ア行</li>
-              <li class="sidebar-list-item">カ行</li>
-              <li class="sidebar-list-item">サ行</li>
-              <li class="sidebar-list-item">タ行</li>
-              <li class="sidebar-list-item">ナ行</li>
-              <li class="sidebar-list-item">ハ行</li>
-              <li class="sidebar-list-item">マ行</li>
-              <li class="sidebar-list-item">ヤ行</li>
-              <li class="sidebar-list-item">ラ行</li>
-              <li class="sidebar-list-item">ワ行</li>
-            </ul>
-          </div>
-          <div class="col-sm-6">
-            <p>ｱﾙﾌｧﾍﾞｯﾄ</p>
-            <ul class="sidebar-list">
-              <li class="alphabet sidebar-list-item">A</li>
-              <li class="alphabet sidebar-list-item">B</li>
-              <li class="alphabet sidebar-list-item">C</li>
-              <li class="alphabet sidebar-list-item">D</li>
-              <li class="alphabet sidebar-list-item">E</li>
-              <li class="alphabet sidebar-list-item">F</li>
-              <li class="alphabet sidebar-list-item">G</li>
-              <li class="alphabet sidebar-list-item">H</li>
-              <li class="alphabet sidebar-list-item">I</li>
-              <li class="alphabet sidebar-list-item">J</li>
-              <li class="alphabet sidebar-list-item">K</li>
-              <li class="alphabet sidebar-list-item">L</li>
-              <li class="alphabet sidebar-list-item">M</li>
-              <li class="alphabet sidebar-list-item">N</li>
-              <li class="alphabet sidebar-list-item">O</li>
-              <li class="alphabet sidebar-list-item">P</li>
-              <li class="alphabet sidebar-list-item">Q</li>
-              <li class="alphabet sidebar-list-item">R</li>
-              <li class="alphabet sidebar-list-item">S</li>
-              <li class="alphabet sidebar-list-item">T</li>
-              <li class="alphabet sidebar-list-item">U</li>
-              <li class="alphabet sidebar-list-item">V</li>
-              <li class="alphabet sidebar-list-item">W</li>
-              <li class="alphabet sidebar-list-item">X</li>
-              <li class="alphabet sidebar-list-item">Y</li>
-              <li class="alphabet sidebar-list-item">Z</li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
-       <!-- サイドバー　おわり -->
-      <!-- メインコンテンツ　はじまり -->
       <div class="main-content">
         <h2 class="h2">管理人の好きなアニメ、あるいはアニソン。そんな感じ</h2>
         <div class="item-index-top-box">
@@ -123,7 +40,7 @@
             <% @items.each do |item| %>
                 <div class="item-box-index">
                  <%= link_to (item_path(item.id)) do %>
-                  <%= attachment_image_tag item, :item_image, :fill, 200, 200, fallback: "noimage.png", size: '200x200'  %>
+                  <%= attachment_image_tag item, :item_image, :fill, 208, 208, fallback: "noimage.png", size: '208x208'  %>
                   <% end %>
                   <div class="nakami-box">
                   <table>
