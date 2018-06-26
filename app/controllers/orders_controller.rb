@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update(order_params)
-       	redirect_to orders_path, notice: "更新できました。"
+       	redirect_to orders_path
 	end
 
 	# def destroy

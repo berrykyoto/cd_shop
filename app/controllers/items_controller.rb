@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
 		@admin = current_admin.id
 		@item = Item.includes(records: [:songs]).find(params[:id])
 		@item.update(item_params)
-		redirect_to admin_show_path(@item), notice: "更新できました。"
+		redirect_to admin_show_path(@item)
 	end
 
 	# def destroy

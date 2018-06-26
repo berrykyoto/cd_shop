@@ -20,7 +20,7 @@ class AdminsController < ApplicationController
 	def update
 		@admin = Admin.find(params[:id])
       	if @admin.update(admin_params)
-      		redirect_to admin_path(@admin), notice: "更新できました。"
+      		redirect_to admin_path(@admin)
       	else
       		render :edit
       	end

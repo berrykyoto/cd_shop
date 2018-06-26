@@ -61,8 +61,8 @@
 
       <div class="main-bottom">
 
-          <button type="button" class="btn btn-default btn-xs cart-button">　前に戻る　</button>
-          <%= f.submit '　次に進む　', class:"btn btn-warning btn-xs cart-button" %>
+          <%= link_to "前に戻る",cart_items_path, class:"btn btn-default btn-lg"%>
+          <%= f.submit '次に進む', class:"btn btn-warning btn-lg"%>
 
       </div>
 

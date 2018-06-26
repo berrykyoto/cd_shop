@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 	    else admin_signed_in?
 	    	@user = User.find(params[:id])
 	     	if @user.update(user_params)
-	        	redirect_to user_path(@user.id), notice: "更新できました。"
+	        	redirect_to user_path(@user.id)
 	    	else
 	      		render :edit
 	    	end
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
 		if user_signed_in?
 			user = User.find(params[:id])
 	  		user.destroy
-	  		redirect_to items_path, notice: "退会しました。"
+	  		redirect_to root_path, notice: "退会しました。"
 	  	else admin_signed_in?
 	  		user = User.find(params[:id])
 	  		user.destroy
