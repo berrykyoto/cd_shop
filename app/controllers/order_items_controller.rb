@@ -4,6 +4,7 @@ def new
 	@order_item = OrderItem.new
 	@cart_items = current_user.cart_items.all
 	@orders = Order.all
+	@order = @orders.last
 	# 前ページでクリエイトした送付先情報などを取得（カレントユーザーに紐づいたorders（複数）のうち最後（最新）のorder）
 
 	@total_price = 0

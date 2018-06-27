@@ -54,15 +54,15 @@
           <tbody>
             <tr>
               <td>お名前</td>
-              <td><%= @orders.last.send_name %></td>
+              <td><%= @order.send_name %></td>
             </tr>
             <tr>
               <td>郵便番号</td>
-              <td><%= @orders.last.send_post_code %></td>
+              <td><%= @order.send_post_code %></td>
             </tr>
             <tr>
               <td>住所</td>
-              <td><%= @orders.last.send_address %></td>
+              <td><%= @order.send_address %></td>
             </tr>
 
           </tbody>
@@ -78,7 +78,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= @orders.last.payment_i18n %></td>
+              <td><%= @order.payment_i18n %></td>
             </tr>
           </tbody>
         </table>
@@ -94,7 +94,7 @@
           <% @cart_items.each do |cart_item| %>
             <p><%= f.hidden_field :order_id, :value => @orders.last.id %></p>
           <% end %>
-          <%= link_to "　　前に戻る　　",'#', class:"btn btn-default btn-lg"%>
+          <%= link_to "　　前に戻る　　", user_order_edit_path(@order) , class:"btn btn-default btn-lg"%>
           <%= f.submit '確定して注文する', class:"btn btn-danger btn-lg" %>
         <% end %>
     </div>

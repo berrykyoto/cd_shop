@@ -38,8 +38,22 @@ class OrdersController < ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update(order_params)
-       	redirect_to orders_path
+		if admin_signed_in?
+       		redirect_to orders_path
+       	else user_signed_in?
+       		redirect_to new_order_item_path
+       	end
 	end
+
+	def user_order_edit
+	    if user_signed_in?
+	    	@user = current_user
+	     	@order = Order.find(params[:id])
+	     	@order.save
+	    else
+	     	redirect_to root_path, notice: "無効なURLです。"
+	    end
+    end
 
 	# def destroy
 	# 	order = Order.find(params[:id])
