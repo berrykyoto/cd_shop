@@ -31,6 +31,9 @@
   letter-spacing: .1em;
   text-align:justify;
 }
+ul{
+  margin-bottom:0;
+}
 a:hover{
   color:#FFD731;
 }
@@ -94,6 +97,11 @@ body{
   color:#ffffff;/*header上段、文字色：白*/
 }
 .header-bottom-a{
+  color:#546E7A;/*header下段、文字色：グレー*/
+  font-size:16px;
+  font-weight:600;
+}
+.header-bottom-admin{
   color:#546E7A;/*header下段、文字色：グレー*/
 }
 .header-logo{

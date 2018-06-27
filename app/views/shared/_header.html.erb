@@ -1,6 +1,6 @@
 <!-- ヘッダー　部分テンプレート -->
 
-<header>
+<header class="header">
 
   <div class="header-top"><!-- ヘッダー上段 -->
       <nav class="header-content">
@@ -19,29 +19,21 @@
 
           <% elsif  admin_signed_in? %>
 
+           
             <li class="nav-list-item">
-              <%= link_to "管理者ページ", admin_path(current_admin.id), class: "header-top-a link-type-basic" %>
+              <%= link_to " 商品一覧　", admin_index_path, class: "glyphicon glyphicon-folder-open header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
-              <%= link_to 'ジャンルの新規追加', genres_path, class: "header-top-a link-type-basic" %>
+              <%= link_to " ユーザー一覧　", users_path, class: "glyphicon glyphicon-user header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
-              <%= link_to '商品の新規追加', new_item_path, class: "header-top-a link-type-basic" %>
+              <%= link_to " 注文履歴一覧　", orders_path, class: "glyphicon glyphicon-duplicate header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
-              <%= link_to "商品一覧", admin_index_path, class: "header-top-a link-type-basic" %>
+              <%= link_to " お問い合わせ一覧　", contacts_path, class: "glyphicon glyphicon-envelope header-top-a link-type-basic" %>
             </li>
             <li class="nav-list-item">
-              <%= link_to "ユーザー一覧", users_path, class: "header-top-a link-type-basic" %>
-            </li>
-            <li class="nav-list-item">
-              <%= link_to "注文履歴一覧", orders_path, class: "header-top-a link-type-basic" %>
-            </li>
-            <li class="nav-list-item">
-              <%= link_to "お問い合わせ一覧", contacts_path, class: "header-top-a link-type-basic" %>
-            </li>
-            <li class="nav-list-item">
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "header-top-a link-type-basic" %>
+              <%= link_to " ログアウト", destroy_admin_session_path, method: :delete, class: "glyphicon glyphicon-log-out header-top-a link-type-basic" %>
             </li>
 
           <% else %>
@@ -63,6 +55,8 @@
     </div>
   </div>
 
+
+  <% if  user_signed_in? %>
   <div class="header-bottom"><!-- ヘッダー下段 -->
       <nav class="header-content">
         <ul class="nav-list header-bottom-list">
@@ -72,6 +66,29 @@
   </div>
 
     <%= link_to ' ',root_path, class: "header-top-a link-type-basic header-logo" %>
+  <% elsif  admin_signed_in? %>
 
+  <div class="header-bottom"><!-- ヘッダー下段 -->
+      <nav class="header-content">
+        <ul class="nav-list header-bottom-list">
+          <li class="nav-list-item"><%= link_to " ホーム", root_path, class: "glyphicon glyphicon-home header-bottom-admin link-type-basic" %></li>
+          <li class="nav-list-item"><%= link_to " 管理者ページ", admin_path(current_admin.id), class: "glyphicon glyphicon-pushpin header-bottom-admin link-type-basic" %></li>
+          <li class="nav-list-item"><%= link_to " ジャンルの新規追加", genres_path, class: "glyphicon glyphicon-inbox header-bottom-admin link-type-basic" %></li>
+          <li class="nav-list-item"><%= link_to " 商品の新規追加", new_item_path, class: "glyphicon glyphicon-plus header-bottom-admin link-type-basic" %></li>
+        </ul>
+      </nav>
+  </div>
+  <%= link_to ' ',root_path, class: "header-top-a link-type-basic header-logo" %>
+
+  <% else %>
+    <div class="header-bottom"><!-- ヘッダー下段 -->
+      <nav class="header-content">
+        <ul class="nav-list header-bottom-list">
+          <li class="nav-list-item"><%= link_to " ホーム", root_path, class: "glyphicon glyphicon-home header-bottom-a link-type-basic" %></li>
+        </ul>
+      </nav>
+    </div>
+    <%= link_to ' ',root_path, class: "header-top-a link-type-basic header-logo" %>
+  <% end %>
 
 </header>

@@ -20,10 +20,9 @@
                 <th></th>
               </tr>
             </thead>
-
+            <tbody>
             <% @orders.each do |order| %>
             <% if order.order_items.present? %>
-            <tbody>
               <tr>
                 <td><%= order.order_items.first[:created_at].strftime("%Y/%m/%d") %></td>
                 <td><%= order.user.name %>/<%= order.user_id %></td>
@@ -33,10 +32,9 @@
                 <td><%= link_to "詳細", order_path(order), class: "btn btn-info btn-xs" %></td>
                 <td><%= link_to "編集", edit_order_path(order), class: "btn btn-default btn-xs" %></td>
               </tr>
-            </tbody>
             <% end %>
             <% end %>
-
+          </tbody>
           </table>
     </div>
   </div>
