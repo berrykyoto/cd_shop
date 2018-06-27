@@ -61,8 +61,7 @@
 
       <div class="main-bottom">
 
-          <%= link_to "前に戻る",cart_items_path, class:"btn btn-default btn-lg"%>
-
+          <%= link_to "前に戻る",order_path(@order), method: :delete, class: "btn btn-default btn-lg" %>
           <!-- 前に戻った場合、オーダーを削除する -->
           <%= f.submit '次に進む', class:"btn btn-warning btn-lg"%>
 

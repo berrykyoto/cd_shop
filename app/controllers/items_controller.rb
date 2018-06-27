@@ -19,16 +19,18 @@ class ItemsController < ApplicationController
 					end
 				end
 				@current_item_array = []
-    	@item.stock.times do |quantity|
+    		@item.stock.times do |quantity|
       		if quantity < 10
         		@current_item_array << [quantity + 1, quantity + 1]
       		else
         		break
       		end
-    	end
-			else
+    		end
+			elsif admin_signed_in?
 				@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
 				redirect_to admin_show_path(@item)
+			else
+				@item = Item.includes(records: [:songs]).order("songs.song_number").find(params[:id])
 			end
 	    else
 			redirect_to root_path, notice: "無効なURLです。"
