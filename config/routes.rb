@@ -15,6 +15,7 @@ get '/admin_index' => "items#admin_index"
 get '/admin_show/:id' => "items#admin_show", as:'admin_show'
 get '/user_password_edit/:id' => "users#user_password_edit", as:'user_password_edit'
 get '/admin_password_edit/:id' => "admins#admin_password_edit", as:'admin_password_edit'
+get '/user_order_edit/:id' => "orders#user_order_edit", as:'user_order_edit'
 get '/about' => "users#about"
 get '/payment' => "users#payment"
 get '/return' => "users#return"
