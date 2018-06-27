@@ -13,7 +13,7 @@
         <div class="item-detail">
           <p class="title detail1"><%= @item.title %></h2>
           <p class="singer detail2"><%= @item.singer %></p>
-          <p class="price detail2">¥<%= @item.price %></p>
+          <p class="price detail2">¥<%= number_with_delimiter(@item.price) %></p>
           <p class="stock detail2">
             <% if @item.stock > 10 %>
               在庫あり

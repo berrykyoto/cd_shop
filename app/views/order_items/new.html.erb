@@ -28,9 +28,9 @@
             <tr>
               <td><%= attachment_image_tag cart_item.item, :item_image, :fill, 20, 20, fallback: "noimage.png", size: '20x20' %></td>
               <td><%= cart_item.item.title %></td>
-              <td>¥<%= cart_item.item.price %></td>
+              <td>¥<%= number_with_delimiter(cart_item.item.price) %></td>
               <td><%= cart_item.quantity %></td>
-              <td>¥<%= cart_item.item.price * cart_item.quantity %></td>　<!-- 価格×数量＝小計 -->
+              <td>¥<%= number_with_delimiter(cart_item.item.price * cart_item.quantity) %></td>　<!-- 価格×数量＝小計 -->
             </tr>
           </tbody>
 
@@ -38,7 +38,7 @@
 
       </table>
       <div class="total-box">
-        <p class="total">商品合計　￥<%= @total_price %>(税込)</p><!-- eachで並べた小計の合計 -->
+        <p class="total">商品合計　￥<%= number_with_delimiter(@total_price) %>(税込)</p><!-- eachで並べた小計の合計 -->
       </div>
     </div>
 
@@ -94,11 +94,9 @@
           <% @cart_items.each do |cart_item| %>
             <p><%= f.hidden_field :order_id, :value => @orders.last.id %></p>
           <% end %>
-          <p><%= f.submit '確定して注文する', class:"btn btn-danger btn-lg" %></p>
-          
-
+          <%= link_to "　　前に戻る　　",'#', class:"btn btn-default btn-lg"%>
+          <%= f.submit '確定して注文する', class:"btn btn-danger btn-lg" %>
         <% end %>
-
     </div>
   </div>
 </div>

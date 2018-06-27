@@ -97,6 +97,7 @@ body{
   color:#546E7A;/*header下段、文字色：グレー*/
 }
 .header-logo{
+  display:block;
   background-image: url(logo.png);
   background-size:cover;
   width: 120px;
@@ -174,7 +175,8 @@ body{
   margin: 20px auto;
 }
 #notice{
-  font-size: 20px;
+  font-size: 13px;
+  font-weight:700;
   color: #5858FA;
   border-bottom: #5858FA;
 }

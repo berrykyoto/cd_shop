@@ -15,19 +15,31 @@
   <div class="container-fluid">
     <div class="row">
       <div class="main-content">
-        <h2 class="h2">管理人の好きなアニメ、あるいはアニソン。そんな感じ</h2>
+        <h2 class="h2">管理人の好きなアニメとか</h2>
         <div class="item-index-top-box">
           <div id="myCarousel" class="carousel slide">
               <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+                <li data-target="#myCarousel" data-slide-to="7"></li>
+                <li data-target="#myCarousel" data-slide-to="8"></li>
+                <li data-target="#myCarousel" data-slide-to="9"></li>
               </ol>
               <!-- Carousel items -->
               <div class="carousel-inner">
                 <div class="active item"><a href="/items"><%= image_tag 'top1.jpg', size: '960x350' %></a></div>
                 <div class="item"><a href="/items"><%= image_tag 'top2.jpg', size: '960x350' %></a></div>
-                <div class="item"><a href="/items"><%= image_tag 'top1.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top3.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top4.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top5.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top6.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top7.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top8.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top9.jpg', size: '960x350' %></a></div>
               </div>
               <!-- Carousel nav -->
               <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
@@ -55,7 +67,7 @@
                       <td><%=item.anime%></td>
                       </tr>
                       <tr>
-                    　<td>¥<%=item.price%>(税込)</td>
+                    　<td>¥<%=number_with_delimiter(item.price)%>(税込)</td>
                       </tr>
                       <tr>
                       <% if item.stock == 0 %>
