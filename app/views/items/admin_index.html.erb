@@ -39,7 +39,7 @@
                 <td><%= item.style_i18n %></td>
                 <td><%= item.label.truncate(12) %></td>
                 <td><%= item.genre.genre_name %></td>
-                <td>¥<%= item.price %></td>
+                <td>¥<%= number_with_delimiter(item.price) %></td>
                 <td><%= item.stock %></td>
                 <td><%= link_to"詳細",admin_show_path(item.id),class:"btn btn-info btn-xs"%></td>
                 <td><%= link_to "編集",edit_item_path(item), class:"btn btn-default btn-xs"%></td>

@@ -47,6 +47,7 @@ class OrdersController < ApplicationController
  #  		redirect_to orders_path
  #  	end
 
+
 private
   	def order_params
       	params.require(:order).permit(:send_name, :send_post_code, :send_address, :payment, :user_id, :status)
