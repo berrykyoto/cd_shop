@@ -5,7 +5,7 @@
 <div class="item-search">
   <%= form_tag users_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
         <p>
-          <%= text_field_tag :search, params[:serch] %>
+          <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "検索", :name => nil,:address => nil,:phone => nil %>
         </p>
   <% end %>
@@ -18,16 +18,16 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>氏名</th>
-                <th>フリガナ</th>
-                <th>郵便番号</th>
-                <th>住所</th>
-                <th>電話番号</th>
-                <th>メールアドレス</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th class="col-sm-1">ID</th>
+                <th class="col-sm-1">氏名</th>
+                <th class="col-sm-1">フリガナ</th>
+                <th class="col-sm-1">郵便番号</th>
+                <th class="col-sm-2">住所</th>
+                <th class="col-sm-1">電話番号</th>
+                <th class="col-sm-2">メールアドレス</th>
+                <th class="col-sm-1"></th>
+                <th class="col-sm-1"></th>
+                <th class="col-sm-1"></th>
               </tr>
             </thead>
             <tbody>
