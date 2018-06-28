@@ -21,30 +21,22 @@ def create
 	redirect_to cart_items_path, notice: "カートに商品が追加されました。"
 end
 
-# def edit
-# 	if user_signed_in?
-# 		@cart_item = CartItem.find(params[:id])
-# 	else
-# 		redirect_to root_path, notice: "無効なURLです。"
-# 	end
-# end
-
 def update
 	@cart_item = CartItem.find(params[:id])
 	@cart_item.update(cart_item_params)
 	redirect_to cart_items_path, notice: "数量が変更されました。"
 end
 
-# def update_quantity
-#     @cart_item = CartItem.find(params[:id])
-#     @cart_item.update(cart_item_params)
-#     redirect_to new_order_item_path, notice: "数量が変更されました。よ"
-# end
-
 def destroy
 	@cart_item = CartItem.find(params[:id])
 	@cart_item.destroy
 	redirect_to cart_items_path, notice: "削除されました。"
+end
+
+def destroy_all
+	@cart_items = current_user.cart_items.all
+	@cart_items.destroy_all
+	redirect_to root_path, notice: "カートを空にしました。"
 end
 
 private

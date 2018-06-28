@@ -14,7 +14,7 @@ def new
 end
 
 def create
-	@cart_items = CartItem.all
+	@cart_items = current_user.cart_items.all
 	@orders = Order.all
 
 	@total_price = 0
@@ -31,7 +31,7 @@ def create
 			@item.save
 		end
 
-		CartItem.destroy_all
+		@cart_items.destroy_all
         redirect_to root_path, notice: "注文が確定しました。"
 
 end
