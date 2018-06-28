@@ -4,7 +4,7 @@
 <div class="item-search">
   <%= form_tag items_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
         <p>
-          <%= text_field_tag :search, params[:serch] %>
+          <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "検索", :title => nil,:singer => nil,:anime => nil %>
         </p>
       <% end %>
@@ -28,6 +28,7 @@
                 <li data-target="#myCarousel" data-slide-to="7"></li>
                 <li data-target="#myCarousel" data-slide-to="8"></li>
                 <li data-target="#myCarousel" data-slide-to="9"></li>
+                <li data-target="#myCarousel" data-slide-to="10"></li>
               </ol>
               <!-- Carousel items -->
               <div class="carousel-inner">
@@ -40,6 +41,7 @@
                 <div class="item"><a href="/items"><%= image_tag 'top7.jpg', size: '960x350' %></a></div>
                 <div class="item"><a href="/items"><%= image_tag 'top8.jpg', size: '960x350' %></a></div>
                 <div class="item"><a href="/items"><%= image_tag 'top9.jpg', size: '960x350' %></a></div>
+                <div class="item"><a href="/items"><%= image_tag 'top10.jpg', size: '960x350' %></a></div>
               </div>
               <!-- Carousel nav -->
               <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
