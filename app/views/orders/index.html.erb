@@ -1,7 +1,15 @@
 <!-- 注文履歴一覧 管理者用-->
 <%= render 'shared/header' %>
-
-<div class="search"></div><!-- 検索フォーム -->
+<p class="kensaku">ステータスを検索できます。</p>
+<p class="status-kensaku">※出荷準備中　=0, 配送中 =1, 配送完了 =2 と入力してください</p>
+<div class="item-search">
+  <%= form_tag orders_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "検索", :status => nil %>
+        </p>
+  <% end %>
+</div><!-- 検索フォーム -->
 
 <div class="body-content">
   <div class="container-fluid">

@@ -1,5 +1,6 @@
 <%= render 'shared/header' %>
 <div class="body-content">
+  <%if flash[:notice] %><p id="notice"><%= flash[:notice] %></p><% end %>
 	<div class="container-fluid main-content">
     <h2 class="oa">お問い合わせ</h2>
 
@@ -14,7 +15,7 @@
           <table class="table">
             <tbody>
               <tr>
-                <td>お名前</td>
+                <td>お名前(2文字以上)</td>
                 <td><%= f.text_field :name, class: "c-form-box" %></td>
               </tr>
               <tr>
