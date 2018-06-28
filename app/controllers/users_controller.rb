@@ -14,10 +14,10 @@ class UsersController < ApplicationController
 		if User.exists?(id: params[:id])
 			if user_signed_in?
 				@user = User.find(params[:id])
-				@orders = @user.orders.page(params[:page])
+				@orders = @user.orders.page(params[:page]).order(id: "DESC")
 			elsif admin_signed_in?
 				@user = User.find(params[:id])
-				@orders = @user.orders.page(params[:page])
+				@orders = @user.orders.page(params[:page]).order(id: "DESC")
 			else
 				redirect_to root_path
 			end

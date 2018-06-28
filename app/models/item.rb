@@ -10,7 +10,7 @@ def self.search(search)
     if search
       Item.where(['title LIKE :item OR singer LIKE :item OR anime LIKE :item', item: "%#{search}%"])
     else
-      Item.all
+      Item.all.order(id: "DESC")
     end
 end
 

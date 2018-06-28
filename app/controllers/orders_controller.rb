@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show, :edit, :update]
 	def index
 		if admin_signed_in?
-			@orders = Order.all.includes(:user)
+			@orders = Order.search(params[:search])
 		else
 			redirect_to root_path, notice: "無効なURLです。"
 		end
