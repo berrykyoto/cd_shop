@@ -46,6 +46,7 @@
       <div class="total-box">
         <p class="total">商品合計　　￥<%= number_with_delimiter(@total_price) %>(税込)</p>
       </div>
+      <%= link_to "カートを空にする", cart_items_destory_all_path, method: :delete,data: { confirm: 'カートを空にしてよろしいですか？' }, class: "cart_destroy_all" %>
     </div>
 
     <div class="main-bottom">

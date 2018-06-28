@@ -23,6 +23,8 @@ get '/privacy' => "users#privacy"
 get '/tokutei' => "users#tokutei"
 get '/delivery' => "users#delivery"
 
+delete '/cart_items/destory_all' => "cart_items#destroy_all", as:'cart_items_destory_all'
+
 resources :contacts, only: [:index, :show, :new, :create, :destroy]
 resources :items, only: [:index, :show, :new, :create, :edit, :update]
 resources :genres, only: [:index, :create, :edit, :update]
