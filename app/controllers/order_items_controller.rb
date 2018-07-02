@@ -15,7 +15,7 @@ end
 
 def create
 	@cart_items = current_user.cart_items.all
-	@orders = Order.all
+	@orders = current_user.orders.all
 
 	@total_price = 0
 		@cart_items.each do |cart_item|
